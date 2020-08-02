@@ -1,0 +1,44 @@
+<%= form_with(model: mmpp, local: true) do |form| %>
+  <% if mmpp.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(mmpp.errors.count, "error") %> prohibited this mmpp from being saved:</h2>
+
+      <ul>
+      <% mmpp.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= form.label :nombre %>
+    <%= form.text_field :nombre, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :descripcion %>
+    <%= form.text_field :descripcion, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :densidad %>
+    <%= form.number_field :densidad, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <% if mmpp.persisted? %>
+      <div class="float-right">
+        <%= link_to 'Destroy', mmpp, method: :delete, class: "text-danger", data: { confirm: 'Are you sure?' } %>
+      </div>
+    <% end %>
+
+    <%= form.submit class: 'btn btn-primary' %>
+
+    <% if mmpp.persisted? %>
+      <%= link_to "Cancel", mmpp, class: "btn btn-link" %>
+    <% else %>
+      <%= link_to "Cancel", mmpps_path, class: "btn btn-link" %>
+    <% end %>
+  </div>
+<% end %>

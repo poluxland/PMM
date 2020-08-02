@@ -1,6 +1,8 @@
 require 'sidekiq/web'
 
 Rails.application.routes.draw do
+  resources :canchas
+  resources :mmpps
   namespace :admin do
     resources :users
     resources :announcements
@@ -9,6 +11,7 @@ Rails.application.routes.draw do
 
     root to: "users#index"
   end
+  
   get '/privacy', to: 'home#privacy'
   get '/terms', to: 'home#terms'
     authenticate :user, lambda { |u| u.admin? } do

@@ -1,0 +1,54 @@
+<%= form_with(model: cancha, local: true) do |form| %>
+  <% if cancha.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(cancha.errors.count, "error") %> prohibited this cancha from being saved:</h2>
+
+      <ul>
+      <% cancha.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= form.label :nombre %>
+    <%= form.text_field :nombre, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :descripcion %>
+    <%= form.text_field :descripcion, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :capacidad %>
+    <%= form.number_field :capacidad, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :operativa %>
+    <%= form.check_box :operativa, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :mmpp_id %>
+    <%= form.text_field :mmpp_id, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <% if cancha.persisted? %>
+      <div class="float-right">
+        <%= link_to 'Destroy', cancha, method: :delete, class: "text-danger", data: { confirm: 'Are you sure?' } %>
+      </div>
+    <% end %>
+
+    <%= form.submit class: 'btn btn-primary' %>
+
+    <% if cancha.persisted? %>
+      <%= link_to "Cancel", cancha, class: "btn btn-link" %>
+    <% else %>
+      <%= link_to "Cancel", canchas_path, class: "btn btn-link" %>
+    <% end %>
+  </div>
+<% end %>

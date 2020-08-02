@@ -1,0 +1,2 @@
+class Mmpp < ApplicationRecord
+end

@@ -1,0 +1,21 @@
+<div class="page-header">
+  <%= link_to mmpps_path, class: 'btn btn-default' do %>
+    All Mmpps
+  <% end %>
+  <%= link_to edit_mmpp_path(@mmpp), class: 'btn btn-primary' do %>
+    Edit
+  <% end %>
+  <h1>Show mmpp</h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt>Nombre:</dt>
+  <dd><%= @mmpp.nombre %></dd>
+
+  <dt>Descripcion:</dt>
+  <dd><%= @mmpp.descripcion %></dd>
+
+  <dt>Densidad:</dt>
+  <dd><%= @mmpp.densidad %></dd>
+
+</dl>

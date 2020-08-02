@@ -1,0 +1,27 @@
+<div class="page-header">
+  <%= link_to canchas_path, class: 'btn btn-default' do %>
+    All Canchas
+  <% end %>
+  <%= link_to edit_cancha_path(@cancha), class: 'btn btn-primary' do %>
+    Edit
+  <% end %>
+  <h1>Show cancha</h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt>Nombre:</dt>
+  <dd><%= @cancha.nombre %></dd>
+
+  <dt>Descripcion:</dt>
+  <dd><%= @cancha.descripcion %></dd>
+
+  <dt>Capacidad:</dt>
+  <dd><%= @cancha.capacidad %></dd>
+
+  <dt>Operativa:</dt>
+  <dd><%= @cancha.operativa %></dd>
+
+  <dt>Mmpp:</dt>
+  <dd><%= @cancha.mmpp %></dd>
+
+</dl>
