@@ -1,4 +1,7 @@
-<h1>Graficos</h1>
+<h1>Reportes</h1>
 <p class="lead">Descripción</p>
 
-<%= line_chart Cancha.capacidad(:created_at).count %>r
+
+<%= bar_chart Cancha.group(:nombre).sum(:capacidad) %>
+<%= pie_chart Cancha.group(:nombre).sum(:capacidad) %>
+<%= area_chart Cancha.group(:nombre).sum(:capacidad) %>
