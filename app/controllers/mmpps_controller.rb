@@ -42,7 +42,7 @@ class MmppsController < ApplicationController
   def update
     respond_to do |format|
       if @mmpp.update(mmpp_params)
-        format.html { redirect_to @mmpp, notice: 'Mmpp was successfully updated.' }
+        format.html { redirect_to @mmpp, notice: 'Mmpp actualizada.' }
         format.json { render :show, status: :ok, location: @mmpp }
       else
         format.html { render :edit }

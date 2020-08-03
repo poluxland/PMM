@@ -1,0 +1,45 @@
+<%= form_with(model: registro, local: true) do |form| %>
+  <% if registro.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(registro.errors.count, "error") %> prohibited this registro from being saved:</h2>
+
+      <ul>
+      <% registro.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= form.label :cancha_id %>
+    <%#= form.text_field :cancha_id, class: 'form-control' %>
+    <%= form.select :cancha_id, Cancha.all.map { |r| [r.nombre, r.id] } %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :uso %>
+    <%= form.number_field :uso, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :fotografia %>
+    <%= form.text_field :fotografia, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <% if registro.persisted? %>
+      <div class="float-right">
+        <%= link_to 'Destroy', registro, method: :delete, class: "text-danger", data: { confirm: 'Are you sure?' } %>
+      </div>
+    <% end %>
+
+    <%= form.submit class: 'btn btn-primary' %>
+
+    <% if registro.persisted? %>
+      <%= link_to "Cancel", registro, class: "btn btn-link" %>
+    <% else %>
+      <%= link_to "Cancel", registros_path, class: "btn btn-link" %>
+    <% end %>
+  </div>
+<% end %>

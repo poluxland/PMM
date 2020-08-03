@@ -1,6 +1,7 @@
 require 'sidekiq/web'
 
 Rails.application.routes.draw do
+  resources :registros
   resources :canchas
   resources :mmpps
   namespace :admin do

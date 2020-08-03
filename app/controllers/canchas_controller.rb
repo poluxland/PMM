@@ -42,7 +42,7 @@ class CanchasController < ApplicationController
   def update
     respond_to do |format|
       if @cancha.update(cancha_params)
-        format.html { redirect_to @cancha, notice: 'Cancha was successfully updated.' }
+        format.html { redirect_to @cancha, notice: 'Cancha actualizada con exito.' }
         format.json { render :show, status: :ok, location: @cancha }
       else
         format.html { render :edit }

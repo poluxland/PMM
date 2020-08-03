@@ -1,0 +1,21 @@
+<div class="page-header">
+  <%= link_to registros_path, class: 'btn btn-default' do %>
+    Todos los Registros
+  <% end %>
+  <%= link_to edit_registro_path(@registro), class: 'btn btn-primary' do %>
+    Editar
+  <% end %>
+  <h1>Mostrar registro</h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt>Cancha:</dt>
+  <dd><%= @registro.cancha.nombre %></dd>
+
+  <dt>Uso:</dt>
+  <dd><%= @registro.uso %></dd>
+
+  <dt>Fotografia:</dt>
+  <dd><%= @registro.fotografia %></dd>
+
+</dl>
