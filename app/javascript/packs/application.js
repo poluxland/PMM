@@ -18,3 +18,6 @@ $(document).on("turbolinks:load", () => {
   $('[data-toggle="tooltip"]').tooltip()
   $('[data-toggle="popover"]').popover()
 })
+
+require("chartkick")
+require("chart.js")

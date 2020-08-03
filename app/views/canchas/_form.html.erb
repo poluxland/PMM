@@ -26,6 +26,8 @@
     <%= form.number_field :capacidad, class: 'form-control' %>
   </div>
 
+
+
   <div class="form-group">
     <%= form.label :operativa %>
     <%= form.check_box :operativa, class: 'form-control' %>
@@ -33,7 +35,8 @@
 
   <div class="form-group">
     <%= form.label :mmpp_id %>
-    <%= form.text_field :mmpp_id, class: 'form-control' %>
+    <%= form.select :mmpp_id, Mmpp.all.map { |r| [r.nombre, r.id] } %>
+    <%#= form.text_field :mmpp_id, class: 'form-control' %>
   </div>
 
   <div class="form-group">

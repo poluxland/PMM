@@ -8,7 +8,7 @@
 
   <div class="col-sm-6 text-right">
   <%= link_to new_cancha_path, class: 'btn btn-primary' do %>
-    Add New Cancha
+    Agregar Cancha
   <% end %>
   </div>
 </div>
@@ -17,33 +17,33 @@
   <table class="table table-striped table-bordered table-hover">
     <thead>
       <tr>
-    
+
 
             <th>Nombre</th>
             <th>Descripcion</th>
             <th>Capacidad</th>
             <th>Operativa</th>
-            <th>Mmpp</th>
-            
+            <th>Materia prima</th>
+
           <th></th>
-        
+
       </tr>
     </thead>
 
     <tbody>
       <% @canchas.each do |cancha| %>
         <%= content_tag :tr, id: dom_id(cancha), class: dom_class(cancha) do %>
-          
+
 
                       <td><%= cancha.nombre %></td>
                       <td><%= cancha.descripcion %></td>
                       <td><%= cancha.capacidad %></td>
-                      <td><%= cancha.operativa %></td>
-                      <td><%= cancha.mmpp %></td>
-          
-          
-            <td><%= link_to 'Show', cancha %></td>
-          
+                      <td><%= cancha.operativa ? "Si" : "No" %></td>
+                      <td><%= cancha.mmpp.nombre %></td>
+
+
+            <td><%= link_to 'Detalles', cancha %></td>
+
         <% end %>
       <% end %>
     </tbody>

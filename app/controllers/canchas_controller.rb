@@ -28,7 +28,7 @@ class CanchasController < ApplicationController
 
     respond_to do |format|
       if @cancha.save
-        format.html { redirect_to @cancha, notice: 'Cancha was successfully created.' }
+        format.html { redirect_to @cancha, notice: 'Cancha creado con exito' }
         format.json { render :show, status: :created, location: @cancha }
       else
         format.html { render :new }
