@@ -1,6 +1,8 @@
 require 'sidekiq/web'
 
 Rails.application.routes.draw do
+  resources :lvs
+  resources :cuasis
   resources :registros
   resources :canchas
   resources :mmpps

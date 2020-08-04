@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_02_152943) do
+ActiveRecord::Schema.define(version: 2020_08_04_193624) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -56,6 +56,18 @@ ActiveRecord::Schema.define(version: 2020_08_02_152943) do
     t.index ["mmpp_id"], name: "index_canchas_on_mmpp_id"
   end
 
+  create_table "cuasis", force: :cascade do |t|
+    t.string "sitio"
+    t.date "fecha"
+    t.string "reporta"
+    t.string "potencial"
+    t.string "accion"
+    t.string "responsable"
+    t.string "estado"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string "slug", null: false
     t.integer "sluggable_id", null: false
@@ -65,6 +77,18 @@ ActiveRecord::Schema.define(version: 2020_08_02_152943) do
     t.index ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true
     t.index ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type"
     t.index ["sluggable_type", "sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_type_and_sluggable_id"
+  end
+
+  create_table "lvs", force: :cascade do |t|
+    t.string "proceso"
+    t.string "obervado"
+    t.string "observador"
+    t.string "altura"
+    t.string "izaje"
+    t.string "eemm"
+    t.string "lototo"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "mmpps", force: :cascade do |t|
@@ -84,6 +108,15 @@ ActiveRecord::Schema.define(version: 2020_08_02_152943) do
     t.string "notifiable_type"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "registros", force: :cascade do |t|
+    t.bigint "cancha_id", null: false
+    t.integer "uso"
+    t.string "fotografia"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["cancha_id"], name: "index_registros_on_cancha_id"
   end
 
   create_table "services", force: :cascade do |t|
@@ -118,5 +151,6 @@ ActiveRecord::Schema.define(version: 2020_08_02_152943) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "canchas", "mmpps"
+  add_foreign_key "registros", "canchas"
   add_foreign_key "services", "users"
 end

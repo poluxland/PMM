@@ -1,0 +1,55 @@
+
+
+
+<div class="row">
+  <div class="col-sm-6">
+    <h1>Lvs</h1>
+  </div>
+
+  <div class="col-sm-6 text-right">
+  <%= link_to new_lv_path, class: 'btn btn-primary' do %>
+    Add New Lv
+  <% end %>
+  </div>
+</div>
+
+<div class="table-responsive">
+  <table class="table table-striped table-bordered table-hover">
+    <thead>
+      <tr>
+    
+
+            <th>Proceso</th>
+            <th>Obervado</th>
+            <th>Observador</th>
+            <th>Altura</th>
+            <th>Izaje</th>
+            <th>Eemm</th>
+            <th>Lototo</th>
+            
+          <th></th>
+        
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @lvs.each do |lv| %>
+        <%= content_tag :tr, id: dom_id(lv), class: dom_class(lv) do %>
+          
+
+                      <td><%= lv.proceso %></td>
+                      <td><%= lv.obervado %></td>
+                      <td><%= lv.observador %></td>
+                      <td><%= lv.altura %></td>
+                      <td><%= lv.izaje %></td>
+                      <td><%= lv.eemm %></td>
+                      <td><%= lv.lototo %></td>
+          
+          
+            <td><%= link_to 'Show', lv %></td>
+          
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
+</div>

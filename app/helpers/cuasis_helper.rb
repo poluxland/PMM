@@ -1,0 +1,2 @@
+module CuasisHelper
+end

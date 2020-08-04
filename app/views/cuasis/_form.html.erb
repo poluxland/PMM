@@ -1,0 +1,64 @@
+<%= form_with(model: cuasi, local: true) do |form| %>
+  <% if cuasi.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(cuasi.errors.count, "error") %> prohibited this cuasi from being saved:</h2>
+
+      <ul>
+      <% cuasi.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= form.label :sitio %>
+    <%= form.text_field :sitio, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :fecha %>
+    <%= form.date_select :fecha, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :reporta %>
+    <%= form.text_field :reporta, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :potencial %>
+    <%= form.text_field :potencial, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :accion %>
+    <%= form.text_field :accion, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :responsable %>
+    <%= form.text_field :responsable, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :estado %>
+    <%= form.text_field :estado, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <% if cuasi.persisted? %>
+      <div class="float-right">
+        <%= link_to 'Destroy', cuasi, method: :delete, class: "text-danger", data: { confirm: 'Are you sure?' } %>
+      </div>
+    <% end %>
+
+    <%= form.submit class: 'btn btn-primary' %>
+
+    <% if cuasi.persisted? %>
+      <%= link_to "Cancel", cuasi, class: "btn btn-link" %>
+    <% else %>
+      <%= link_to "Cancel", cuasis_path, class: "btn btn-link" %>
+    <% end %>
+  </div>
+<% end %>

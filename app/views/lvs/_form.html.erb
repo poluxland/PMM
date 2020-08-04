@@ -1,0 +1,64 @@
+<%= form_with(model: lv, local: true) do |form| %>
+  <% if lv.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(lv.errors.count, "error") %> prohibited this lv from being saved:</h2>
+
+      <ul>
+      <% lv.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= form.label :proceso %>
+    <%= form.text_field :proceso, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :obervado %>
+    <%= form.text_field :obervado, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :observador %>
+    <%= form.text_field :observador, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :altura %>
+    <%= form.text_field :altura, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :izaje %>
+    <%= form.text_field :izaje, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :eemm %>
+    <%= form.text_field :eemm, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :lototo %>
+    <%= form.text_field :lototo, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <% if lv.persisted? %>
+      <div class="float-right">
+        <%= link_to 'Destroy', lv, method: :delete, class: "text-danger", data: { confirm: 'Are you sure?' } %>
+      </div>
+    <% end %>
+
+    <%= form.submit class: 'btn btn-primary' %>
+
+    <% if lv.persisted? %>
+      <%= link_to "Cancel", lv, class: "btn btn-link" %>
+    <% else %>
+      <%= link_to "Cancel", lvs_path, class: "btn btn-link" %>
+    <% end %>
+  </div>
+<% end %>

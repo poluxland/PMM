@@ -1,0 +1,33 @@
+<div class="page-header">
+  <%= link_to cuasis_path, class: 'btn btn-default' do %>
+    All Cuasis
+  <% end %>
+  <%= link_to edit_cuasi_path(@cuasi), class: 'btn btn-primary' do %>
+    Edit
+  <% end %>
+  <h1>Show cuasi</h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt>Sitio:</dt>
+  <dd><%= @cuasi.sitio %></dd>
+
+  <dt>Fecha:</dt>
+  <dd><%= @cuasi.fecha %></dd>
+
+  <dt>Reporta:</dt>
+  <dd><%= @cuasi.reporta %></dd>
+
+  <dt>Potencial:</dt>
+  <dd><%= @cuasi.potencial %></dd>
+
+  <dt>Accion:</dt>
+  <dd><%= @cuasi.accion %></dd>
+
+  <dt>Responsable:</dt>
+  <dd><%= @cuasi.responsable %></dd>
+
+  <dt>Estado:</dt>
+  <dd><%= @cuasi.estado %></dd>
+
+</dl>

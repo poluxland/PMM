@@ -1,0 +1,33 @@
+<div class="page-header">
+  <%= link_to lvs_path, class: 'btn btn-default' do %>
+    All Lvs
+  <% end %>
+  <%= link_to edit_lv_path(@lv), class: 'btn btn-primary' do %>
+    Edit
+  <% end %>
+  <h1>Show lv</h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt>Proceso:</dt>
+  <dd><%= @lv.proceso %></dd>
+
+  <dt>Obervado:</dt>
+  <dd><%= @lv.obervado %></dd>
+
+  <dt>Observador:</dt>
+  <dd><%= @lv.observador %></dd>
+
+  <dt>Altura:</dt>
+  <dd><%= @lv.altura %></dd>
+
+  <dt>Izaje:</dt>
+  <dd><%= @lv.izaje %></dd>
+
+  <dt>Eemm:</dt>
+  <dd><%= @lv.eemm %></dd>
+
+  <dt>Lototo:</dt>
+  <dd><%= @lv.lototo %></dd>
+
+</dl>

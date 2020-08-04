@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  proceso: MyString
+  obervado: MyString
+  observador: MyString
+  altura: MyString
+  izaje: MyString
+  eemm: MyString
+  lototo: MyString
+
+two:
+  proceso: MyString
+  obervado: MyString
+  observador: MyString
+  altura: MyString
+  izaje: MyString
+  eemm: MyString
+  lototo: MyString
