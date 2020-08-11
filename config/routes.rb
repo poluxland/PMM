@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   resources :cuasis
   resources :registros
   resources :canchas
+  get 'bloquear', to: 'canchas#bloquear'
+  
   resources :mmpps
   namespace :admin do
     resources :users
@@ -14,7 +16,7 @@ Rails.application.routes.draw do
 
     root to: "users#index"
   end
-  
+
   get '/privacy', to: 'home#privacy'
   get '/terms', to: 'home#terms'
     authenticate :user, lambda { |u| u.admin? } do

@@ -5,7 +5,10 @@
   <%= link_to edit_cancha_path(@cancha), class: 'btn btn-primary' do %>
     Editar
   <% end %>
-  <button type="button" class="btn btn-danger">Bloquear cancha</button>
+  <%= link_to bloquear_path, class: 'btn btn-danger' do %>
+    Bloquear cancha
+  <% end %>
+  
   <br><br>
   <h1>Detalle</h1>
 </div>

@@ -7,6 +7,9 @@ class CanchasController < ApplicationController
     @canchas = Cancha.all
   end
 
+  def bloquear
+    UserMailer.welcome.deliver_now
+  end
   # GET /canchas/1
   # GET /canchas/1.json
   def show
