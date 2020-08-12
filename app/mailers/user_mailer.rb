@@ -6,8 +6,8 @@ class UserMailer < ApplicationMailer
   #   en.user_mailer.welcome.subject
   #
   def welcome
-    @greeting = "Hi"
+    @greeting = Cancha.where(operativa: false)
 
-    mail to: "jose.jerez@msindustrial.cl"
+    mail to: "jose.jerez@msindustrial.cl, fernando.gonzalez@msindustrial.cl"
   end
 end
