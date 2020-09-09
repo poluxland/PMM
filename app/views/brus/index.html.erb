@@ -24,6 +24,7 @@
             <th>Salida</th>
             <th>Patente</th>
             <th>Mmpp</th>
+            <th>Tiempo</th>
 
 
           <th></th>
@@ -41,9 +42,7 @@
                       <td><%= bru.salida.strftime("%H:%M") %></td>
                       <td><%= bru.patente %></td>
                       <td><%= bru.mmpp %></td>
-
-
-
+                      <td><%=  bru.salida - bru.ingreso %></td>
             <td><%= link_to 'Show', bru %></td>
 
         <% end %>
