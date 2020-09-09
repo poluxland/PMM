@@ -24,7 +24,7 @@
             <th>Salida</th>
             <th>Patente</th>
             <th>Mmpp</th>
-            <th>Tiempo</th>
+            <th>Tiempo (minutos)</th>
 
 
           <th></th>
@@ -42,7 +42,7 @@
                       <td><%= bru.salida.strftime("%H:%M") %></td>
                       <td><%= bru.patente %></td>
                       <td><%= bru.mmpp %></td>
-                      <td><%=  bru.salida - bru.ingreso %></td>
+                      <td><%=  ((bru.salida - bru.ingreso) / 60).to_i %></td>
             <td><%= link_to 'Show', bru %></td>
 
         <% end %>
