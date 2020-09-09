@@ -1,0 +1,33 @@
+<div class="page-header">
+  <%= link_to brus_path, class: 'btn btn-primary' do %>
+    Todos
+  <% end %>
+  <%= link_to edit_bru_path(@bru), class: 'btn btn-primary' do %>
+    Editar
+  <% end %>
+  <h1>Show bru</h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt>Fecha:</dt>
+  <dd><%= @bru.fecha %></dd>
+
+  <dt>Ingreso:</dt>
+  <dd><%= @bru.ingreso %></dd>
+
+  <dt>Salida:</dt>
+  <dd><%= @bru.salida %></dd>
+
+  <dt>Patente:</dt>
+  <dd><%= @bru.patente %></dd>
+
+  <dt>Mmpp:</dt>
+  <dd><%= @bru.mmpp %></dd>
+
+  <dt>Comentarios:</dt>
+  <dd><%= @bru.comentarios %></dd>
+
+  <dt>Numero:</dt>
+  <dd><%= @bru.numero %></dd>
+
+</dl>

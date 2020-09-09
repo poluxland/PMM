@@ -1,0 +1,2 @@
+class Bru < ApplicationRecord
+end

@@ -1,0 +1,64 @@
+<%= form_with(model: bru, local: true) do |form| %>
+  <% if bru.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(bru.errors.count, "error") %> prohibited this bru from being saved:</h2>
+
+      <ul>
+      <% bru.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= form.label :fecha %>
+    <%= form.date_select :fecha, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :ingreso %>
+    <%= form.time_select :ingreso, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :salida %>
+    <%= form.time_select :salida, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :patente %>
+    <%= form.text_field :patente, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :mmpp %>
+    <%= form.text_field :mmpp, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :comentarios %>
+    <%= form.text_field :comentarios, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :numero %>
+    <%= form.number_field :numero, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <% if bru.persisted? %>
+      <div class="float-right">
+        <%= link_to 'Destroy', bru, method: :delete, class: "text-danger", data: { confirm: 'Are you sure?' } %>
+      </div>
+    <% end %>
+
+    <%= form.submit class: 'btn btn-primary' %>
+
+    <% if bru.persisted? %>
+      <%= link_to "Cancel", bru, class: "btn btn-link" %>
+    <% else %>
+      <%= link_to "Cancel", brus_path, class: "btn btn-link" %>
+    <% end %>
+  </div>
+<% end %>
