@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_09_180455) do
+ActiveRecord::Schema.define(version: 2020_09_10_145659) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -66,6 +66,25 @@ ActiveRecord::Schema.define(version: 2020_09_09_180455) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["mmpp_id"], name: "index_canchas_on_mmpp_id"
+  end
+
+  create_table "checklists", force: :cascade do |t|
+    t.string "nombre"
+    t.date "fecha"
+    t.string "cinta"
+    t.string "lubricacion"
+    t.string "aseos"
+    t.string "nivel"
+    t.string "fugas"
+    t.integer "presion"
+    t.string "filtro1"
+    t.string "filtro2"
+    t.string "polvo"
+    t.string "raspador"
+    t.string "iluminacion"
+    t.text "comentarios"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "cuasis", force: :cascade do |t|

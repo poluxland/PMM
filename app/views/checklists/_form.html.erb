@@ -1,0 +1,99 @@
+<%= form_with(model: checklist, local: true) do |form| %>
+  <% if checklist.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(checklist.errors.count, "error") %> prohibited this checklist from being saved:</h2>
+
+      <ul>
+      <% checklist.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= form.label :nombre %>
+    <%= form.text_field :nombre, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :fecha %>
+    <%= form.date_select :fecha, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :cinta %>
+    <%= form.select :cinta,  ["Bueno", "Regular", "Falla"], class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :lubricacion %>
+    <%= form.select :lubricacion,  ["Bueno", "Regular", "Falla"], class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :aseos %>
+    <%= form.select :aseos,  ["Bueno", "Regular", "Falla"], class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :nivel %>
+    <%= form.select :nivel,  ["Bueno", "Regular", "Falla"], class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :fugas %>
+    <%= form.select :fugas,  ["Bueno", "Regular", "Falla"], class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :presion %>
+    <%= form.text_field :presion, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :filtro1 %>
+    <%= form.select :filtro1,  ["Bueno", "Regular", "Falla"], class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :filtro2 %>
+    <%= form.select :filtro2,  ["Bueno", "Regular", "Falla"], class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :polvo %>
+    <%= form.select :polvo,  ["Bueno", "Regular", "Falla"], class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :raspador %>
+    <%= form.select :raspador,  ["Bueno", "Regular", "Falla"], class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :iluminacion %>
+    <%= form.select :iluminacion,  ["Bueno", "Regular", "Falla"], class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :comentarios %>
+    <%= form.text_area :comentarios, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <% if checklist.persisted? %>
+      <div class="float-right">
+        <%= link_to 'Destroy', checklist, method: :delete, class: "text-danger", data: { confirm: 'Are you sure?' } %>
+      </div>
+    <% end %>
+
+    <%= form.submit class: 'btn btn-primary' %>
+
+    <% if checklist.persisted? %>
+      <%= link_to "Cancel", checklist, class: "btn btn-link" %>
+    <% else %>
+      <%= link_to "Cancel", checklists_path, class: "btn btn-link" %>
+    <% end %>
+  </div>
+<% end %>

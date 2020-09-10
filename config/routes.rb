@@ -1,6 +1,7 @@
 require 'sidekiq/web'
 
 Rails.application.routes.draw do
+  resources :checklists
   resources :brus
   resources :lvs
   resources :cuasis

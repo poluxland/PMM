@@ -1,0 +1,33 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nombre: MyString
+  fecha: 2020-09-10
+  cinta: MyString
+  lubricacion: MyString
+  aseos: MyString
+  nivel: MyString
+  fugas: MyString
+  presion: 1
+  filtro1: MyString
+  filtro2: MyString
+  polvo: MyString
+  raspador: MyString
+  iluminacion: MyString
+  comentarios: MyText
+
+two:
+  nombre: MyString
+  fecha: 2020-09-10
+  cinta: MyString
+  lubricacion: MyString
+  aseos: MyString
+  nivel: MyString
+  fugas: MyString
+  presion: 1
+  filtro1: MyString
+  filtro2: MyString
+  polvo: MyString
+  raspador: MyString
+  iluminacion: MyString
+  comentarios: MyText

@@ -1,0 +1,69 @@
+
+
+
+<div class="row">
+  <div class="col-sm-6">
+    <h1>Checklists</h1>
+  </div>
+
+  <div class="col-sm-6 text-right">
+  <%= link_to new_checklist_path, class: 'btn btn-primary' do %>
+    Nuevo Checklist
+  <% end %>
+  </div>
+</div>
+
+<div class="table-responsive">
+  <table class="table table-striped table-bordered table-hover">
+    <thead>
+      <tr>
+
+
+            <th>Nombre</th>
+            <th>Fecha</th>
+            <th>Cinta</th>
+            <th>Lubricacion</th>
+            <th>Aseos</th>
+            <th>Nivel</th>
+            <th>Fugas</th>
+            <th>Presion</th>
+            <th>Filtro1</th>
+            <th>Filtro2</th>
+            <th>Polvo</th>
+            <th>Raspador</th>
+            <th>Iluminacion</th>
+            <th>Comentarios</th>
+
+          <th></th>
+
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @checklists.each do |checklist| %>
+        <%= content_tag :tr, id: dom_id(checklist), class: dom_class(checklist) do %>
+
+
+                      <td><%= checklist.nombre %></td>
+                      <td><%= checklist.fecha %></td>
+                      <td><%= checklist.cinta %></td>
+                      <td><%= checklist.lubricacion %></td>
+                      <td><%= checklist.aseos %></td>
+                      <td><%= checklist.nivel %></td>
+                      <td><%= checklist.fugas %></td>
+                      <td><%= checklist.presion %></td>
+                      <td><%= checklist.filtro1 %></td>
+                      <td><%= checklist.filtro2 %></td>
+                      <td><%= checklist.polvo %></td>
+                      <td><%= checklist.raspador %></td>
+                      <td><%= checklist.iluminacion %></td>
+                      <td><%= checklist.comentarios %></td>
+
+
+            <td><%= link_to 'Show', checklist %></td>
+
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
+</div>

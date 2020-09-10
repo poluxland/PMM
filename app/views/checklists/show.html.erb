@@ -1,0 +1,54 @@
+<div class="page-header">
+  <%= link_to checklists_path, class: 'btn btn-default' do %>
+    All Checklists
+  <% end %>
+  <%= link_to edit_checklist_path(@checklist), class: 'btn btn-primary' do %>
+    Edit
+  <% end %>
+  <h1>Show checklist</h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt>Nombre:</dt>
+  <dd><%= @checklist.nombre %></dd>
+
+  <dt>Fecha:</dt>
+  <dd><%= @checklist.fecha %></dd>
+
+  <dt>Cinta:</dt>
+  <dd><%= @checklist.cinta %></dd>
+
+  <dt>Lubricacion:</dt>
+  <dd><%= @checklist.lubricacion %></dd>
+
+  <dt>Aseos:</dt>
+  <dd><%= @checklist.aseos %></dd>
+
+  <dt>Nivel:</dt>
+  <dd><%= @checklist.nivel %></dd>
+
+  <dt>Fugas:</dt>
+  <dd><%= @checklist.fugas %></dd>
+
+  <dt>Presion:</dt>
+  <dd><%= @checklist.presion %></dd>
+
+  <dt>Filtro1:</dt>
+  <dd><%= @checklist.filtro1 %></dd>
+
+  <dt>Filtro2:</dt>
+  <dd><%= @checklist.filtro2 %></dd>
+
+  <dt>Polvo:</dt>
+  <dd><%= @checklist.polvo %></dd>
+
+  <dt>Raspador:</dt>
+  <dd><%= @checklist.raspador %></dd>
+
+  <dt>Iluminacion:</dt>
+  <dd><%= @checklist.iluminacion %></dd>
+
+  <dt>Comentarios:</dt>
+  <dd><%= @checklist.comentarios %></dd>
+
+</dl>
