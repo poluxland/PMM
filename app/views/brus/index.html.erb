@@ -27,7 +27,11 @@
             <th>Tiempo (minutos)</th>
 
 
+
           <th></th>
+            <% if user_signed_in? %>
+          <th></th>
+          <% end %>
 
       </tr>
     </thead>
@@ -43,7 +47,16 @@
                       <td><%= bru.patente %></td>
                       <td><%= bru.mmpp %></td>
                       <td><%=  ((bru.salida - bru.ingreso) / 60).to_i %></td>
-            <td><%= link_to 'Show', bru %></td>
+
+
+            <td><button type="button" class="btn btn-sm btn-secondary mr-2 command-edit shadow p-1 mb-1 rounded">
+              <%= link_to "", bru, class: "fa fa-eye fa-fw text-light" %>
+            </button></td>
+            <% if user_signed_in? %>
+            <td><button type="button" class="btn btn-sm btn-danger mr-2 command-delete shadow p-1 mb-1 rounded">
+              <%= link_to "", bru, method: :delete, data: { confirm: "Are you sure?" }, class: "fa fa-trash fa-fw text-light" %>
+            </button></td>
+            <% end %>
 
         <% end %>
       <% end %>
