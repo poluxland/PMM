@@ -13,10 +13,10 @@
   <dd><%= @bru.fecha %></dd>
 
   <dt>Ingreso:</dt>
-  <dd><%= @bru.ingreso %></dd>
+  <dd><%= @bru.ingreso.strftime("%H:%M") %></dd>
 
   <dt>Salida:</dt>
-  <dd><%= @bru.salida %></dd>
+  <dd><%= @bru.salida.strftime("%H:%M") %></dd>
 
   <dt>Patente:</dt>
   <dd><%= @bru.patente %></dd>
