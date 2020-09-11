@@ -1,7 +1,10 @@
 <h1>Reportes</h1>
-<p class="lead">Descripción</p>
-
-
-<%= bar_chart Cancha.group(:nombre).sum(:capacidad) %>
-<%= pie_chart Cancha.group(:nombre).sum(:capacidad) %>
-<%= area_chart Cancha.group(:nombre).sum(:capacidad) %>
+<br>
+<p class="lead">Cantidad de camiones por día</p>
+<%= line_chart Bru.group_by_day(:created_at).count %>
+<br>
+<p class="lead">Camiones segun materia prima</p>
+<%= pie_chart Bru.group(:mmpp).sum(:ingreso) %>
+<br>
+<p class="lead">Cantidad de camiones segun dia de la semana</p>
+<%= column_chart Bru.group_by_day_of_week(:created_at, format: "%a").count %>
