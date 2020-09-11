@@ -1,7 +1,7 @@
 <h1>Reportes</h1>
 <br>
 <p class="lead">Cantidad de camiones por día</p>
-<%= line_chart Bru.group_by_day(:created_at).count %>
+<%= line_chart Bru.group_by_day(:fecha).count %>
 <br>
 <p class="lead">Camiones segun materia prima</p>
 <%= pie_chart Bru.group(:mmpp).sum(:ingreso) %>
