@@ -8,13 +8,14 @@ Rails.application.routes.draw do
   resources :registros
   resources :canchas
   get 'bloquear', to: 'canchas#bloquear'
-  
+
   resources :mmpps
   namespace :admin do
     resources :users
     resources :announcements
     resources :notifications
     resources :services
+    resources :brus
 
     root to: "users#index"
   end
