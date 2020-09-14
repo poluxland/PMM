@@ -21,3 +21,8 @@ $(document).on("turbolinks:load", () => {
 
 require("chartkick")
 require("chart.js")
+require("jquery")
+
+import $ from 'jquery';
+window.jQuery = $;
+window.$ = $;

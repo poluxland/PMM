@@ -4,6 +4,7 @@
     <%= render 'shared/head' %>
   </head>
 
+
   <body>
     <%= render 'shared/navbar' %>
     <%= render 'shared/notices' %>
@@ -13,5 +14,20 @@
     </div>
 
     <%= render 'shared/footer' %>
+
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.21/datatables.min.css"/>
+
+    <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.21/datatables.min.js"></script>
+
+<script>
+  $(document).ready( function () {
+    $('#dt').DataTable();
+} );
+</script>
+
+
   </body>
+
+
 </html>
