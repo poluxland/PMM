@@ -21,9 +21,14 @@
     <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.21/datatables.min.js"></script>
 
 <script>
-  $(document).ready( function () {
-    $('#dt').DataTable();
-} );
+  $(document).ready(function() {
+      $('#dt').DataTable( {
+          "order": [[ 0, "desc" ]]
+      } );
+  } );
+
+
+
 </script>
 
 
