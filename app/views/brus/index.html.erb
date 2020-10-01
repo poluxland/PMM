@@ -41,7 +41,7 @@
         <%= content_tag :tr, id: dom_id(bru), class: dom_class(bru) do %>
 
 
-                      <td><%= bru.fecha.strftime("%d-%m-%Y") %></td>
+                      <td><%= bru.fecha %></td>
                       <td><%= bru.ingreso.strftime("%H:%M") %></td>
                       <td><%= bru.salida.strftime("%H:%M") %></td>
                       <td><%= bru.patente %></td>
