@@ -1,0 +1,59 @@
+<%= form_with(model: truck, local: true) do |form| %>
+  <% if truck.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(truck.errors.count, "error") %> prohibited this truck from being saved:</h2>
+
+      <ul>
+      <% truck.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= form.label :fecha %>
+    <%= form.date_select :fecha, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :mmpp_id %>
+    <%= form.select :mmpp_id, Mmpp.all.map { |r| [r.nombre, r.id] } %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :tipo %>
+    <%= form.select :tipo,  ["Plano", "BRU", "Batea 20", "Batea 40", "Otro"], class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :llegada %>
+    <%= form.time_select :llegada, :include_blank => true, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :llamada %>
+    <%= form.time_select :llamada, :include_blank => true, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :salida %>
+    <%= form.time_select :salida, :include_blank => true, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <% if truck.persisted? %>
+      <div class="float-right">
+        <%= link_to 'Destroy', truck, method: :delete, class: "text-danger", data: { confirm: 'Are you sure?' } %>
+      </div>
+    <% end %>
+
+    <%= form.submit class: 'btn btn-primary' %>
+
+    <% if truck.persisted? %>
+      <%= link_to "Cancel", truck, class: "btn btn-link" %>
+    <% else %>
+      <%= link_to "Cancel", trucks_path, class: "btn btn-link" %>
+    <% end %>
+  </div>
+<% end %>

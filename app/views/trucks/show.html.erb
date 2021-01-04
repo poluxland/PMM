@@ -1,0 +1,30 @@
+<div class="page-header">
+  <%= link_to trucks_path, class: 'btn btn-default' do %>
+    All Trucks
+  <% end %>
+  <%= link_to edit_truck_path(@truck), class: 'btn btn-primary' do %>
+    Edit
+  <% end %>
+  <h1>Show truck</h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt>Fecha:</dt>
+  <dd><%= @truck.fecha %></dd>
+
+  <dt>Mmpp:</dt>
+  <dd><%= @truck.mmpp %></dd>
+
+  <dt>Tipo:</dt>
+  <dd><%= @truck.tipo %></dd>
+
+  <dt>Llegada:</dt>
+  <dd><%= @truck.llegada %></dd>
+
+  <dt>Llamada:</dt>
+  <dd><%= @truck.llamada %></dd>
+
+  <dt>Salida:</dt>
+  <dd><%= @truck.salida %></dd>
+
+</dl>
