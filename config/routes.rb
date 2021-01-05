@@ -2,6 +2,7 @@ require 'sidekiq/web'
 
 Rails.application.routes.draw do
   resources :trucks
+  get 'blank', to: 'trucks#blank'
   resources :checklists
   resources :brus
   resources :lvs
@@ -23,6 +24,7 @@ Rails.application.routes.draw do
 
   get '/privacy', to: 'home#privacy'
   get '/terms', to: 'home#terms'
+  get '/others', to: 'home#others'
     authenticate :user, lambda { |u| u.admin? } do
       mount Sidekiq::Web => '/sidekiq'
     end
