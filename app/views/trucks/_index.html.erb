@@ -3,12 +3,12 @@
 
 <div class="row">
   <div class="col-sm-6">
-    <h1>Trucks</h1>
+    <h1>Camiones</h1>
   </div>
 
   <div class="col-sm-6 text-right">
   <%= link_to new_truck_path, class: 'btn btn-primary' do %>
-    Add New Truck
+    Ingreso Camión
   <% end %>
   </div>
 </div>
@@ -37,11 +37,11 @@
 
 
                       <td><%= truck.fecha %></td>
-                      <td><%= truck.mmpp %></td>
+                      <td><%= truck.mmpp.nombre %></td>
                       <td><%= truck.tipo %></td>
-                      <td><%= truck.llegada %></td>
-                      <td><%= truck.llamada %></td>
-                      <td><%= truck.salida %></td>
+                      <td><%= truck.llegada.strftime("%T") %></td>
+                      <td><%= truck.llamada.strftime("%T") %></td>
+                      <td><%= truck.salida.strftime("%T") %></td>
 
 
             <td><%= link_to 'Show', truck %></td>

@@ -8,7 +8,7 @@ class TrucksController < ApplicationController
   end
 
   def blank
-    @trucks = Truck.all
+    @trucks = Truck.where(salida: "2000-01-01 00:00:00.000000000 +0000")
   end
   # GET /trucks/1
   # GET /trucks/1.json
