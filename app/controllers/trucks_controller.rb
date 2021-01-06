@@ -4,7 +4,7 @@ class TrucksController < ApplicationController
   # GET /trucks
   # GET /trucks.json
   def index
-    @trucks = Truck.all
+    @trucks = Truck.where.not(salida: "2000-01-01 00:00:00.000000000 +0000")
   end
 
   def blank
@@ -31,7 +31,7 @@ class TrucksController < ApplicationController
 
     respond_to do |format|
       if @truck.save
-        format.html { redirect_to @truck, notice: 'Truck was successfully created.' }
+        format.html { redirect_to @truck, notice: 'Registro creado con exito.' }
         format.json { render :show, status: :created, location: @truck }
       else
         format.html { render :new }
@@ -45,7 +45,7 @@ class TrucksController < ApplicationController
   def update
     respond_to do |format|
       if @truck.update(truck_params)
-        format.html { redirect_to @truck, notice: 'Truck was successfully updated.' }
+        format.html { redirect_to @truck, notice: 'Registro actualizado.' }
         format.json { render :show, status: :ok, location: @truck }
       else
         format.html { render :edit }
@@ -59,7 +59,7 @@ class TrucksController < ApplicationController
   def destroy
     @truck.destroy
     respond_to do |format|
-      format.html { redirect_to trucks_url, notice: 'Truck was successfully destroyed.' }
+      format.html { redirect_to trucks_url, notice: 'Registro eliminado con exito.' }
       format.json { head :no_content }
     end
   end
@@ -72,6 +72,6 @@ class TrucksController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def truck_params
-      params.require(:truck).permit(:fecha, :mmpp_id, :tipo, :llegada, :llamada, :salida)
+      params.require(:truck).permit(:fecha, :mmpp_id, :tipo, :llegada, :llamada, :salida, :patente)
     end
 end

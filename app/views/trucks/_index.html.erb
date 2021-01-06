@@ -20,13 +20,14 @@
 
 
             <th>Fecha</th>
+            <th>Patente</th>
             <th>Mmpp</th>
             <th>Tipo</th>
             <th>Llegada</th>
-            <th>Llamada</th>
             <th>Salida</th>
+            <th>Tiempo(m)</th>
 
-          <th></th>
+          <th>Acciones</th>
 
       </tr>
     </thead>
@@ -37,14 +38,33 @@
 
 
                       <td><%= truck.fecha %></td>
+                      <td><%= truck.patente %></td>
                       <td><%= truck.mmpp.nombre %></td>
                       <td><%= truck.tipo %></td>
                       <td><%= truck.llegada.strftime("%T") %></td>
-                      <td><%= truck.llamada.strftime("%T") %></td>
                       <td><%= truck.salida.strftime("%T") %></td>
+                      <td><%= ((truck.salida - truck.llegada) / 60).to_i %></td>
 
 
-            <td><%= link_to 'Show', truck %></td>
+
+
+        <td class="text-center">
+        <button type="button" class="btn btn-sm btn-secondary command-edit shadow p-1 rounded">
+        <%= link_to "", truck, class: 'fa fa-eye fa-fw text-light'%>
+        </button>
+
+        <button type="button" class="btn btn-sm btn-success command-edit shadow p-1 rounded">
+        <%= link_to "", edit_truck_path(truck), class: "fa fa-edit fa-fw text-light"%>
+        </button>
+
+
+
+        <button type="button" class="btn btn-sm btn-danger command-delete shadow p-1 rounded">
+          <%= link_to "", truck, method: :delete, data: { confirm: "Esta seguro?" }, class: "fa fa-trash fa-fw text-light" %>
+        </button>
+
+
+        </td>
 
         <% end %>
       <% end %>
