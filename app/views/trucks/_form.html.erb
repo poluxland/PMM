@@ -44,6 +44,18 @@
   </div>
 
   <div class="form-group">
+    <%= form.label :causa %>
+    <%= form.select :cause,  ["Normal", "Paisas colación", "Paisas cambio turno", "sin BRU", "BRU sin caídas", "Falla Cargador frontal", "Exceso puntos de atención", "Sobrestock", "Otros"], class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :Otros %>
+    <%= form.text_field :motive, :include_blank => true, class: 'form-control' %>
+  </div>
+
+
+
+  <div class="form-group">
     <% if truck.persisted? %>
       <div class="float-right">
         <%= link_to 'Destroy', truck, method: :delete, class: "text-danger", data: { confirm: 'Esta seguro?' } %>

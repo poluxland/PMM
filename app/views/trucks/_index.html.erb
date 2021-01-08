@@ -25,8 +25,8 @@
             <th>Tipo</th>
             <th>Llegada</th>
             <th>Salida</th>
-            <th>Tiempo(m)</th>
-
+            <th>m</th>
+            <th>Estado</th>
           <th>Acciones</th>
 
       </tr>
@@ -37,14 +37,15 @@
         <%= content_tag :tr, id: dom_id(truck), class: dom_class(truck) do %>
 
 
-                      <td><%= truck.fecha %></td>
+                      <td><%= truck.fecha.strftime("%m-%d") %></td>
                       <td><%= truck.patente %></td>
                       <td><%= truck.mmpp.nombre %></td>
                       <td><%= truck.tipo %></td>
-                      <td><%= truck.llegada.strftime("%T") %></td>
-                      <td><%= truck.salida.strftime("%T") %></td>
-                      <td><%= ((truck.salida - truck.llegada) / 60).to_i %></td>
+                      <td><%= truck.llegada.strftime("%H:%M") %></td>
+                      <td><%= truck.salida.strftime("%H:%M") %></td>
 
+                      <td><%= truck.wait %></td>
+                      <td><%= truck.cause %></td>
 
 
 
