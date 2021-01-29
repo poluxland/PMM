@@ -68,5 +68,12 @@
   </tbody>
 </table>
 
-<%= column_chart @trucks_data, stacked: true %>
+<div class="my-5">
+  <h3>Por día:</h3>
+  <%= column_chart @trucks_data_day, stacked: true %>
+</div>
 
+<div class="my-5">
+  <h3>Por mes:</h3>
+  <%= column_chart @trucks_data_month, stacked: true %>
+</div>

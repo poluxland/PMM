@@ -6,18 +6,27 @@ class TrucksController < ApplicationController
   def index
     @trucks = Truck.where.not(salida: "2000-01-01 00:00:00.000000000 +0000")
 
-    @trucks_less_60 = @trucks.group_by_day(:created_at).where("wait <= 60").count
-    @trucks_more_60 = @trucks.group_by_day(:created_at).where("wait > 60").count
-    @trucks_data = [
+    @trucks_data_day = [
       {
-        name: "Less than 60",
-        data: @trucks_less_60
+        name: "menos de 60min",
+        data: @trucks.group_by_day(:created_at).where("wait <= 60").count
       }, 
       {
-        name: "More than 60",
-        data: @trucks_more_60
+        name: "más de 60min",
+        data: @trucks.group_by_day(:created_at).where("wait > 60").count
       }
     ]
+
+    @trucks_data_month = [
+      {
+        name: "menos de 60min",
+        data: @trucks.group_by_month(:created_at).where("wait <= 60").count
+      }, 
+      {
+        name: "más de 60min",
+        data: @trucks.group_by_month(:created_at).where("wait > 60").count
+      }
+    ]    
   end
 
   def blank
