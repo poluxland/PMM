@@ -5,6 +5,19 @@ class TrucksController < ApplicationController
   # GET /trucks.json
   def index
     @trucks = Truck.where.not(salida: "2000-01-01 00:00:00.000000000 +0000")
+
+    @trucks_less_60 = @trucks.group_by_day(:created_at).where("wait <= 60").count
+    @trucks_more_60 = @trucks.group_by_day(:created_at).where("wait > 60").count
+    @trucks_data = [
+      {
+        name: "Less than 60",
+        data: @trucks_less_60
+      }, 
+      {
+        name: "More than 60",
+        data: @trucks_more_60
+      }
+    ]
   end
 
   def blank
