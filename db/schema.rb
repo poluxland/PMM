@@ -94,17 +94,6 @@ ActiveRecord::Schema.define(version: 2021_01_08_145930) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "clientes", force: :cascade do |t|
-    t.string "nombre"
-    t.string "rut"
-    t.string "fono"
-    t.string "direccion"
-    t.string "sede"
-    t.string "otros"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "cuasis", force: :cascade do |t|
     t.string "sitio"
     t.date "fecha"
@@ -115,24 +104,6 @@ ActiveRecord::Schema.define(version: 2021_01_08_145930) do
     t.string "estado"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "equipos", force: :cascade do |t|
-    t.string "modelo_ue"
-    t.string "modelo_ui"
-    t.string "ubicacion_ue"
-    t.string "ubicacion_ui"
-    t.string "año"
-    t.string "serie"
-    t.string "gas"
-    t.string "voltaje"
-    t.string "oficinas"
-    t.string "nombre_oficinas"
-    t.string "unidad_master"
-    t.bigint "cliente_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["cliente_id"], name: "index_equipos_on_cliente_id"
   end
 
   create_table "friendly_id_slugs", force: :cascade do |t|
@@ -200,84 +171,6 @@ ActiveRecord::Schema.define(version: 2021_01_08_145930) do
     t.index ["user_id"], name: "index_services_on_user_id"
   end
 
-  create_table "servicios", force: :cascade do |t|
-    t.bigint "cliente_id", null: false
-    t.bigint "equipo_id", null: false
-    t.string "enchufes"
-    t.string "cables"
-    t.string "conecciones"
-    t.string "estructura"
-    t.string "corrosion"
-    t.string "bases"
-    t.string "ventiladores"
-    t.string "condensador"
-    t.string "compresor"
-    t.string "evapodador"
-    t.string "linea_refrigetante"
-    t.string "aislacion"
-    t.string "correas"
-    t.string "lubricacion"
-    t.string "drenajes"
-    t.string "filtro_de_aire"
-    t.string "carcasa"
-    t.string "partida_normal"
-    t.string "vibraciones_y_ruido"
-    t.string "luces_e_indicacdores"
-    t.string "direccion_de_ventiladores"
-    t.string "nivel_de_aceite"
-    t.string "nivel_de_refrigerante"
-    t.string "pruebas_de_funcionamiento"
-    t.string "alarmas"
-    t.string "sobrecalor"
-    t.string "sobrecalentamiento"
-    t.string "presion_de_succion"
-    t.string "presion_de_descarga"
-    t.string "tarjeta_de_control"
-    t.string "compresor_f1"
-    t.string "compresor_f2"
-    t.string "compresor_f3"
-    t.string "compresor_m"
-    t.string "ventilador_compresor_f1"
-    t.string "ventilador_compresor_f2"
-    t.string "ventilador_compresor_f3"
-    t.string "ventilador_compresor_m"
-    t.string "ventilador_evaporador_inyeccion_f1"
-    t.string "ventilador_evaporador_inyeccion_f2"
-    t.string "ventilador_evapodar_f3"
-    t.string "ventilador_evaporador_m"
-    t.string "ventilador_retorno_f1"
-    t.string "ventilador_retorno_f2"
-    t.string "ventilador_retorno_f3"
-    t.string "ventilador_retorno_m"
-    t.string "calefactor_f1"
-    t.string "calefactor_f2"
-    t.string "calefactor_f3"
-    t.string "calefactor_m"
-    t.string "cable_poder_f1"
-    t.string "cable_poder_f2"
-    t.string "cable_poder_f3"
-    t.string "cable_poder_m"
-    t.string "tension_total_f1"
-    t.string "tension_total_f2"
-    t.string "tension_total_f3"
-    t.string "tension_total_m"
-    t.text "detalles"
-    t.text "insumos_repuestos"
-    t.string "firma_solicitante"
-    t.string "firma_tecnico"
-    t.string "imagen_1"
-    t.string "imagen_2"
-    t.string "imagen_3"
-    t.string "codigo_qr"
-    t.string "otros"
-    t.date "fecha"
-    t.string "servicio"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["cliente_id"], name: "index_servicios_on_cliente_id"
-    t.index ["equipo_id"], name: "index_servicios_on_equipo_id"
-  end
-
   create_table "trucks", force: :cascade do |t|
     t.date "fecha"
     t.bigint "mmpp_id", null: false
@@ -315,10 +208,7 @@ ActiveRecord::Schema.define(version: 2021_01_08_145930) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "canchas", "mmpps"
-  add_foreign_key "equipos", "clientes"
   add_foreign_key "registros", "canchas"
   add_foreign_key "services", "users"
-  add_foreign_key "servicios", "clientes"
-  add_foreign_key "servicios", "equipos"
   add_foreign_key "trucks", "mmpps"
 end

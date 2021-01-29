@@ -1,10 +1,32 @@
 class TrucksController < ApplicationController
   before_action :set_truck, only: [:show, :edit, :update, :destroy]
-
+  include Pagy::Backend
   # GET /trucks
   # GET /trucks.json
   def index
-    @trucks = Truck.where.not(salida: "2000-01-01 00:00:00.000000000 +0000")
+    @pagy, @trucks = pagy(Truck.where.not(salida: "2000-01-01 00:00:00.000000000 +0000"))
+
+    @trucks_data_day = [
+      {
+        name: "menos de 60min",
+        data: Truck.group_by_day(:created_at).where("wait <= 60").count
+      }, 
+      {
+        name: "más de 60min",
+        data: Truck.group_by_day(:created_at).where("wait > 60").count
+      }
+    ]
+
+    @trucks_data_month = [
+      {
+        name: "menos de 60min",
+        data: Truck.group_by_month(:created_at).where("wait <= 60").count
+      }, 
+      {
+        name: "más de 60min",
+        data: Truck.group_by_month(:created_at).where("wait > 60").count
+      }
+    ]    
   end
 
   def blank
