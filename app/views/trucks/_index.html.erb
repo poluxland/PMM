@@ -13,55 +13,45 @@
 <table class="table table-striped table-bordered table-hover">
   <thead>
     <tr>
-
-
-          <th>Fecha</th>
-          <th>Patente</th>
-          <th>Mmpp</th>
-          <th>Tipo</th>
-          <th>Llegada</th>
-          <th>Salida</th>
-          <th>m</th>
-          <th>Estado</th>
-        <th>Acciones</th>
-
+      <th>Fecha</th>
+      <th>Patente</th>
+      <th>Mmpp</th>
+      <th>Tipo</th>
+      <th>Llegada</th>
+      <th>Salida</th>
+      <th>m</th>
+      <th>Estado</th>
+      <th>Acciones</th>
     </tr>
   </thead>
 
   <tbody>
     <% @trucks.each do |truck| %>
       <%= content_tag :tr, id: dom_id(truck), class: dom_class(truck) do %>
+      
+        <td><%= truck.fecha.strftime("%m-%d") %></td>
+        <td><%= truck.patente %></td>
+        <td><%= truck.mmpp.nombre %></td>
+        <td><%= truck.tipo %></td>
+        <td><%= truck.llegada.strftime("%H:%M") %></td>
+        <td><%= truck.salida.strftime("%H:%M") %></td>
 
+        <td><%= truck.wait %></td>
+        <td><%= truck.cause %></td>
 
-                    <td><%= truck.fecha.strftime("%m-%d") %></td>
-                    <td><%= truck.patente %></td>
-                    <td><%= truck.mmpp.nombre %></td>
-                    <td><%= truck.tipo %></td>
-                    <td><%= truck.llegada.strftime("%H:%M") %></td>
-                    <td><%= truck.salida.strftime("%H:%M") %></td>
+        <td class="text-center">
+          <button type="button" class="btn btn-sm btn-secondary command-edit shadow p-1 rounded">
+          <%= link_to "", truck, class: 'fa fa-eye fa-fw text-light'%>
+          </button>
 
-                    <td><%= truck.wait %></td>
-                    <td><%= truck.cause %></td>
+          <button type="button" class="btn btn-sm btn-success command-edit shadow p-1 rounded">
+          <%= link_to "", edit_truck_path(truck), class: "fa fa-edit fa-fw text-light"%>
+          </button>
 
-
-
-      <td class="text-center">
-      <button type="button" class="btn btn-sm btn-secondary command-edit shadow p-1 rounded">
-      <%= link_to "", truck, class: 'fa fa-eye fa-fw text-light'%>
-      </button>
-
-      <button type="button" class="btn btn-sm btn-success command-edit shadow p-1 rounded">
-      <%= link_to "", edit_truck_path(truck), class: "fa fa-edit fa-fw text-light"%>
-      </button>
-
-
-
-      <button type="button" class="btn btn-sm btn-danger command-delete shadow p-1 rounded">
-        <%= link_to "", truck, method: :delete, data: { confirm: "Esta seguro?" }, class: "fa fa-trash fa-fw text-light" %>
-      </button>
-
-
-      </td>
+          <button type="button" class="btn btn-sm btn-danger command-delete shadow p-1 rounded">
+            <%= link_to "", truck, method: :delete, data: { confirm: "Esta seguro?" }, class: "fa fa-trash fa-fw text-light" %>
+          </button>
+        </td>
 
       <% end %>
     <% end %>
