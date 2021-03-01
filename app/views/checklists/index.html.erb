@@ -19,8 +19,9 @@
       <tr>
 
 
-            <th>Nombre</th>
+
             <th>Fecha</th>
+            <th>Nombre</th>
             <th>Cinta</th>
             <th>Lubricacion</th>
             <th>Aseos</th>
@@ -44,8 +45,9 @@
         <%= content_tag :tr, id: dom_id(checklist), class: dom_class(checklist) do %>
 
 
-                      <td><%= checklist.nombre %></td>
+
                       <td><%= checklist.fecha %></td>
+                      <td><%= checklist.nombre %></td>
                       <td><%= checklist.cinta %></td>
                       <td><%= checklist.lubricacion %></td>
                       <td><%= checklist.aseos %></td>
