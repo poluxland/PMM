@@ -68,14 +68,24 @@
   </tbody>
 </table>
 
-<%== pagy_bootstrap_nav(@pagy) %>
+
 
 <div class="my-5">
   <h3>Por día:</h3>
-  <%= column_chart @trucks_data_day, stacked: true %>
+  <%= column_chart @trucks_data_day_number, stacked: true %>
 </div>
 
 <div class="my-5">
   <h3>Por mes:</h3>
+  <%= column_chart @trucks_data_month_number, stacked: true %>
+</div>
+
+<div class="my-5">
+  <h3>Porcentaje diario:</h3>
+  <%= column_chart @trucks_data_day, stacked: true %>
+</div>
+
+<div class="my-5">
+  <h3>Porcentaje mensual:</h3>
   <%= column_chart @trucks_data_month, stacked: true %>
 </div>
