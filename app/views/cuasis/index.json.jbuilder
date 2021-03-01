@@ -1,1 +1,3 @@
-json.array! @cuasis, partial: "cuasis/cuasi", as: :cuasi
+# frozen_string_literal: true
+
+json.array! @cuasis, partial: 'cuasis/cuasi', as: :cuasi

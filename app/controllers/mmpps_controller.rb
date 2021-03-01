@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class MmppsController < ApplicationController
-  before_action :set_mmpp, only: [:show, :edit, :update, :destroy]
+  before_action :set_mmpp, only: %i[show edit update destroy]
 
   # GET /mmpps
   # GET /mmpps.json
@@ -9,8 +11,7 @@ class MmppsController < ApplicationController
 
   # GET /mmpps/1
   # GET /mmpps/1.json
-  def show
-  end
+  def show; end
 
   # GET /mmpps/new
   def new
@@ -18,8 +19,7 @@ class MmppsController < ApplicationController
   end
 
   # GET /mmpps/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /mmpps
   # POST /mmpps.json
@@ -62,13 +62,14 @@ class MmppsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_mmpp
-      @mmpp = Mmpp.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def mmpp_params
-      params.require(:mmpp).permit(:nombre, :descripcion, :densidad)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_mmpp
+    @mmpp = Mmpp.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def mmpp_params
+    params.require(:mmpp).permit(:nombre, :descripcion, :densidad)
+  end
 end

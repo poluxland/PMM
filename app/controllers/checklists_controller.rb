@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class ChecklistsController < ApplicationController
-  before_action :set_checklist, only: [:show, :edit, :update, :destroy]
+  before_action :set_checklist, only: %i[show edit update destroy]
 
   # GET /checklists
   # GET /checklists.json
@@ -9,8 +11,7 @@ class ChecklistsController < ApplicationController
 
   # GET /checklists/1
   # GET /checklists/1.json
-  def show
-  end
+  def show; end
 
   # GET /checklists/new
   def new
@@ -18,8 +19,7 @@ class ChecklistsController < ApplicationController
   end
 
   # GET /checklists/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /checklists
   # POST /checklists.json
@@ -62,13 +62,15 @@ class ChecklistsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_checklist
-      @checklist = Checklist.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def checklist_params
-      params.require(:checklist).permit(:nombre, :fecha, :cinta, :lubricacion, :aseos, :nivel, :fugas, :presion, :filtro1, :filtro2, :polvo, :raspador, :iluminacion, :comentarios)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_checklist
+    @checklist = Checklist.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def checklist_params
+    params.require(:checklist).permit(:nombre, :fecha, :cinta, :lubricacion, :aseos, :nivel, :fugas, :presion,
+                                      :filtro1, :filtro2, :polvo, :raspador, :iluminacion, :comentarios)
+  end
 end

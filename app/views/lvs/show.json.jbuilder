@@ -1,1 +1,3 @@
-json.partial! "lvs/lv", lv: @lv
+# frozen_string_literal: true
+
+json.partial! 'lvs/lv', lv: @lv

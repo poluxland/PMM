@@ -1,41 +1,43 @@
+# frozen_string_literal: true
+
 class TrucksController < ApplicationController
-  before_action :set_truck, only: [:show, :edit, :update, :destroy]
+  before_action :set_truck, only: %i[show edit update destroy]
   include Pagy::Backend
   # GET /trucks
   # GET /trucks.json
   def index
-    @pagy, @trucks = pagy(Truck.where.not(salida: "2000-01-01 00:00:00.000000000 +0000"))
+    @pagy, @trucks = pagy(Truck.where.not(salida: '2000-01-01 00:00:00.000000000 +0000'))
 
     @trucks_data_day = [
       {
-        name: "menos de 60min",
-        data: Truck.group_by_day(:created_at).where("wait <= 60").count
-      }, 
+        name: 'menos de 60min',
+        data: Truck.group_by_day(:created_at).where('wait <= 60').count
+      },
       {
-        name: "más de 60min",
-        data: Truck.group_by_day(:created_at).where("wait > 60").count
+        name: 'más de 60min',
+        data: Truck.group_by_day(:created_at).where('wait > 60').count
       }
     ]
 
     @trucks_data_month = [
       {
-        name: "menos de 60min",
-        data: Truck.group_by_month(:created_at).where("wait <= 60").count
-      }, 
+        name: 'menos de 60min',
+        data: Truck.group_by_month(:created_at).where('wait <= 60').count
+      },
       {
-        name: "más de 60min",
-        data: Truck.group_by_month(:created_at).where("wait > 60").count
+        name: 'más de 60min',
+        data: Truck.group_by_month(:created_at).where('wait > 60').count
       }
-    ]    
+    ]
   end
 
   def blank
-    @trucks = Truck.where(salida: "2000-01-01 00:00:00.000000000 +0000")
+    @trucks = Truck.where(salida: '2000-01-01 00:00:00.000000000 +0000')
   end
+
   # GET /trucks/1
   # GET /trucks/1.json
-  def show
-  end
+  def show; end
 
   # GET /trucks/new
   def new
@@ -43,8 +45,7 @@ class TrucksController < ApplicationController
   end
 
   # GET /trucks/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /trucks
   # POST /trucks.json
@@ -87,13 +88,15 @@ class TrucksController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_truck
-      @truck = Truck.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def truck_params
-      params.require(:truck).permit(:fecha, :mmpp_id, :tipo, :llegada, :llamada, :salida, :patente, :wait, :motive, :cause, :number, :other)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_truck
+    @truck = Truck.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def truck_params
+    params.require(:truck).permit(:fecha, :mmpp_id, :tipo, :llegada, :llamada, :salida, :patente, :wait, :motive,
+                                  :cause, :number, :other)
+  end
 end

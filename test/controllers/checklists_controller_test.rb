@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'test_helper'
 
 class ChecklistsControllerTest < ActionDispatch::IntegrationTest
@@ -5,40 +7,44 @@ class ChecklistsControllerTest < ActionDispatch::IntegrationTest
     @checklist = checklists(:one)
   end
 
-  test "should get index" do
+  test 'should get index' do
     get checklists_url
     assert_response :success
   end
 
-  test "should get new" do
+  test 'should get new' do
     get new_checklist_url
     assert_response :success
   end
 
-  test "should create checklist" do
+  test 'should create checklist' do
     assert_difference('Checklist.count') do
-      post checklists_url, params: { checklist: { aseos: @checklist.aseos, cinta: @checklist.cinta, comentarios: @checklist.comentarios, fecha: @checklist.fecha, filtro1: @checklist.filtro1, filtro2: @checklist.filtro2, fugas: @checklist.fugas, iluminacion: @checklist.iluminacion, lubricacion: @checklist.lubricacion, nivel: @checklist.nivel, nombre: @checklist.nombre, polvo: @checklist.polvo, presion: @checklist.presion, raspador: @checklist.raspador } }
+      post checklists_url,
+           params: { checklist: { aseos: @checklist.aseos, cinta: @checklist.cinta, comentarios: @checklist.comentarios,
+                                  fecha: @checklist.fecha, filtro1: @checklist.filtro1, filtro2: @checklist.filtro2, fugas: @checklist.fugas, iluminacion: @checklist.iluminacion, lubricacion: @checklist.lubricacion, nivel: @checklist.nivel, nombre: @checklist.nombre, polvo: @checklist.polvo, presion: @checklist.presion, raspador: @checklist.raspador } }
     end
 
     assert_redirected_to checklist_url(Checklist.last)
   end
 
-  test "should show checklist" do
+  test 'should show checklist' do
     get checklist_url(@checklist)
     assert_response :success
   end
 
-  test "should get edit" do
+  test 'should get edit' do
     get edit_checklist_url(@checklist)
     assert_response :success
   end
 
-  test "should update checklist" do
-    patch checklist_url(@checklist), params: { checklist: { aseos: @checklist.aseos, cinta: @checklist.cinta, comentarios: @checklist.comentarios, fecha: @checklist.fecha, filtro1: @checklist.filtro1, filtro2: @checklist.filtro2, fugas: @checklist.fugas, iluminacion: @checklist.iluminacion, lubricacion: @checklist.lubricacion, nivel: @checklist.nivel, nombre: @checklist.nombre, polvo: @checklist.polvo, presion: @checklist.presion, raspador: @checklist.raspador } }
+  test 'should update checklist' do
+    patch checklist_url(@checklist),
+          params: { checklist: { aseos: @checklist.aseos, cinta: @checklist.cinta, comentarios: @checklist.comentarios,
+                                 fecha: @checklist.fecha, filtro1: @checklist.filtro1, filtro2: @checklist.filtro2, fugas: @checklist.fugas, iluminacion: @checklist.iluminacion, lubricacion: @checklist.lubricacion, nivel: @checklist.nivel, nombre: @checklist.nombre, polvo: @checklist.polvo, presion: @checklist.presion, raspador: @checklist.raspador } }
     assert_redirected_to checklist_url(@checklist)
   end
 
-  test "should destroy checklist" do
+  test 'should destroy checklist' do
     assert_difference('Checklist.count', -1) do
       delete checklist_url(@checklist)
     end

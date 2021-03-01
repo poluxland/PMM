@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class CanchasController < ApplicationController
-  before_action :set_cancha, only: [:show, :edit, :update, :destroy]
+  before_action :set_cancha, only: %i[show edit update destroy]
 
   # GET /canchas
   # GET /canchas.json
@@ -10,10 +12,10 @@ class CanchasController < ApplicationController
   def bloquear
     UserMailer.welcome.deliver_now
   end
+
   # GET /canchas/1
   # GET /canchas/1.json
-  def show
-  end
+  def show; end
 
   # GET /canchas/new
   def new
@@ -21,8 +23,7 @@ class CanchasController < ApplicationController
   end
 
   # GET /canchas/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /canchas
   # POST /canchas.json
@@ -65,13 +66,14 @@ class CanchasController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_cancha
-      @cancha = Cancha.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def cancha_params
-      params.require(:cancha).permit(:nombre, :descripcion, :capacidad, :operativa, :mmpp_id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_cancha
+    @cancha = Cancha.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def cancha_params
+    params.require(:cancha).permit(:nombre, :descripcion, :capacidad, :operativa, :mmpp_id)
+  end
 end

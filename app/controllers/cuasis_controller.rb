@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class CuasisController < ApplicationController
-  before_action :set_cuasi, only: [:show, :edit, :update, :destroy]
+  before_action :set_cuasi, only: %i[show edit update destroy]
 
   # GET /cuasis
   # GET /cuasis.json
@@ -9,8 +11,7 @@ class CuasisController < ApplicationController
 
   # GET /cuasis/1
   # GET /cuasis/1.json
-  def show
-  end
+  def show; end
 
   # GET /cuasis/new
   def new
@@ -18,8 +19,7 @@ class CuasisController < ApplicationController
   end
 
   # GET /cuasis/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /cuasis
   # POST /cuasis.json
@@ -62,13 +62,14 @@ class CuasisController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_cuasi
-      @cuasi = Cuasi.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def cuasi_params
-      params.require(:cuasi).permit(:sitio, :fecha, :reporta, :potencial, :accion, :responsable, :estado)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_cuasi
+    @cuasi = Cuasi.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def cuasi_params
+    params.require(:cuasi).permit(:sitio, :fecha, :reporta, :potencial, :accion, :responsable, :estado)
+  end
 end

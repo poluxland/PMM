@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class BrusController < ApplicationController
-  before_action :set_bru, only: [:show, :edit, :update, :destroy]
+  before_action :set_bru, only: %i[show edit update destroy]
 
   # GET /brus
   # GET /brus.json
@@ -9,8 +11,7 @@ class BrusController < ApplicationController
 
   # GET /brus/1
   # GET /brus/1.json
-  def show
-  end
+  def show; end
 
   # GET /brus/new
   def new
@@ -18,8 +19,7 @@ class BrusController < ApplicationController
   end
 
   # GET /brus/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /brus
   # POST /brus.json
@@ -62,13 +62,14 @@ class BrusController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_bru
-      @bru = Bru.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def bru_params
-      params.require(:bru).permit(:fecha, :ingreso, :salida, :patente, :mmpp, :comentarios, :numero)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_bru
+    @bru = Bru.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def bru_params
+    params.require(:bru).permit(:fecha, :ingreso, :salida, :patente, :mmpp, :comentarios, :numero)
+  end
 end

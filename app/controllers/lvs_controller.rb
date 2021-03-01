@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class LvsController < ApplicationController
-  before_action :set_lv, only: [:show, :edit, :update, :destroy]
+  before_action :set_lv, only: %i[show edit update destroy]
 
   # GET /lvs
   # GET /lvs.json
@@ -9,8 +11,7 @@ class LvsController < ApplicationController
 
   # GET /lvs/1
   # GET /lvs/1.json
-  def show
-  end
+  def show; end
 
   # GET /lvs/new
   def new
@@ -18,8 +19,7 @@ class LvsController < ApplicationController
   end
 
   # GET /lvs/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /lvs
   # POST /lvs.json
@@ -62,13 +62,14 @@ class LvsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_lv
-      @lv = Lv.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def lv_params
-      params.require(:lv).permit(:proceso, :obervado, :observador, :altura, :izaje, :eemm, :lototo)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_lv
+    @lv = Lv.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def lv_params
+    params.require(:lv).permit(:proceso, :obervado, :observador, :altura, :izaje, :eemm, :lototo)
+  end
 end

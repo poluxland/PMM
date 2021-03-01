@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class RegistrosController < ApplicationController
-  before_action :set_registro, only: [:show, :edit, :update, :destroy]
+  before_action :set_registro, only: %i[show edit update destroy]
 
   # GET /registros
   # GET /registros.json
@@ -9,8 +11,7 @@ class RegistrosController < ApplicationController
 
   # GET /registros/1
   # GET /registros/1.json
-  def show
-  end
+  def show; end
 
   # GET /registros/new
   def new
@@ -18,8 +19,7 @@ class RegistrosController < ApplicationController
   end
 
   # GET /registros/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /registros
   # POST /registros.json
@@ -62,13 +62,14 @@ class RegistrosController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_registro
-      @registro = Registro.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def registro_params
-      params.require(:registro).permit(:cancha_id, :uso, :fotografia)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_registro
+    @registro = Registro.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def registro_params
+    params.require(:registro).permit(:cancha_id, :uso, :fotografia)
+  end
 end
