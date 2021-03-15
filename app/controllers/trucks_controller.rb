@@ -78,6 +78,8 @@ class TrucksController < ApplicationController
 
   def blank
     @trucks = Truck.where(salida: '2000-01-01 00:00:00.000000000 +0000')
+
+    @last = Truck.last(10)
   end
 
   # GET /trucks/1
