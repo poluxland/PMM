@@ -1,0 +1,57 @@
+
+<div class="row">
+
+  <div class="col-sm-6">
+    <h4>Camiones diarios:</h4>
+    <%= column_chart @trucks_data_day_number, stacked: true %>
+  </div>
+
+  <div class="col-sm-6">
+    <h4>Porcentaje diario:</h4>
+    
+    <%= column_chart @trucks_data_day, stacked: true %>
+  </div>
+</div>
+<br>
+<br>
+
+
+<div class="row">
+  
+  <div class="col-sm-4">
+    Porcentaje mensual:
+    <%= column_chart @trucks_data_month, stacked: true %>
+  </div>
+  <div class="col-sm-4">
+    Unitario mensual:
+    <%= column_chart @trucks_data_month_number, stacked: true %>
+  </div>
+  <div class="col-sm-4">
+    Distribución de camiones segun tipo
+    <%= pie_chart Truck.group(:tipo).count %>
+  </div>
+  
+</div>
+
+<br>
+<br>
+
+<div class="row">
+  <div class="col-sm-4">
+    Camiones BRU diarios
+    <%= line_chart Bru.group_by_day(:fecha).count %>
+  </div>
+  <div class="col-sm-4">
+    Camiones BRU segun dia
+    <%= column_chart Bru.group_by_day_of_week(:created_at, format: "%a").count %>
+  </div>
+  <div class="col-sm-4">
+    Camiones BRU segun MMPP
+    <%= pie_chart Bru.group(:mmpp).count %>
+  </div>
+</div>
+
+<br>
+
+
+<a class="btn btn-primary" href="#" onclick="window.print();return false;" >Imprimir reporte</a>

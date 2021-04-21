@@ -82,6 +82,84 @@ class TrucksController < ApplicationController
     @last = Truck.last(10)
   end
 
+
+  def report
+    
+    @trucks = (Truck.where.not(salida: "2000-01-01 00:00:00.000000000 +0000"))
+
+    less_60_day = Truck.group_by_day(:created_at).where("wait <= 60").count
+    more_60_day = Truck.group_by_day(:created_at).where("wait > 60").count
+    day = Truck.group_by_day(:created_at).count
+
+    percentual_less_60_day = less_60_day.merge(day){ |k, less, day| (less.to_f / day * 100).round(2) }
+    percentual_more_60_day = less_60_day.merge(day){ |k, less, day| (( 1 - (less.to_f / day)) * 100).round(2) }
+
+    
+    @trucks_data_day = [
+      {
+        name: "menos de 60min",
+
+        data: percentual_less_60_day
+      },
+      {
+        name: "más de 60min",
+
+        data: percentual_more_60_day
+      }
+    ]
+
+    less_60_month = Truck.group_by_month(:created_at).where("wait <= 60").count
+    more_60_month = Truck.group_by_month(:created_at).where("wait > 60").count
+
+    percentual_less_60_month = less_60_month.merge(more_60_month){ |k, less, more| (less / (less + more).to_f * 100).round(2) }
+    percentual_more_60_month = less_60_month.merge(more_60_month){ |k, less, more| (more / (less + more).to_f * 100).round(2) }
+
+
+    @trucks_data_month = [
+      {
+        name: "menos de 60min",
+
+        data: percentual_less_60_month
+      },
+      {
+        name: "más de 60min",
+
+        data: percentual_more_60_month
+      }
+    ]
+
+
+@trucks_data_day_number = [
+      {
+        name: "menos de 60min",
+        data: Truck.group_by_day(:created_at).where("wait <= 60").count
+
+      },
+      {
+        name: "más de 60min",
+        data: Truck.group_by_day(:created_at).where("wait > 60").count
+
+      }
+    ]
+
+ @trucks_data_month_number = [
+      {
+        name: "menos de 60min",
+        data: Truck.group_by_month(:created_at).where("wait <= 60").count
+
+      },
+      {
+        name: "más de 60min",
+        data: Truck.group_by_month(:created_at).where("wait > 60").count
+
+      }
+    ]
+
+
+  end
+
+
+
   # GET /trucks/1
   # GET /trucks/1.json
   def show; end

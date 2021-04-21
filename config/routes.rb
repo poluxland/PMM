@@ -5,6 +5,7 @@ require 'sidekiq/web'
 Rails.application.routes.draw do
   resources :trucks
   get 'blank', to: 'trucks#blank'
+  get 'report', to: 'trucks#report'
   resources :checklists
   resources :brus
   resources :lvs
