@@ -3,12 +3,12 @@
 
 <div class="row">
   <div class="col-sm-6">
-    <h1>Recuperados</h1>
+    <h1>Derrames</h1>
   </div>
 
   <div class="col-sm-6 text-right">
   <%= link_to new_recuperado_path, class: 'btn btn-primary' do %>
-    Add New Recuperado
+    Agregar registro derrame
   <% end %>
   </div>
 </div>
@@ -18,7 +18,7 @@
     <thead>
       <tr>
     
-
+            <th>Fecha</th>
             <th>Em22</th>
             <th>Sepax</th>
             <th>Filtax</th>
@@ -47,7 +47,7 @@
       <% @recuperados.each do |recuperado| %>
         <%= content_tag :tr, id: dom_id(recuperado), class: dom_class(recuperado) do %>
           
-
+                      <td><%= recuperado.created_at.strftime("%m-%d") %></td>
                       <td><%= recuperado.EM22 %></td>
                       <td><%= recuperado.Sepax %></td>
                       <td><%= recuperado.Filtax %></td>
