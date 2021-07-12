@@ -1,0 +1,2 @@
+class Recuperado < ApplicationRecord
+end

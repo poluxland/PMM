@@ -1,0 +1,41 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  EM22: 1.5
+  Sepax: 1.5
+  Filtax: 1.5
+  Puzolana: 1.5
+  Yeso: 1.5
+  Silo_KKI: 1.5
+  cola_H9: 1.5
+  Aire_terciario: 1.5
+  Filtro_enfriadera: 1.5
+  EM21: 1.5
+  Aux_H9: 1.5
+  Skako: 1.5
+  Niagara: 1.5
+  CI08F01: 1.5
+  Coke: 1.5
+  Exterior_molinos_MP: 1.5
+  Cintas_MP: 1.5
+  comentarios: MyText
+
+two:
+  EM22: 1.5
+  Sepax: 1.5
+  Filtax: 1.5
+  Puzolana: 1.5
+  Yeso: 1.5
+  Silo_KKI: 1.5
+  cola_H9: 1.5
+  Aire_terciario: 1.5
+  Filtro_enfriadera: 1.5
+  EM21: 1.5
+  Aux_H9: 1.5
+  Skako: 1.5
+  Niagara: 1.5
+  CI08F01: 1.5
+  Coke: 1.5
+  Exterior_molinos_MP: 1.5
+  Cintas_MP: 1.5
+  comentarios: MyText

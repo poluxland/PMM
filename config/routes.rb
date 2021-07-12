@@ -3,6 +3,7 @@
 require 'sidekiq/web'
 
 Rails.application.routes.draw do
+  resources :recuperados
   resources :estado_edificios
   resources :derrames
   resources :trucks

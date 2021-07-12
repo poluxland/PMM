@@ -1,0 +1,66 @@
+<div class="page-header">
+  <%= link_to recuperados_path, class: 'btn btn-default' do %>
+    All Recuperados
+  <% end %>
+  <%= link_to edit_recuperado_path(@recuperado), class: 'btn btn-primary' do %>
+    Edit
+  <% end %>
+  <h1>Show recuperado</h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt>Em22:</dt>
+  <dd><%= @recuperado.EM22 %></dd>
+
+  <dt>Sepax:</dt>
+  <dd><%= @recuperado.Sepax %></dd>
+
+  <dt>Filtax:</dt>
+  <dd><%= @recuperado.Filtax %></dd>
+
+  <dt>Puzolana:</dt>
+  <dd><%= @recuperado.Puzolana %></dd>
+
+  <dt>Yeso:</dt>
+  <dd><%= @recuperado.Yeso %></dd>
+
+  <dt>Silo kki:</dt>
+  <dd><%= @recuperado.Silo_KKI %></dd>
+
+  <dt>Cola h9:</dt>
+  <dd><%= @recuperado.cola_H9 %></dd>
+
+  <dt>Aire terciario:</dt>
+  <dd><%= @recuperado.Aire_terciario %></dd>
+
+  <dt>Filtro enfriadera:</dt>
+  <dd><%= @recuperado.Filtro_enfriadera %></dd>
+
+  <dt>Em21:</dt>
+  <dd><%= @recuperado.EM21 %></dd>
+
+  <dt>Aux h9:</dt>
+  <dd><%= @recuperado.Aux_H9 %></dd>
+
+  <dt>Skako:</dt>
+  <dd><%= @recuperado.Skako %></dd>
+
+  <dt>Niagara:</dt>
+  <dd><%= @recuperado.Niagara %></dd>
+
+  <dt>Ci08f01:</dt>
+  <dd><%= @recuperado.CI08F01 %></dd>
+
+  <dt>Coke:</dt>
+  <dd><%= @recuperado.Coke %></dd>
+
+  <dt>Exterior molinos mp:</dt>
+  <dd><%= @recuperado.Exterior_molinos_MP %></dd>
+
+  <dt>Cintas mp:</dt>
+  <dd><%= @recuperado.Cintas_MP %></dd>
+
+  <dt>Comentarios:</dt>
+  <dd><%= @recuperado.comentarios %></dd>
+
+</dl>

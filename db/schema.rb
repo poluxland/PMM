@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_12_194640) do
+ActiveRecord::Schema.define(version: 2021_07_12_234258) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -193,6 +193,29 @@ ActiveRecord::Schema.define(version: 2021_07_12_194640) do
     t.string "action"
     t.bigint "notifiable_id"
     t.string "notifiable_type"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "recuperados", force: :cascade do |t|
+    t.float "EM22"
+    t.float "Sepax"
+    t.float "Filtax"
+    t.float "Puzolana"
+    t.float "Yeso"
+    t.float "Silo_KKI"
+    t.float "cola_H9"
+    t.float "Aire_terciario"
+    t.float "Filtro_enfriadera"
+    t.float "EM21"
+    t.float "Aux_H9"
+    t.float "Skako"
+    t.float "Niagara"
+    t.float "CI08F01"
+    t.float "Coke"
+    t.float "Exterior_molinos_MP"
+    t.float "Cintas_MP"
+    t.text "comentarios"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
