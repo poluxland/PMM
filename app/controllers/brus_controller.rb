@@ -9,6 +9,11 @@ class BrusController < ApplicationController
     @brus = Bru.all
   end
 
+  def resume
+    @brus = Bru.last(6)
+    @checklists = Checklist.last(3)
+  end
+
   # GET /brus/1
   # GET /brus/1.json
   def show; end

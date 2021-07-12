@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   get 'year', to: 'trucks#year'
   resources :checklists
   resources :brus
+  get 'resume', to: 'brus#resume'
   resources :lvs
   resources :cuasis
   resources :registros

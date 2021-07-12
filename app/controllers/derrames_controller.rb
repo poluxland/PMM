@@ -7,8 +7,8 @@ class DerramesController < ApplicationController
   end
 
   def blank
-    @derrames = Truck.last(10)
-    @last = Truck.last(10)
+    @derrames = Truck.last(6)
+    @last = Truck.last(3)
   end
 
   # GET /derrames/1 or /derrames/1.json
