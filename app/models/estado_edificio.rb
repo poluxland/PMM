@@ -1,0 +1,2 @@
+class EstadoEdificio < ApplicationRecord
+end

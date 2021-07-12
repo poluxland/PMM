@@ -1,0 +1,83 @@
+
+
+
+<div class="row">
+  <div class="col-sm-6">
+    <h1>Estado_edificios</h1>
+  </div>
+
+  <div class="col-sm-6 text-right">
+  <%= link_to new_estado_edificio_path, class: 'btn btn-primary' do %>
+    Add New Estado edificio
+  <% end %>
+  </div>
+</div>
+
+<div class="table-responsive">
+  <table class="table table-striped table-bordered table-hover">
+    <thead>
+      <tr>
+    
+
+            <th>Em22</th>
+            <th>Em21</th>
+            <th>Kki</th>
+            <th>Kkm</th>
+            <th>Puzolana</th>
+            <th>Yeso</th>
+            <th>Trans cemento</th>
+            <th>Enfriadera</th>
+            <th>Techo ccm h9</th>
+            <th>Patio m22</th>
+            <th>Niagara</th>
+            <th>Em17</th>
+            <th>Bba flux</th>
+            <th>Area 202</th>
+            <th>Basculas</th>
+            <th>Em 18 19</th>
+            <th>Taller electrico</th>
+            <th>Ci01ck01</th>
+            <th>Silos superiores</th>
+            <th>Secador</th>
+            <th>Comentarios</th>
+            
+          <th></th>
+        
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @estado_edificios.each do |estado_edificio| %>
+        <%= content_tag :tr, id: dom_id(estado_edificio), class: dom_class(estado_edificio) do %>
+          
+
+                      <td><%= estado_edificio.Em22 %></td>
+                      <td><%= estado_edificio.Em21 %></td>
+                      <td><%= estado_edificio.Kki %></td>
+                      <td><%= estado_edificio.Kkm %></td>
+                      <td><%= estado_edificio.Puzolana %></td>
+                      <td><%= estado_edificio.Yeso %></td>
+                      <td><%= estado_edificio.Trans_cemento %></td>
+                      <td><%= estado_edificio.Enfriadera %></td>
+                      <td><%= estado_edificio.Techo_ccm_h9 %></td>
+                      <td><%= estado_edificio.Patio_M22 %></td>
+                      <td><%= estado_edificio.Niagara %></td>
+                      <td><%= estado_edificio.EM17 %></td>
+                      <td><%= estado_edificio.Bba_flux %></td>
+                      <td><%= estado_edificio.Area_202 %></td>
+                      <td><%= estado_edificio.Basculas %></td>
+                      <td><%= estado_edificio.Em_18_19 %></td>
+                      <td><%= estado_edificio.Taller_electrico %></td>
+                      <td><%= estado_edificio.CI01CK01 %></td>
+                      <td><%= estado_edificio.Silos_superiores %></td>
+                      <td><%= estado_edificio.Secador %></td>
+                      <td><%= estado_edificio.comentarios %></td>
+          
+          
+            <td><%= link_to 'Show', estado_edificio %></td>
+          
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
+</div>

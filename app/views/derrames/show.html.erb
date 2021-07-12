@@ -1,0 +1,66 @@
+<div class="page-header">
+  <%= link_to derrames_path, class: 'btn btn-default' do %>
+    All Derrames
+  <% end %>
+  <%= link_to edit_derrame_path(@derrame), class: 'btn btn-primary' do %>
+    Edit
+  <% end %>
+  <h1>Show derrame</h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt>Em22:</dt>
+  <dd><%= @derrame.EM22 %></dd>
+
+  <dt>Sepax:</dt>
+  <dd><%= @derrame.Sepax %></dd>
+
+  <dt>Filtax:</dt>
+  <dd><%= @derrame.Filtax %></dd>
+
+  <dt>Puzolana:</dt>
+  <dd><%= @derrame.Puzolana %></dd>
+
+  <dt>Yeso:</dt>
+  <dd><%= @derrame.Yeso %></dd>
+
+  <dt>Silo kki:</dt>
+  <dd><%= @derrame.Silo_KKI %></dd>
+
+  <dt>Cola h9:</dt>
+  <dd><%= @derrame.cola_H9 %></dd>
+
+  <dt>Aire terciario:</dt>
+  <dd><%= @derrame.Aire_terciario %></dd>
+
+  <dt>Filtro enfriadera:</dt>
+  <dd><%= @derrame.Filtro_enfriadera %></dd>
+
+  <dt>Em21:</dt>
+  <dd><%= @derrame.EM21 %></dd>
+
+  <dt>Aux h9:</dt>
+  <dd><%= @derrame.Aux_H9 %></dd>
+
+  <dt>Skako:</dt>
+  <dd><%= @derrame.Skako %></dd>
+
+  <dt>Niagara:</dt>
+  <dd><%= @derrame.Niagara %></dd>
+
+  <dt>Ci08f01:</dt>
+  <dd><%= @derrame.CI08F01 %></dd>
+
+  <dt>Coke:</dt>
+  <dd><%= @derrame.Coke %></dd>
+
+  <dt>Exterior molinos mp:</dt>
+  <dd><%= @derrame.Exterior_molinos_MP %></dd>
+
+  <dt>Cintas mp:</dt>
+  <dd><%= @derrame.Cintas_MP %></dd>
+
+  <dt>Comentarios:</dt>
+  <dd><%= @derrame.comentarios %></dd>
+
+</dl>

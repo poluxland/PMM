@@ -3,6 +3,8 @@
 require 'sidekiq/web'
 
 Rails.application.routes.draw do
+  resources :estado_edificios
+  resources :derrames
   resources :trucks
   get 'blank', to: 'trucks#blank'
   get 'report', to: 'trucks#report'

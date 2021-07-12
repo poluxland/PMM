@@ -1,0 +1,119 @@
+<%= form_with(model: derrame, local: true) do |form| %>
+  <% if derrame.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(derrame.errors.count, "error") %> prohibited this derrame from being saved:</h2>
+
+      <ul>
+      <% derrame.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= form.label :EM22 %>
+    <%= form.number_field :EM22, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :Sepax %>
+    <%= form.number_field :Sepax, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :Filtax %>
+    <%= form.number_field :Filtax, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :Puzolana %>
+    <%= form.number_field :Puzolana, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :Yeso %>
+    <%= form.number_field :Yeso, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :Silo_KKI %>
+    <%= form.number_field :Silo_KKI, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :cola_H9 %>
+    <%= form.number_field :cola_H9, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :Aire_terciario %>
+    <%= form.number_field :Aire_terciario, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :Filtro_enfriadera %>
+    <%= form.number_field :Filtro_enfriadera, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :EM21 %>
+    <%= form.number_field :EM21, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :Aux_H9 %>
+    <%= form.number_field :Aux_H9, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :Skako %>
+    <%= form.number_field :Skako, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :Niagara %>
+    <%= form.number_field :Niagara, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :CI08F01 %>
+    <%= form.number_field :CI08F01, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :Coke %>
+    <%= form.number_field :Coke, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :Exterior_molinos_MP %>
+    <%= form.number_field :Exterior_molinos_MP, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :Cintas_MP %>
+    <%= form.text_field :Cintas_MP, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :comentarios %>
+    <%= form.text_area :comentarios, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <% if derrame.persisted? %>
+      <div class="float-right">
+        <%= link_to 'Destroy', derrame, method: :delete, class: "text-danger", data: { confirm: 'Esta seguro?' } %>
+      </div>
+    <% end %>
+
+    <%= form.submit class: 'btn btn-primary' %>
+
+    <% if derrame.persisted? %>
+      <%= link_to "Cancel", derrame, class: "btn btn-link" %>
+    <% else %>
+      <%= link_to "Cancel", derrames_path, class: "btn btn-link" %>
+    <% end %>
+  </div>
+<% end %>

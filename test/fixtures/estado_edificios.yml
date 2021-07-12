@@ -1,0 +1,47 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  Em22: 1
+  Em21: 1
+  Kki: 1
+  Kkm: 1
+  Puzolana: 1
+  Yeso: 1
+  Trans_cemento: 1
+  Enfriadera: 1
+  Techo_ccm_h9: 1
+  Patio_M22: 1
+  Niagara: 1
+  EM17: 1
+  Bba_flux: 1
+  Area_202: 1
+  Basculas: 1
+  Em_18_19: 1
+  Taller_electrico: 1
+  CI01CK01: 1
+  Silos_superiores: 1
+  Secador: 1
+  comentarios: MyText
+
+two:
+  Em22: 1
+  Em21: 1
+  Kki: 1
+  Kkm: 1
+  Puzolana: 1
+  Yeso: 1
+  Trans_cemento: 1
+  Enfriadera: 1
+  Techo_ccm_h9: 1
+  Patio_M22: 1
+  Niagara: 1
+  EM17: 1
+  Bba_flux: 1
+  Area_202: 1
+  Basculas: 1
+  Em_18_19: 1
+  Taller_electrico: 1
+  CI01CK01: 1
+  Silos_superiores: 1
+  Secador: 1
+  comentarios: MyText

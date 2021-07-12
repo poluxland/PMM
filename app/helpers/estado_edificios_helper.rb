@@ -1,0 +1,2 @@
+module EstadoEdificiosHelper
+end
