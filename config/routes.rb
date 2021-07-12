@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   resources :trucks
   get 'blank', to: 'trucks#blank'
   get 'report', to: 'trucks#report'
+  get 'month', to: 'trucks#month'
+  get 'year', to: 'trucks#year'
   resources :checklists
   resources :brus
   resources :lvs

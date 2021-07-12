@@ -78,9 +78,17 @@ class TrucksController < ApplicationController
 
   def blank
     @trucks = Truck.where(salida: '2000-01-01 00:00:00.000000000 +0000')
-
     @last = Truck.last(10)
   end
+
+  def month
+    @month = Truck.where(:created_at => Date.today.beginning_of_month..Date.today.end_of_month).where(salida: '2000-01-01 00:00:00.000000000 +0000')
+  end
+
+  def year
+    @year = Truck.where(:created_at => Date.today.beginning_of_year..Date.today.end_of_year).where(salida: '2000-01-01 00:00:00.000000000 +0000')
+  end
+
 
 
   def report
