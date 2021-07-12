@@ -62,10 +62,23 @@
     </tbody>
   </table>
 
-
- <div class="col-sm-6">
+<br>
+  <div class="row">
+  <div class="col-sm-6">
     <h1>Ultimas salidas</h1>
   </div>
+  <div class="col-sm-6 text-right">
+  <%= link_to trucks_path, class: 'btn btn-primary' do %>
+    Mes
+  <% end %>
+  <%= link_to trucks_path, class: 'btn btn-primary' do %>
+    Año
+  <% end %>
+  <%= link_to trucks_path, class: 'btn btn-primary' do %>
+    Historico
+  <% end %>
+  </div>
+</div>
 
   <table id="" class="table table-striped table-bordered table-hover">
   <thead>
