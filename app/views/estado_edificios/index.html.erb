@@ -8,7 +8,7 @@
 
   <div class="col-sm-6 text-right">
   <%= link_to new_estado_edificio_path, class: 'btn btn-primary' do %>
-    Add New Estado edificio
+    Agregar Estado edificios
   <% end %>
   </div>
 </div>
@@ -18,7 +18,7 @@
     <thead>
       <tr>
     
-
+            <th>Fecha</th>
             <th>Em22</th>
             <th>Em21</th>
             <th>Kki</th>
@@ -50,7 +50,7 @@
       <% @estado_edificios.each do |estado_edificio| %>
         <%= content_tag :tr, id: dom_id(estado_edificio), class: dom_class(estado_edificio) do %>
           
-
+                      <td><%= estado_edificio.created_at.strftime("%m-%d") %></td>
                       <td><%= estado_edificio.Em22 %></td>
                       <td><%= estado_edificio.Em21 %></td>
                       <td><%= estado_edificio.Kki %></td>

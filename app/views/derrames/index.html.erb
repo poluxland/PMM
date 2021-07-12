@@ -18,7 +18,7 @@
     <thead>
       <tr>
     
-
+            <th>Fecha</th>
             <th>Em22</th>
             <th>Sepax</th>
             <th>Filtax</th>
@@ -47,7 +47,7 @@
       <% @derrames.each do |derrame| %>
         <%= content_tag :tr, id: dom_id(derrame), class: dom_class(derrame) do %>
           
-
+                      <td><%= derrame.created_at.strftime("%m-%d") %></td>
                       <td><%= derrame.EM22 %></td>
                       <td><%= derrame.Sepax %></td>
                       <td><%= derrame.Filtax %></td>
@@ -68,7 +68,7 @@
                       <td><%= derrame.comentarios %></td>
           
           
-            <td><%= link_to 'Show', derrame %></td>
+            <td><%= link_to 'Ver', derrame %></td>
           
         <% end %>
       <% end %>
