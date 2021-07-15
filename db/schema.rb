@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_14_225854) do
+ActiveRecord::Schema.define(version: 2021_07_15_015629) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,6 +48,16 @@ ActiveRecord::Schema.define(version: 2021_07_14_225854) do
     t.string "announcement_type"
     t.string "name"
     t.text "description"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "aprs", force: :cascade do |t|
+    t.string "nombre"
+    t.string "rut"
+    t.string "cargo"
+    t.integer "año_ingreso"
+    t.string "otros"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -188,6 +198,8 @@ ActiveRecord::Schema.define(version: 2021_07_14_225854) do
     t.text "comentarios"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "apr_id", null: false
+    t.index ["apr_id"], name: "index_inspections_on_apr_id"
     t.index ["area_id"], name: "index_inspections_on_area_id"
     t.index ["plant_id"], name: "index_inspections_on_plant_id"
     t.index ["supervisor_id"], name: "index_inspections_on_supervisor_id"
@@ -334,6 +346,7 @@ ActiveRecord::Schema.define(version: 2021_07_14_225854) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "canchas", "mmpps"
+  add_foreign_key "inspections", "aprs"
   add_foreign_key "inspections", "areas"
   add_foreign_key "inspections", "plants"
   add_foreign_key "inspections", "supervisors"

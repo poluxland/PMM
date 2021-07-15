@@ -1,0 +1,2 @@
+class Apr < ApplicationRecord
+end

@@ -64,6 +64,6 @@ class InspectionsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def inspection_params
-      params.require(:inspection).permit(:plant_id, :area_id, :tarea_id, :supervisor_id, :trabajadores, :ast, :pts, :epp, :subsitio, :cumplimiento, :comentarios)
+      params.require(:inspection).permit(:plant_id, :area_id, :tarea_id, :supervisor_id, :trabajadores, :ast, :pts, :epp, :subsitio, :cumplimiento, :comentarios, :apr_id)
     end
 end

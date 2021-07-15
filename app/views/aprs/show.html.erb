@@ -1,0 +1,27 @@
+<div class="page-header">
+  <%= link_to aprs_path, class: 'btn btn-default' do %>
+    All Aprs
+  <% end %>
+  <%= link_to edit_apr_path(@apr), class: 'btn btn-primary' do %>
+    Edit
+  <% end %>
+  <h1>Show apr</h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt>Nombre:</dt>
+  <dd><%= @apr.nombre %></dd>
+
+  <dt>Rut:</dt>
+  <dd><%= @apr.rut %></dd>
+
+  <dt>Cargo:</dt>
+  <dd><%= @apr.cargo %></dd>
+
+  <dt>Año ingreso:</dt>
+  <dd><%= @apr.año_ingreso %></dd>
+
+  <dt>Otros:</dt>
+  <dd><%= @apr.otros %></dd>
+
+</dl>

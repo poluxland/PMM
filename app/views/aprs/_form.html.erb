@@ -1,0 +1,54 @@
+<%= form_with(model: apr, local: true) do |form| %>
+  <% if apr.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(apr.errors.count, "error") %> prohibited this apr from being saved:</h2>
+
+      <ul>
+      <% apr.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= form.label :nombre %>
+    <%= form.text_field :nombre, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :rut %>
+    <%= form.text_field :rut, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :cargo %>
+    <%= form.text_field :cargo, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :año_ingreso %>
+    <%= form.number_field :año_ingreso, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :otros %>
+    <%= form.text_field :otros, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <% if apr.persisted? %>
+      <div class="float-right">
+        <%= link_to 'Destroy', apr, method: :delete, class: "text-danger", data: { confirm: 'Esta seguro?' } %>
+      </div>
+    <% end %>
+
+    <%= form.submit class: 'btn btn-primary' %>
+
+    <% if apr.persisted? %>
+      <%= link_to "Cancel", apr, class: "btn btn-link" %>
+    <% else %>
+      <%= link_to "Cancel", aprs_path, class: "btn btn-link" %>
+    <% end %>
+  </div>
+<% end %>
