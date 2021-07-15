@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :aprs
   resources :plants
   resources :inspections
+  get 'full', to: 'inspections#full'
   resources :supervisors
   resources :tareas
   resources :areas
