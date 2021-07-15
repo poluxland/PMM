@@ -1,0 +1,47 @@
+
+
+
+<div class="row">
+  <div class="col-sm-6">
+    <h1>Plants</h1>
+  </div>
+
+  <div class="col-sm-6 text-right">
+  <%= link_to new_plant_path, class: 'btn btn-primary' do %>
+    Add New Plant
+  <% end %>
+  </div>
+</div>
+
+<div class="table-responsive">
+  <table class="table table-striped table-bordered table-hover">
+    <thead>
+      <tr>
+    
+
+            <th>Descripcion</th>
+            <th>Personal</th>
+            <th>Otros</th>
+            
+          <th></th>
+        
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @plants.each do |plant| %>
+        <%= content_tag :tr, id: dom_id(plant), class: dom_class(plant) do %>
+          
+
+                      <td><%= plant.descripcion %></td>
+                      <td><%= plant.personal %></td>
+                      <td><%= plant.otros %></td>
+          
+          
+            <td><%= link_to 'Show', plant %></td>
+          
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
+</div>

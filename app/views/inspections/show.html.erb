@@ -1,0 +1,45 @@
+<div class="page-header">
+  <%= link_to inspections_path, class: 'btn btn-default' do %>
+    All Inspections
+  <% end %>
+  <%= link_to edit_inspection_path(@inspection), class: 'btn btn-primary' do %>
+    Edit
+  <% end %>
+  <h1>Show inspection</h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt>Planta:</dt>
+  <dd><%= @inspection.plant.descripcion %></dd>
+
+  <dt>Area:</dt>
+  <dd><%= @inspection.area.descripcion %></dd>
+
+  <dt>Tarea:</dt>
+  <dd><%= @inspection.tarea.descripcion %></dd>
+
+  <dt>Supervisor:</dt>
+  <dd><%= @inspection.supervisor.nombre %></dd>
+
+  <dt>Trabajadores:</dt>
+  <dd><%= @inspection.trabajadores %></dd>
+
+  <dt>Ast:</dt>
+  <dd><%= @inspection.ast ? 'Si' : 'No'%></dd>
+
+  <dt>Pts:</dt>
+  <dd><%= @inspection.pts ? 'Si' : 'No' %></dd>
+
+  <dt>Epp:</dt>
+  <dd><%= @inspection.epp ? 'Si' : 'No' %></dd>
+
+  <dt>Subsitio:</dt>
+  <dd><%= @inspection.subsitio ? 'Si' : 'No' %></dd>
+
+  <dt>Cumplimiento:</dt>
+  <dd><%= @inspection.cumplimiento %></dd>
+
+  <dt>Comentarios:</dt>
+  <dd><%= @inspection.comentarios %></dd>
+
+</dl>

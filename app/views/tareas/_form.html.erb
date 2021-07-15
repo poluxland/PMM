@@ -1,0 +1,44 @@
+<%= form_with(model: tarea, local: true) do |form| %>
+  <% if tarea.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(tarea.errors.count, "error") %> prohibited this tarea from being saved:</h2>
+
+      <ul>
+      <% tarea.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= form.label :descripcion %>
+    <%= form.text_field :descripcion, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :criticidad %>
+    <%= form.number_field :criticidad, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :otros %>
+    <%= form.text_field :otros, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <% if tarea.persisted? %>
+      <div class="float-right">
+        <%= link_to 'Destroy', tarea, method: :delete, class: "text-danger", data: { confirm: 'Esta seguro?' } %>
+      </div>
+    <% end %>
+
+    <%= form.submit class: 'btn btn-primary' %>
+
+    <% if tarea.persisted? %>
+      <%= link_to "Cancel", tarea, class: "btn btn-link" %>
+    <% else %>
+      <%= link_to "Cancel", tareas_path, class: "btn btn-link" %>
+    <% end %>
+  </div>
+<% end %>

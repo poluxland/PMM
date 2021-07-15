@@ -1,0 +1,21 @@
+<div class="page-header">
+  <%= link_to plants_path, class: 'btn btn-default' do %>
+    All Plants
+  <% end %>
+  <%= link_to edit_plant_path(@plant), class: 'btn btn-primary' do %>
+    Edit
+  <% end %>
+  <h1>Show plant</h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt>Descripcion:</dt>
+  <dd><%= @plant.descripcion %></dd>
+
+  <dt>Personal:</dt>
+  <dd><%= @plant.personal %></dd>
+
+  <dt>Otros:</dt>
+  <dd><%= @plant.otros %></dd>
+
+</dl>

@@ -1,0 +1,27 @@
+<div class="page-header">
+  <%= link_to supervisors_path, class: 'btn btn-default' do %>
+    All Supervisors
+  <% end %>
+  <%= link_to edit_supervisor_path(@supervisor), class: 'btn btn-primary' do %>
+    Edit
+  <% end %>
+  <h1>Show supervisor</h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt>Nombre:</dt>
+  <dd><%= @supervisor.nombre %></dd>
+
+  <dt>Rut:</dt>
+  <dd><%= @supervisor.rut %></dd>
+
+  <dt>Cargo:</dt>
+  <dd><%= @supervisor.cargo %></dd>
+
+  <dt>Año ingreso:</dt>
+  <dd><%= @supervisor.año_ingreso %></dd>
+
+  <dt>Otros:</dt>
+  <dd><%= @supervisor.otros %></dd>
+
+</dl>

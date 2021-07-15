@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_12_234258) do
+ActiveRecord::Schema.define(version: 2021_07_14_225854) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,6 +48,14 @@ ActiveRecord::Schema.define(version: 2021_07_12_234258) do
     t.string "announcement_type"
     t.string "name"
     t.text "description"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "areas", force: :cascade do |t|
+    t.string "descripcion"
+    t.integer "criticidad"
+    t.string "otros"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -166,6 +174,26 @@ ActiveRecord::Schema.define(version: 2021_07_12_234258) do
     t.index ["sluggable_type", "sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_type_and_sluggable_id"
   end
 
+  create_table "inspections", force: :cascade do |t|
+    t.bigint "plant_id", null: false
+    t.bigint "area_id", null: false
+    t.bigint "tarea_id", null: false
+    t.bigint "supervisor_id", null: false
+    t.integer "trabajadores"
+    t.boolean "ast"
+    t.boolean "pts"
+    t.boolean "epp"
+    t.boolean "subsitio"
+    t.integer "cumplimiento"
+    t.text "comentarios"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["area_id"], name: "index_inspections_on_area_id"
+    t.index ["plant_id"], name: "index_inspections_on_plant_id"
+    t.index ["supervisor_id"], name: "index_inspections_on_supervisor_id"
+    t.index ["tarea_id"], name: "index_inspections_on_tarea_id"
+  end
+
   create_table "lvs", force: :cascade do |t|
     t.string "proceso"
     t.string "obervado"
@@ -193,6 +221,14 @@ ActiveRecord::Schema.define(version: 2021_07_12_234258) do
     t.string "action"
     t.bigint "notifiable_id"
     t.string "notifiable_type"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "plants", force: :cascade do |t|
+    t.string "descripcion"
+    t.integer "personal"
+    t.string "otros"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -243,6 +279,24 @@ ActiveRecord::Schema.define(version: 2021_07_12_234258) do
     t.index ["user_id"], name: "index_services_on_user_id"
   end
 
+  create_table "supervisors", force: :cascade do |t|
+    t.string "nombre"
+    t.string "rut"
+    t.string "cargo"
+    t.integer "año_ingreso"
+    t.string "otros"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "tareas", force: :cascade do |t|
+    t.string "descripcion"
+    t.integer "criticidad"
+    t.string "otros"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "trucks", force: :cascade do |t|
     t.date "fecha"
     t.bigint "mmpp_id", null: false
@@ -280,6 +334,10 @@ ActiveRecord::Schema.define(version: 2021_07_12_234258) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "canchas", "mmpps"
+  add_foreign_key "inspections", "areas"
+  add_foreign_key "inspections", "plants"
+  add_foreign_key "inspections", "supervisors"
+  add_foreign_key "inspections", "tareas"
   add_foreign_key "registros", "canchas"
   add_foreign_key "services", "users"
   add_foreign_key "trucks", "mmpps"

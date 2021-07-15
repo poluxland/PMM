@@ -1,0 +1,27 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  plant: one
+  area: one
+  tarea: one
+  supervisor: one
+  trabajadores: 1
+  ast: false
+  pts: false
+  epp: false
+  subsitio: false
+  cumplimiento: 1
+  comentarios: MyText
+
+two:
+  plant: two
+  area: two
+  tarea: two
+  supervisor: two
+  trabajadores: 1
+  ast: false
+  pts: false
+  epp: false
+  subsitio: false
+  cumplimiento: 1
+  comentarios: MyText

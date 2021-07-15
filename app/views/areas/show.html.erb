@@ -1,0 +1,21 @@
+<div class="page-header">
+  <%= link_to areas_path, class: 'btn btn-default' do %>
+    All Areas
+  <% end %>
+  <%= link_to edit_area_path(@area), class: 'btn btn-primary' do %>
+    Edit
+  <% end %>
+  <h1>Show area</h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt>Descripcion:</dt>
+  <dd><%= @area.descripcion %></dd>
+
+  <dt>Criticidad:</dt>
+  <dd><%= @area.criticidad %></dd>
+
+  <dt>Otros:</dt>
+  <dd><%= @area.otros %></dd>
+
+</dl>

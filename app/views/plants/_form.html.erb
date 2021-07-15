@@ -1,0 +1,44 @@
+<%= form_with(model: plant, local: true) do |form| %>
+  <% if plant.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(plant.errors.count, "error") %> prohibited this plant from being saved:</h2>
+
+      <ul>
+      <% plant.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= form.label :descripcion %>
+    <%= form.text_field :descripcion, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :personal %>
+    <%= form.number_field :personal, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :otros %>
+    <%= form.text_field :otros, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <% if plant.persisted? %>
+      <div class="float-right">
+        <%= link_to 'Destroy', plant, method: :delete, class: "text-danger", data: { confirm: 'Esta seguro?' } %>
+      </div>
+    <% end %>
+
+    <%= form.submit class: 'btn btn-primary' %>
+
+    <% if plant.persisted? %>
+      <%= link_to "Cancel", plant, class: "btn btn-link" %>
+    <% else %>
+      <%= link_to "Cancel", plants_path, class: "btn btn-link" %>
+    <% end %>
+  </div>
+<% end %>
