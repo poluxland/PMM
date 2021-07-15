@@ -4,9 +4,9 @@ class InspectionsController < ApplicationController
   # GET /inspections or /inspections.json
   def index
     @inspections = Inspection.all
-    @lca = Inspection.where(created_at: Time.now.beginning_of_day..Time.now.end_of_day)
-    @vts = Inspection.where(created_at: Time.now.beginning_of_day..Time.now.end_of_day).where(plant: "Ventanas")
-    @ptm = Inspection.where(created_at: Time.now.beginning_of_day..Time.now.end_of_day).where(plant: "Puerto Montt")
+    @lca = Inspection.where(created_at: Time.now.beginning_of_day..Time.now.end_of_day).where(plant_id: 1)
+    @vts = Inspection.where(created_at: Time.now.beginning_of_day..Time.now.end_of_day).where(plant_id: 2)
+    @ptm = Inspection.where(created_at: Time.now.beginning_of_day..Time.now.end_of_day).where(plant_id: 3)
   end
   
   def full
