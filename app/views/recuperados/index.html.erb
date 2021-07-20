@@ -1,5 +1,21 @@
 
 
+<div class="row">
+  <div class="col-sm-6">
+    <%= column_chart Recuperado.group_by_day(:created_at).sum(:total), thousands: "." %>
+  </div>
+  <div class="col-sm-6">  
+    <%= line_chart Recuperado.group_by_day(:created_at).sum(:total), thousands: "." %>
+  </div>
+  
+  </div>
+
+  <br>
+
+
+
+
+
 
 <div class="row">
   <div class="col-sm-6">
