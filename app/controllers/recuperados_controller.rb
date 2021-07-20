@@ -64,6 +64,6 @@ class RecuperadosController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def recuperado_params
-      params.require(:recuperado).permit(:EM22, :Sepax, :Filtax, :Puzolana, :Yeso, :Silo_KKI, :cola_H9, :Aire_terciario, :Filtro_enfriadera, :EM21, :Aux_H9, :Skako, :Niagara, :CI08F01, :Coke, :Exterior_molinos_MP, :Cintas_MP, :comentarios)
+      params.require(:recuperado).permit(:EM22, :Sepax, :Filtax, :Puzolana, :Yeso, :Silo_KKI, :cola_H9, :Aire_terciario, :Filtro_enfriadera, :EM21, :Aux_H9, :Skako, :Niagara, :CI08F01, :Coke, :Exterior_molinos_MP, :Cintas_MP, :comentarios, :total)
     end
 end
