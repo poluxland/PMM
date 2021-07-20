@@ -7,6 +7,7 @@ class InspectionsController < ApplicationController
     @lca = Inspection.where(created_at: Time.now.beginning_of_day..Time.now.end_of_day).where(plant_id: 1)
     @vts = Inspection.where(created_at: Time.now.beginning_of_day..Time.now.end_of_day).where(plant_id: 2)
     @ptm = Inspection.where(created_at: Time.now.beginning_of_day..Time.now.end_of_day).where(plant_id: 3)
+    @registros = Inspection.where(created_at: Time.now.beginning_of_day..Time.now.end_of_day).where(plant_id: 1).count
   end
   
   def full

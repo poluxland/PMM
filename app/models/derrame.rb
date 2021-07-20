@@ -1,2 +1,8 @@
 class Derrame < ApplicationRecord
+
+    
+
+
+     
+
 end

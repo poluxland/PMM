@@ -17,8 +17,9 @@
   <table class="table table-striped table-bordered table-hover">
     <thead>
       <tr>
-    
+            
             <th>Fecha</th>
+            <th>Total</th>
             <th>Em22</th>
             <th>Sepax</th>
             <th>Filtax</th>
@@ -48,6 +49,7 @@
         <%= content_tag :tr, id: dom_id(recuperado), class: dom_class(recuperado) do %>
           
                       <td><%= recuperado.created_at.strftime("%m-%d") %></td>
+                      <td><%= recuperado.total %></td>
                       <td><%= recuperado.EM22 %></td>
                       <td><%= recuperado.Sepax %></td>
                       <td><%= recuperado.Filtax %></td>
