@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   resources :tareas
   resources :areas
   resources :recuperados
+  get 'historico', to: 'recuperados#historico'
   resources :estado_edificios
   resources :derrames
   resources :trucks

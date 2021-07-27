@@ -1,42 +1,12 @@
 
 
-<div class="row">
-  <div class="col-sm-6">
-    <%= column_chart [
-  {name: Recuperado.last.created_at.strftime("%d-%m-%Y"), data: @graph}, 
-  
-] %>
-  </div>
-  <div class="col-sm-6">  
-    <%= line_chart [
-      {data:Recuperado.group_by_day(:created_at).sum(:total), thousands: ".", name: 'Historico'},] 
-      
-      %>
-  </div>
-  
-  </div>
-
-  <br>
-
-
-
-
-
 
 <div class="row">
   <div class="col-sm-6">
     <h1>Derrames</h1>
   </div>
 
-  <div class="col-sm-6 text-right">
-  <%= link_to new_recuperado_path, class: 'btn btn-primary' do %>
-    Agregar registro
-  <% end %>
-  <%= link_to historico_path, class: 'btn btn-primary' do %>
-    Historico
-  <% end %>
-  </div>
-</div>
+ 
 
 <div class="table-responsive">
   <table class="table table-striped table-bordered table-hover">

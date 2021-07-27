@@ -3,8 +3,39 @@ class RecuperadosController < ApplicationController
 
   # GET /recuperados or /recuperados.json
   def index
+    @recuperados = Recuperado.last(1)
+    
+    @graph = 
+      {
+        
+        EM22:  Recuperado.last.EM22,
+        Sepax:  Recuperado.last.Sepax,
+        Filxtax: Recuperado.last.Filtax,
+        Puz: Recuperado.last.Puzolana,
+        Yeso: Recuperado.last.Yeso,
+        KKI: Recuperado.last.Silo_KKI,
+        H9: Recuperado.last.cola_H9,
+        AT: Recuperado.last.Aire_terciario,
+        FE: Recuperado.last.Filtro_enfriadera,
+        EM21: Recuperado.last.EM21,
+        AUXH9: Recuperado.last.Aux_H9,
+        Skako: Recuperado.last.Skako,
+        Niagara: Recuperado.last.Niagara,
+        CI08F01: Recuperado.last.CI08F01,
+        Coke:Recuperado.last.Coke,
+        MP: Recuperado.last.Exterior_molinos_MP,
+        Cintas_MP:Recuperado.last.Cintas_MP
+
+      }
+      
+    
+  end
+
+  def historico
     @recuperados = Recuperado.all
   end
+
+  
 
   # GET /recuperados/1 or /recuperados/1.json
   def show
