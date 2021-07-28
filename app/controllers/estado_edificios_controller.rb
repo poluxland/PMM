@@ -95,6 +95,6 @@ class EstadoEdificiosController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def estado_edificio_params
-      params.require(:estado_edificio).permit(:Em22, :Em21, :Kki, :Kkm, :Puzolana, :Yeso, :Trans_cemento, :Enfriadera, :Techo_ccm_h9, :Patio_M22, :Niagara, :EM17, :Bba_flux, :Area_202, :Basculas, :Em_18_19, :Taller_electrico, :CI01CK01, :Silos_superiores, :Secador, :comentarios)
+      params.require(:estado_edificio).permit(:Em22, :Em21, :Kki, :Kkm, :Puzolana, :Yeso, :Trans_cemento, :Enfriadera, :Techo_ccm_h9, :Patio_M22, :Niagara, :EM17, :Bba_flux, :Area_202, :Basculas, :Em_18_19, :Taller_electrico, :CI01CK01, :Silos_superiores, :Secador, :comentarios, :total)
     end
 end
