@@ -3,7 +3,34 @@ class EstadoEdificiosController < ApplicationController
 
   # GET /estado_edificios or /estado_edificios.json
   def index
-    @estado_edificios = EstadoEdificio.all
+    @estado_edificios = EstadoEdificio.last(1)
+
+    @graph = 
+      {
+        
+        EM22: EstadoEdificio.last.Em22,
+        EM21: EstadoEdificio.last.Em21,
+        KKI: EstadoEdificio.last.Kki,
+        KKM: EstadoEdificio.last.Kkm,
+        Puz: EstadoEdificio.last.Puzolana,
+        Yeso: EstadoEdificio.last.Yeso,
+        Trans_cemento: EstadoEdificio.last.Trans_cemento,
+        Enfriadera: EstadoEdificio.last.Enfriadera,
+        Techo_ccm_h9: EstadoEdificio.last.Techo_ccm_h9,
+        Patio_M22: EstadoEdificio.last.Patio_M22,
+        Niagara: EstadoEdificio.last.Niagara,
+        EM17: EstadoEdificio.last.EM17,
+        Bba_flux: EstadoEdificio.last.Bba_flux,
+        Area_202: EstadoEdificio.last.Area_202,
+        Basculas: EstadoEdificio.last.Basculas,
+        Estado_edificio: EstadoEdificio.last.Em_18_19,
+        Taller_electrico: EstadoEdificio.last.Taller_electrico
+
+      }
+
+
+
+
   end
 
   # GET /estado_edificios/1 or /estado_edificios/1.json

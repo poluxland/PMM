@@ -1,5 +1,21 @@
 
+<div class="row">
+  <div class="col-sm-6">
+    <%= column_chart [
+  {name: EstadoEdificio.last.created_at.strftime("%d-%m-%Y"), data: @graph}, 
+  
+] %>
+  </div>
+  <div class="col-sm-6">  
+    <%= line_chart [
+      {data:EstadoEdificio.group_by_day(:created_at).sum(:Em22), thousands: ".", name: 'Historico'},] 
+      
+      %>
+  </div>
+  
+  </div>
 
+  <br>
 
 <div class="row">
   <div class="col-sm-6">
