@@ -33,6 +33,10 @@ class EstadoEdificiosController < ApplicationController
 
   end
 
+  def ed
+    @estado_edificios = EstadoEdificio.all
+  end
+
   # GET /estado_edificios/1 or /estado_edificios/1.json
   def show
   end

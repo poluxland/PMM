@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   resources :recuperados
   get 'historico', to: 'recuperados#historico'
   resources :estado_edificios
+  get 'ed', to: 'estado_edificios#ed'
   resources :derrames
   resources :trucks
   get 'blank', to: 'trucks#blank'
