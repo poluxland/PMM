@@ -1,0 +1,33 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  llenado_bb: 1
+  bodega_bb: 1
+  costado: 1
+  silo_28: 1
+  bba_fuller: 1
+  exterior_bodega: 1
+  carga_ventomatic: 1
+  calle_servicio: 1
+  edificio_ventomatic: 1
+  edificio_haver: 1
+  palletizador_haver: 1
+  recuperado_bb: 1
+  sector_escombros: 1
+  comentarios: MyText
+
+two:
+  llenado_bb: 1
+  bodega_bb: 1
+  costado: 1
+  silo_28: 1
+  bba_fuller: 1
+  exterior_bodega: 1
+  carga_ventomatic: 1
+  calle_servicio: 1
+  edificio_ventomatic: 1
+  edificio_haver: 1
+  palletizador_haver: 1
+  recuperado_bb: 1
+  sector_escombros: 1
+  comentarios: MyText

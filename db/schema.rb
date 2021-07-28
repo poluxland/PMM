@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_20_210943) do
+ActiveRecord::Schema.define(version: 2021_07_28_211138) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -147,6 +147,25 @@ ActiveRecord::Schema.define(version: 2021_07_20_210943) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "envasadoras", force: :cascade do |t|
+    t.integer "llenado_bb"
+    t.integer "bodega_bb"
+    t.integer "costado"
+    t.integer "silo_28"
+    t.integer "bba_fuller"
+    t.integer "exterior_bodega"
+    t.integer "carga_ventomatic"
+    t.integer "calle_servicio"
+    t.integer "edificio_ventomatic"
+    t.integer "edificio_haver"
+    t.integer "palletizador_haver"
+    t.integer "recuperado_bb"
+    t.integer "sector_escombros"
+    t.text "comentarios"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "estado_edificios", force: :cascade do |t|
     t.integer "Em22"
     t.integer "Em21"
@@ -241,6 +260,31 @@ ActiveRecord::Schema.define(version: 2021_07_20_210943) do
     t.string "descripcion"
     t.integer "personal"
     t.string "otros"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "puzolanas", force: :cascade do |t|
+    t.string "C403BC02_tensado_cinta"
+    t.string "C403BC02_alineamiento"
+    t.string "C403BC02_Polines"
+    t.string "C403BC02_fugas"
+    t.string "C403BC03_tensado_cinta"
+    t.string "C403BC03_alineamiento"
+    t.string "C403BC03_Polines"
+    t.string "C403BC03_fugas"
+    t.string "C403BC04_tensado_cinta"
+    t.string "C403BC04_alineamiento"
+    t.string "C403BC04_Polines"
+    t.string "C403BC04_fugas"
+    t.string "C403BC05_tensado_cinta"
+    t.string "C403BC05_alineamiento"
+    t.string "C403BC05_Polines"
+    t.string "C403BC05_fugas"
+    t.string "C403BC06_tensado_cinta"
+    t.string "C403BC06_alineamiento"
+    t.string "C403BC06_polines"
+    t.string "C403BC06_fugas"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

@@ -3,6 +3,8 @@
 require 'sidekiq/web'
 
 Rails.application.routes.draw do
+  resources :puzolanas
+  resources :envasadoras
   resources :aprs
   resources :plants
   resources :inspections

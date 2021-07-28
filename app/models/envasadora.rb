@@ -1,0 +1,2 @@
+class Envasadora < ApplicationRecord
+end

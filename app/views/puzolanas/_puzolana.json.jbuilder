@@ -1,0 +1,2 @@
+json.extract! puzolana, :id, :C403BC02_tensado_cinta, :C403BC02_alineamiento, :C403BC02_Polines, :C403BC02_fugas, :C403BC03_tensado_cinta, :C403BC03_alineamiento, :C403BC03_Polines, :C403BC03_fugas, :C403BC04_tensado_cinta, :C403BC04_alineamiento, :C403BC04_Polines, :C403BC04_fugas, :C403BC05_tensado_cinta, :C403BC05_alineamiento, :C403BC05_Polines, :C403BC05_fugas, :C403BC06_tensado_cinta, :C403BC06_alineamiento, :C403BC06_polines, :C403BC06_fugas, :created_at, :updated_at
+json.url puzolana_url(puzolana, format: :json)

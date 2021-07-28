@@ -1,0 +1,129 @@
+<%= form_with(model: puzolana, local: true) do |form| %>
+  <% if puzolana.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(puzolana.errors.count, "error") %> prohibited this puzolana from being saved:</h2>
+
+      <ul>
+      <% puzolana.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= form.label :C403BC02_tensado_cinta %>
+    <%= form.text_field :C403BC02_tensado_cinta, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :C403BC02_alineamiento %>
+    <%= form.text_field :C403BC02_alineamiento, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :C403BC02_Polines %>
+    <%= form.text_field :C403BC02_Polines, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :C403BC02_fugas %>
+    <%= form.text_field :C403BC02_fugas, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :C403BC03_tensado_cinta %>
+    <%= form.text_field :C403BC03_tensado_cinta, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :C403BC03_alineamiento %>
+    <%= form.text_field :C403BC03_alineamiento, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :C403BC03_Polines %>
+    <%= form.text_field :C403BC03_Polines, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :C403BC03_fugas %>
+    <%= form.text_field :C403BC03_fugas, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :C403BC04_tensado_cinta %>
+    <%= form.text_field :C403BC04_tensado_cinta, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :C403BC04_alineamiento %>
+    <%= form.text_field :C403BC04_alineamiento, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :C403BC04_Polines %>
+    <%= form.text_field :C403BC04_Polines, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :C403BC04_fugas %>
+    <%= form.text_field :C403BC04_fugas, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :C403BC05_tensado_cinta %>
+    <%= form.text_field :C403BC05_tensado_cinta, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :C403BC05_alineamiento %>
+    <%= form.text_field :C403BC05_alineamiento, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :C403BC05_Polines %>
+    <%= form.text_field :C403BC05_Polines, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :C403BC05_fugas %>
+    <%= form.text_field :C403BC05_fugas, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :C403BC06_tensado_cinta %>
+    <%= form.text_field :C403BC06_tensado_cinta, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :C403BC06_alineamiento %>
+    <%= form.text_field :C403BC06_alineamiento, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :C403BC06_polines %>
+    <%= form.text_field :C403BC06_polines, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :C403BC06_fugas %>
+    <%= form.text_field :C403BC06_fugas, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <% if puzolana.persisted? %>
+      <div class="float-right">
+        <%= link_to 'Destroy', puzolana, method: :delete, class: "text-danger", data: { confirm: 'Esta seguro?' } %>
+      </div>
+    <% end %>
+
+    <%= form.submit class: 'btn btn-primary' %>
+
+    <% if puzolana.persisted? %>
+      <%= link_to "Cancel", puzolana, class: "btn btn-link" %>
+    <% else %>
+      <%= link_to "Cancel", puzolanas_path, class: "btn btn-link" %>
+    <% end %>
+  </div>
+<% end %>

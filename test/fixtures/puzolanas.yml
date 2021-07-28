@@ -1,0 +1,45 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  C403BC02_tensado_cinta: MyString
+  C403BC02_alineamiento: MyString
+  C403BC02_Polines: MyString
+  C403BC02_fugas: MyString
+  C403BC03_tensado_cinta: MyString
+  C403BC03_alineamiento: MyString
+  C403BC03_Polines: MyString
+  C403BC03_fugas: MyString
+  C403BC04_tensado_cinta: MyString
+  C403BC04_alineamiento: MyString
+  C403BC04_Polines: MyString
+  C403BC04_fugas: MyString
+  C403BC05_tensado_cinta: MyString
+  C403BC05_alineamiento: MyString
+  C403BC05_Polines: MyString
+  C403BC05_fugas: MyString
+  C403BC06_tensado_cinta: MyString
+  C403BC06_alineamiento: MyString
+  C403BC06_polines: MyString
+  C403BC06_fugas: MyString
+
+two:
+  C403BC02_tensado_cinta: MyString
+  C403BC02_alineamiento: MyString
+  C403BC02_Polines: MyString
+  C403BC02_fugas: MyString
+  C403BC03_tensado_cinta: MyString
+  C403BC03_alineamiento: MyString
+  C403BC03_Polines: MyString
+  C403BC03_fugas: MyString
+  C403BC04_tensado_cinta: MyString
+  C403BC04_alineamiento: MyString
+  C403BC04_Polines: MyString
+  C403BC04_fugas: MyString
+  C403BC05_tensado_cinta: MyString
+  C403BC05_alineamiento: MyString
+  C403BC05_Polines: MyString
+  C403BC05_fugas: MyString
+  C403BC06_tensado_cinta: MyString
+  C403BC06_alineamiento: MyString
+  C403BC06_polines: MyString
+  C403BC06_fugas: MyString

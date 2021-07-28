@@ -1,0 +1,99 @@
+<%= form_with(model: envasadora, local: true) do |form| %>
+  <% if envasadora.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(envasadora.errors.count, "error") %> prohibited this envasadora from being saved:</h2>
+
+      <ul>
+      <% envasadora.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= form.label :llenado_bb %>
+    <%= form.number_field :llenado_bb, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :bodega_bb %>
+    <%= form.number_field :bodega_bb, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :costado %>
+    <%= form.number_field :costado, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :silo_28 %>
+    <%= form.number_field :silo_28, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :bba_fuller %>
+    <%= form.number_field :bba_fuller, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :exterior_bodega %>
+    <%= form.number_field :exterior_bodega, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :carga_ventomatic %>
+    <%= form.number_field :carga_ventomatic, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :calle_servicio %>
+    <%= form.number_field :calle_servicio, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :edificio_ventomatic %>
+    <%= form.number_field :edificio_ventomatic, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :edificio_haver %>
+    <%= form.number_field :edificio_haver, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :palletizador_haver %>
+    <%= form.number_field :palletizador_haver, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :recuperado_bb %>
+    <%= form.number_field :recuperado_bb, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :sector_escombros %>
+    <%= form.number_field :sector_escombros, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :comentarios %>
+    <%= form.text_area :comentarios, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <% if envasadora.persisted? %>
+      <div class="float-right">
+        <%= link_to 'Destroy', envasadora, method: :delete, class: "text-danger", data: { confirm: 'Esta seguro?' } %>
+      </div>
+    <% end %>
+
+    <%= form.submit class: 'btn btn-primary' %>
+
+    <% if envasadora.persisted? %>
+      <%= link_to "Cancel", envasadora, class: "btn btn-link" %>
+    <% else %>
+      <%= link_to "Cancel", envasadoras_path, class: "btn btn-link" %>
+    <% end %>
+  </div>
+<% end %>

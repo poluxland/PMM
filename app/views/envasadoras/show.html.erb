@@ -1,0 +1,54 @@
+<div class="page-header">
+  <%= link_to envasadoras_path, class: 'btn btn-default' do %>
+    All Envasadoras
+  <% end %>
+  <%= link_to edit_envasadora_path(@envasadora), class: 'btn btn-primary' do %>
+    Edit
+  <% end %>
+  <h1>Show envasadora</h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt>Llenado bb:</dt>
+  <dd><%= @envasadora.llenado_bb %></dd>
+
+  <dt>Bodega bb:</dt>
+  <dd><%= @envasadora.bodega_bb %></dd>
+
+  <dt>Costado:</dt>
+  <dd><%= @envasadora.costado %></dd>
+
+  <dt>Silo 28:</dt>
+  <dd><%= @envasadora.silo_28 %></dd>
+
+  <dt>Bba fuller:</dt>
+  <dd><%= @envasadora.bba_fuller %></dd>
+
+  <dt>Exterior bodega:</dt>
+  <dd><%= @envasadora.exterior_bodega %></dd>
+
+  <dt>Carga ventomatic:</dt>
+  <dd><%= @envasadora.carga_ventomatic %></dd>
+
+  <dt>Calle servicio:</dt>
+  <dd><%= @envasadora.calle_servicio %></dd>
+
+  <dt>Edificio ventomatic:</dt>
+  <dd><%= @envasadora.edificio_ventomatic %></dd>
+
+  <dt>Edificio haver:</dt>
+  <dd><%= @envasadora.edificio_haver %></dd>
+
+  <dt>Palletizador haver:</dt>
+  <dd><%= @envasadora.palletizador_haver %></dd>
+
+  <dt>Recuperado bb:</dt>
+  <dd><%= @envasadora.recuperado_bb %></dd>
+
+  <dt>Sector escombros:</dt>
+  <dd><%= @envasadora.sector_escombros %></dd>
+
+  <dt>Comentarios:</dt>
+  <dd><%= @envasadora.comentarios %></dd>
+
+</dl>

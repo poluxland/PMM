@@ -1,0 +1,2 @@
+class Puzolana < ApplicationRecord
+end

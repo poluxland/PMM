@@ -1,0 +1,69 @@
+
+
+
+<div class="row">
+  <div class="col-sm-6">
+    <h1>Envasadoras</h1>
+  </div>
+
+  <div class="col-sm-6 text-right">
+  <%= link_to new_envasadora_path, class: 'btn btn-primary' do %>
+    Add New Envasadora
+  <% end %>
+  </div>
+</div>
+
+<div class="table-responsive">
+  <table class="table table-striped table-bordered table-hover">
+    <thead>
+      <tr>
+    
+
+            <th>Llenado bb</th>
+            <th>Bodega bb</th>
+            <th>Costado</th>
+            <th>Silo 28</th>
+            <th>Bba fuller</th>
+            <th>Exterior bodega</th>
+            <th>Carga ventomatic</th>
+            <th>Calle servicio</th>
+            <th>Edificio ventomatic</th>
+            <th>Edificio haver</th>
+            <th>Palletizador haver</th>
+            <th>Recuperado bb</th>
+            <th>Sector escombros</th>
+            <th>Comentarios</th>
+            
+          <th></th>
+        
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @envasadoras.each do |envasadora| %>
+        <%= content_tag :tr, id: dom_id(envasadora), class: dom_class(envasadora) do %>
+          
+
+                      <td><%= envasadora.llenado_bb %></td>
+                      <td><%= envasadora.bodega_bb %></td>
+                      <td><%= envasadora.costado %></td>
+                      <td><%= envasadora.silo_28 %></td>
+                      <td><%= envasadora.bba_fuller %></td>
+                      <td><%= envasadora.exterior_bodega %></td>
+                      <td><%= envasadora.carga_ventomatic %></td>
+                      <td><%= envasadora.calle_servicio %></td>
+                      <td><%= envasadora.edificio_ventomatic %></td>
+                      <td><%= envasadora.edificio_haver %></td>
+                      <td><%= envasadora.palletizador_haver %></td>
+                      <td><%= envasadora.recuperado_bb %></td>
+                      <td><%= envasadora.sector_escombros %></td>
+                      <td><%= envasadora.comentarios %></td>
+          
+          
+            <td><%= link_to 'Show', envasadora %></td>
+          
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
+</div>
