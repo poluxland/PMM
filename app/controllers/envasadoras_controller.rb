@@ -4,7 +4,32 @@ class EnvasadorasController < ApplicationController
   # GET /envasadoras or /envasadoras.json
   def index
     @envasadoras = Envasadora.all
-  end
+
+    @graph = 
+    {
+      
+      BB:  Envasadora.last.llenado_bb,
+      Bodega_BB:  Envasadora.last.bodega_bb,
+      Costado: Envasadora.last.costado,
+      Silo_28: Envasadora.last.silo_28,
+      Fuller: Envasadora.last.bba_fuller,
+      Exterior: Envasadora.last.exterior_bodega,
+      Ventomatic: Envasadora.last.carga_ventomatic,
+      Calle_servicio: Envasadora.last.calle_servicio,
+      Ed_Ventomatic: Envasadora.last.edificio_ventomatic,
+      Ed_Haver: Envasadora.last.edificio_haver,
+      Pal_Haver: Envasadora.last.palletizador_haver,
+      Recuperado: Envasadora.last.recuperado_bb,
+      Escombros: Envasadora.last.sector_escombros
+
+    }
+    
+  
+end
+
+def historico
+  @recuperados = Envasadora.all
+end
 
   # GET /envasadoras/1 or /envasadoras/1.json
   def show

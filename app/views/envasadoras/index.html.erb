@@ -1,14 +1,31 @@
+<div class="row">
+  <div class="col-sm-6">
+    <%= column_chart [
+  {name: Envasadora.last.created_at.strftime("%d-%m-%Y"), data: @graph}, 
+  
+] %>
+  </div>
+  <div class="col-sm-6">  
+    <%= line_chart [
+      {data:Envasadora.group_by_day(:created_at).sum(:llenado_bb), thousands: ".", name: 'Historico'},] 
+      
+      %>
+  </div>
+  
+  </div>
+
+  <br>
 
 
 
 <div class="row">
   <div class="col-sm-6">
-    <h1>Envasadoras</h1>
+    <h1>Envasadora</h1>
   </div>
 
   <div class="col-sm-6 text-right">
   <%= link_to new_envasadora_path, class: 'btn btn-primary' do %>
-    Add New Envasadora
+    Agregar estado
   <% end %>
   </div>
 </div>
@@ -18,7 +35,7 @@
     <thead>
       <tr>
     
-
+            <th>Fecha</th>
             <th>Llenado bb</th>
             <th>Bodega bb</th>
             <th>Costado</th>
@@ -32,6 +49,7 @@
             <th>Palletizador haver</th>
             <th>Recuperado bb</th>
             <th>Sector escombros</th>
+            <th>Promedio</th>
             <th>Comentarios</th>
             
           <th></th>
@@ -43,7 +61,7 @@
       <% @envasadoras.each do |envasadora| %>
         <%= content_tag :tr, id: dom_id(envasadora), class: dom_class(envasadora) do %>
           
-
+                      <td><%= envasadora.created_at.strftime("%m-%d")  %></td>
                       <td><%= envasadora.llenado_bb %></td>
                       <td><%= envasadora.bodega_bb %></td>
                       <td><%= envasadora.costado %></td>
@@ -57,10 +75,11 @@
                       <td><%= envasadora.palletizador_haver %></td>
                       <td><%= envasadora.recuperado_bb %></td>
                       <td><%= envasadora.sector_escombros %></td>
+                      <td><%= envasadora.total %></td>
                       <td><%= envasadora.comentarios %></td>
           
           
-            <td><%= link_to 'Show', envasadora %></td>
+            <td><%= link_to 'Ver', envasadora %></td>
           
         <% end %>
       <% end %>
