@@ -1,20 +1,4 @@
-<div class="row">
-  <div class="col-sm-6">
-    <%= column_chart [
-  {name: Envasadora.last.created_at.strftime("%d-%m-%Y"), data: @graph}, 
-  
-] %>
-  </div>
-  <div class="col-sm-6">  
-    <%= line_chart [
-      {data:Envasadora.group_by_day(:created_at).sum(:total), thousands: ".", name: 'Historico'},] 
-      
-      %>
-  </div>
-  
-  </div>
 
-  <br>
 
 
 
@@ -27,9 +11,7 @@
   <%= link_to new_envasadora_path, class: 'btn btn-primary' do %>
     Agregar estado
   <% end %>
-  <%= link_to henv_path, class: 'btn btn-primary' do %>
-    Historico
-  <% end %>
+  
   </div>
   
 </div>

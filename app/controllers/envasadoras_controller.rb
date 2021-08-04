@@ -27,8 +27,8 @@ class EnvasadorasController < ApplicationController
   
 end
 
-def historico
-  @recuperados = Envasadora.all
+def henv
+  @envasadoras = Envasadora.all
 end
 
   # GET /envasadoras/1 or /envasadoras/1.json
