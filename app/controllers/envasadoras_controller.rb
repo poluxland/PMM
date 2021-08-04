@@ -3,7 +3,7 @@ class EnvasadorasController < ApplicationController
 
   # GET /envasadoras or /envasadoras.json
   def index
-    @envasadoras = Envasadora.all
+    @envasadoras = Envasadora.last(1)
 
     @graph = 
     {
