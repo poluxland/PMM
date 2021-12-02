@@ -1,22 +1,137 @@
 
 
 <div class="row">
-  <div class="col-sm-6">
-    <%= column_chart [
-  {name: Recuperado.last.created_at.strftime("%d-%m-%Y"), data: @graph}, 
-  
-] %>
+  <div class="col-sm-4">
+    <%= column_chart [{name: Recuperado.last.created_at.strftime("%d-%m-%Y"), data: @graph}, ] %>
   </div>
-  <div class="col-sm-6">  
-    <%= line_chart [
-      {data:Recuperado.group_by_day(:created_at).sum(:total), thousands: ".", name: 'Historico'},] 
+  
+<div class="col-sm-4">
+    <table class="table table-striped table-hover table-sm table-condensed h6">
+  <thead>
+    <tr>
+      <th>Lugar</th>
+      <th>Acum. mes</th>
+      <th>Prom. mes</th>
       
-      %>
-  </div>
-  
-  </div>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>EM22</th>
+      <td><%= Recuperado.where(created_at: (Date.today.beginning_of_month..Date.today.end_of_month)).sum(:EM22) %></td>
+      <td><%= Recuperado.where(created_at: (Date.today.beginning_of_month..Date.today.end_of_month)).average(:EM22) %></td>
+      
+    </tr>
+    <tr>
+      <th>Sepax</th>
+      <td><%= Recuperado.where(created_at: (Date.today.beginning_of_month..Date.today.end_of_month)).sum(:Sepax) %></td>
+      <td><%= Recuperado.where(created_at: (Date.today.beginning_of_month..Date.today.end_of_month)).average(:Sepax) %></td>
+      
+    </tr>
+   <tr>
+      <th>Filtax</th>
+      <td><%= Recuperado.where(created_at: (Date.today.beginning_of_month..Date.today.end_of_month)).sum(:Filtax) %></td>
+      <td><%= Recuperado.where(created_at: (Date.today.beginning_of_month..Date.today.end_of_month)).average(:Filtax) %></td>
+      
+    </tr>
+    <tr>
+      <th>Puzolana</th>
+      <td><%= Recuperado.where(created_at: (Date.today.beginning_of_month..Date.today.end_of_month)).sum(:Puzolana) %></td>
+      <td><%= Recuperado.where(created_at: (Date.today.beginning_of_month..Date.today.end_of_month)).average(:Puzolana) %></td>
+      
+    </tr>
+    <tr>
+      <th>Yeso</th>
+      <td><%= Recuperado.where(created_at: (Date.today.beginning_of_month..Date.today.end_of_month)).sum(:Yeso) %></td>
+      <td><%= Recuperado.where(created_at: (Date.today.beginning_of_month..Date.today.end_of_month)).average(:Yeso) %></td>
+      
+    </tr>
+    <tr>
+      <th>Silo KKI</th>
+      <td><%= Recuperado.where(created_at: (Date.today.beginning_of_month..Date.today.end_of_month)).sum(:Silo_KKI) %></td>
+      <td><%= Recuperado.where(created_at: (Date.today.beginning_of_month..Date.today.end_of_month)).average(:Silo_KKI) %></td>
+      
+    </tr>
+    <tr>
+      <th>Cola H9</th>
+      <td><%= Recuperado.where(created_at: (Date.today.beginning_of_month..Date.today.end_of_month)).sum(:cola_H9) %></td>
+      <td><%= Recuperado.where(created_at: (Date.today.beginning_of_month..Date.today.end_of_month)).average(:cola_H9) %></td>
+      
+    </tr>
+    <tr>
+      <th>A.terciario</th>
+      <td><%= Recuperado.where(created_at: (Date.today.beginning_of_month..Date.today.end_of_month)).sum(:Aire_terciario) %></td>
+      <td><%= Recuperado.where(created_at: (Date.today.beginning_of_month..Date.today.end_of_month)).average(:Aire_terciario) %></td>
+      
+    </tr>
+    <tr>
+      <th>F.Enfriadera</th>
+      <td><%= Recuperado.where(created_at: (Date.today.beginning_of_month..Date.today.end_of_month)).sum(:Filtro_enfriadera) %></td>
+      <td><%= Recuperado.where(created_at: (Date.today.beginning_of_month..Date.today.end_of_month)).average(:Filtro_enfriadera) %></td>
+      
+    </tr>
+    <tr>
+      <th>EM21</th>
+      <td><%= Recuperado.where(created_at: (Date.today.beginning_of_month..Date.today.end_of_month)).sum(:EM21) %></td>
+      <td><%= Recuperado.where(created_at: (Date.today.beginning_of_month..Date.today.end_of_month)).average(:EM21) %></td>
+      
+    </tr>
+    <tr>
+      <th>Aux_H9</th>
+      <td><%= Recuperado.where(created_at: (Date.today.beginning_of_month..Date.today.end_of_month)).sum(:Aux_H9) %></td>
+      <td><%= Recuperado.where(created_at: (Date.today.beginning_of_month..Date.today.end_of_month)).average(:Aux_H9) %></td>
+      
+    </tr>
+    <tr>
+      <th>Niagara</th>
+      <td><%= Recuperado.where(created_at: (Date.today.beginning_of_month..Date.today.end_of_month)).sum(:Niagara) %></td>
+      <td><%= Recuperado.where(created_at: (Date.today.beginning_of_month..Date.today.end_of_month)).average(:Niagara) %></td>
+      
+    </tr>
+    <tr>
+      <th>CI08F01</th>
+      <td><%= Recuperado.where(created_at: (Date.today.beginning_of_month..Date.today.end_of_month)).sum(:CI08F01) %></td>
+      <td><%= Recuperado.where(created_at: (Date.today.beginning_of_month..Date.today.end_of_month)).average(:CI08F01) %></td>
+      
+    </tr>
+    <tr>
+      <th>Coke</th>
+      <td><%= Recuperado.where(created_at: (Date.today.beginning_of_month..Date.today.end_of_month)).sum(:Coke) %></td>
+      <td><%= Recuperado.where(created_at: (Date.today.beginning_of_month..Date.today.end_of_month)).average(:Coke) %></td>
+      
+    </tr>
+    <tr>
+      <th>Ext. MMP</th>
+      <td><%= Recuperado.where(created_at: (Date.today.beginning_of_month..Date.today.end_of_month)).sum(:Exterior_molinos_MP) %></td>
+      <td><%= Recuperado.where(created_at: (Date.today.beginning_of_month..Date.today.end_of_month)).average(:Exterior_molinos_MP) %></td>
+      
+    </tr>
+    <tr>
+      <th>Cintas MP</th>
+      <td><%= Recuperado.where(created_at: (Date.today.beginning_of_month..Date.today.end_of_month)).sum(:Cintas_MP) %></td>
+      <td><%= Recuperado.where(created_at: (Date.today.beginning_of_month..Date.today.end_of_month)).average(:Cintas_MP) %></td>
+      
+    </tr>
+    <tr>
+      <th>TOTAL</th>
+      <td><%= Recuperado.where(created_at: (Date.today.beginning_of_month..Date.today.end_of_month)).sum(:total) %></td>
+      <td><%= Recuperado.where(created_at: (Date.today.beginning_of_month..Date.today.end_of_month)).average(:total) %></td>
+      
+    </tr>
+    
 
-  <br>
+
+  </tbody>
+</table>
+
+  </div>
+  <div class="col-sm-4">  
+    <%= line_chart [{data:Recuperado.group_by_day(:created_at).sum(:total), thousands: ".", name: 'Historico'},] %>
+  </div>
+</div>
+
+
+<br>
 
 
 
@@ -37,6 +152,8 @@
   <% end %>
   </div>
 </div>
+
+
 
 <div class="table-responsive">
   <table class="table table-striped table-bordered table-hover">
@@ -102,3 +219,5 @@
     </tbody>
   </table>
 </div>
+
+
