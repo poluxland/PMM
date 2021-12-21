@@ -19,103 +19,103 @@
     <tr>
       <th>EM22</th>
       <td><%= Recuperado.where(created_at: (Date.today.beginning_of_month..Date.today.end_of_month)).sum(:EM22) %></td>
-      <td><%= Recuperado.where(created_at: (Date.today.beginning_of_month..Date.today.end_of_month)).average(:EM22) %></td>
+      <td><%= Recuperado.where(created_at: (Date.today.beginning_of_month..Date.today.end_of_month)).average(:EM22).to_i %></td>
       
     </tr>
     <tr>
       <th>Sepax</th>
       <td><%= Recuperado.where(created_at: (Date.today.beginning_of_month..Date.today.end_of_month)).sum(:Sepax) %></td>
-      <td><%= Recuperado.where(created_at: (Date.today.beginning_of_month..Date.today.end_of_month)).average(:Sepax) %></td>
+      <td><%= Recuperado.where(created_at: (Date.today.beginning_of_month..Date.today.end_of_month)).average(:Sepax).to_i %></td>
       
     </tr>
    <tr>
       <th>Filtax</th>
       <td><%= Recuperado.where(created_at: (Date.today.beginning_of_month..Date.today.end_of_month)).sum(:Filtax) %></td>
-      <td><%= Recuperado.where(created_at: (Date.today.beginning_of_month..Date.today.end_of_month)).average(:Filtax) %></td>
+      <td><%= Recuperado.where(created_at: (Date.today.beginning_of_month..Date.today.end_of_month)).average(:Filtax).to_i %></td>
       
     </tr>
     <tr>
       <th>Puzolana</th>
       <td><%= Recuperado.where(created_at: (Date.today.beginning_of_month..Date.today.end_of_month)).sum(:Puzolana) %></td>
-      <td><%= Recuperado.where(created_at: (Date.today.beginning_of_month..Date.today.end_of_month)).average(:Puzolana) %></td>
+      <td><%= Recuperado.where(created_at: (Date.today.beginning_of_month..Date.today.end_of_month)).average(:Puzolana).to_i %></td>
       
     </tr>
     <tr>
       <th>Yeso</th>
       <td><%= Recuperado.where(created_at: (Date.today.beginning_of_month..Date.today.end_of_month)).sum(:Yeso) %></td>
-      <td><%= Recuperado.where(created_at: (Date.today.beginning_of_month..Date.today.end_of_month)).average(:Yeso) %></td>
+      <td><%= Recuperado.where(created_at: (Date.today.beginning_of_month..Date.today.end_of_month)).average(:Yeso).to_i %></td>
       
     </tr>
     <tr>
       <th>Silo KKI</th>
       <td><%= Recuperado.where(created_at: (Date.today.beginning_of_month..Date.today.end_of_month)).sum(:Silo_KKI) %></td>
-      <td><%= Recuperado.where(created_at: (Date.today.beginning_of_month..Date.today.end_of_month)).average(:Silo_KKI) %></td>
+      <td><%= Recuperado.where(created_at: (Date.today.beginning_of_month..Date.today.end_of_month)).average(:Silo_KKI).to_i %></td>
       
     </tr>
     <tr>
       <th>Cola H9</th>
       <td><%= Recuperado.where(created_at: (Date.today.beginning_of_month..Date.today.end_of_month)).sum(:cola_H9) %></td>
-      <td><%= Recuperado.where(created_at: (Date.today.beginning_of_month..Date.today.end_of_month)).average(:cola_H9) %></td>
+      <td><%= Recuperado.where(created_at: (Date.today.beginning_of_month..Date.today.end_of_month)).average(:cola_H9).to_i %></td>
       
     </tr>
     <tr>
       <th>A.terciario</th>
       <td><%= Recuperado.where(created_at: (Date.today.beginning_of_month..Date.today.end_of_month)).sum(:Aire_terciario) %></td>
-      <td><%= Recuperado.where(created_at: (Date.today.beginning_of_month..Date.today.end_of_month)).average(:Aire_terciario) %></td>
+      <td><%= Recuperado.where(created_at: (Date.today.beginning_of_month..Date.today.end_of_month)).average(:Aire_terciario).to_i %></td>
       
     </tr>
     <tr>
       <th>F.Enfriadera</th>
       <td><%= Recuperado.where(created_at: (Date.today.beginning_of_month..Date.today.end_of_month)).sum(:Filtro_enfriadera) %></td>
-      <td><%= Recuperado.where(created_at: (Date.today.beginning_of_month..Date.today.end_of_month)).average(:Filtro_enfriadera) %></td>
+      <td><%= Recuperado.where(created_at: (Date.today.beginning_of_month..Date.today.end_of_month)).average(:Filtro_enfriadera).to_i %></td>
       
     </tr>
     <tr>
       <th>EM21</th>
       <td><%= Recuperado.where(created_at: (Date.today.beginning_of_month..Date.today.end_of_month)).sum(:EM21) %></td>
-      <td><%= Recuperado.where(created_at: (Date.today.beginning_of_month..Date.today.end_of_month)).average(:EM21) %></td>
+      <td><%= Recuperado.where(created_at: (Date.today.beginning_of_month..Date.today.end_of_month)).average(:EM21).to_i %></td>
       
     </tr>
     <tr>
       <th>Aux_H9</th>
       <td><%= Recuperado.where(created_at: (Date.today.beginning_of_month..Date.today.end_of_month)).sum(:Aux_H9) %></td>
-      <td><%= Recuperado.where(created_at: (Date.today.beginning_of_month..Date.today.end_of_month)).average(:Aux_H9) %></td>
+      <td><%= Recuperado.where(created_at: (Date.today.beginning_of_month..Date.today.end_of_month)).average(:Aux_H9).to_i %></td>
       
     </tr>
     <tr>
       <th>Niagara</th>
       <td><%= Recuperado.where(created_at: (Date.today.beginning_of_month..Date.today.end_of_month)).sum(:Niagara) %></td>
-      <td><%= Recuperado.where(created_at: (Date.today.beginning_of_month..Date.today.end_of_month)).average(:Niagara) %></td>
+      <td><%= Recuperado.where(created_at: (Date.today.beginning_of_month..Date.today.end_of_month)).average(:Niagara).to_i %></td>
       
     </tr>
     <tr>
       <th>CI08F01</th>
       <td><%= Recuperado.where(created_at: (Date.today.beginning_of_month..Date.today.end_of_month)).sum(:CI08F01) %></td>
-      <td><%= Recuperado.where(created_at: (Date.today.beginning_of_month..Date.today.end_of_month)).average(:CI08F01) %></td>
+      <td><%= Recuperado.where(created_at: (Date.today.beginning_of_month..Date.today.end_of_month)).average(:CI08F01).to_i %></td>
       
     </tr>
     <tr>
       <th>Coke</th>
       <td><%= Recuperado.where(created_at: (Date.today.beginning_of_month..Date.today.end_of_month)).sum(:Coke) %></td>
-      <td><%= Recuperado.where(created_at: (Date.today.beginning_of_month..Date.today.end_of_month)).average(:Coke) %></td>
+      <td><%= Recuperado.where(created_at: (Date.today.beginning_of_month..Date.today.end_of_month)).average(:Coke).to_i %></td>
       
     </tr>
     <tr>
       <th>Ext. MMP</th>
       <td><%= Recuperado.where(created_at: (Date.today.beginning_of_month..Date.today.end_of_month)).sum(:Exterior_molinos_MP) %></td>
-      <td><%= Recuperado.where(created_at: (Date.today.beginning_of_month..Date.today.end_of_month)).average(:Exterior_molinos_MP) %></td>
+      <td><%= Recuperado.where(created_at: (Date.today.beginning_of_month..Date.today.end_of_month)).average(:Exterior_molinos_MP).to_i %></td>
       
     </tr>
     <tr>
       <th>Cintas MP</th>
       <td><%= Recuperado.where(created_at: (Date.today.beginning_of_month..Date.today.end_of_month)).sum(:Cintas_MP) %></td>
-      <td><%= Recuperado.where(created_at: (Date.today.beginning_of_month..Date.today.end_of_month)).average(:Cintas_MP) %></td>
+      <td><%= Recuperado.where(created_at: (Date.today.beginning_of_month..Date.today.end_of_month)).average(:Cintas_MP).to_i %></td>
       
     </tr>
     <tr>
       <th>TOTAL</th>
       <td><%= Recuperado.where(created_at: (Date.today.beginning_of_month..Date.today.end_of_month)).sum(:total) %></td>
-      <td><%= Recuperado.where(created_at: (Date.today.beginning_of_month..Date.today.end_of_month)).average(:total) %></td>
+      <td><%= Recuperado.where(created_at: (Date.today.beginning_of_month..Date.today.end_of_month)).average(:total).to_i %></td>
       
     </tr>
     
