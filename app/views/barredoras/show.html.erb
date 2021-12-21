@@ -1,0 +1,42 @@
+<div class="page-header">
+  <%= link_to barredoras_path, class: 'btn btn-default' do %>
+    Todos
+  <% end %>
+  <%= link_to edit_barredora_path(@barredora), class: 'btn btn-primary' do %>
+    Editar
+  <% end %>
+  <h1>Ver</h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt>Patio h9:</dt>
+  <dd><%= @barredora.patio_h9 %></dd>
+
+  <dt>M21 m22:</dt>
+  <dd><%= @barredora.m21_m22 %></dd>
+
+  <dt>San diego:</dt>
+  <dd><%= @barredora.san_diego %></dd>
+
+  <dt>J09:</dt>
+  <dd><%= @barredora.j09 %></dd>
+
+  <dt>Circunvalacion:</dt>
+  <dd><%= @barredora.circunvalacion %></dd>
+
+  <dt>Mmpp:</dt>
+  <dd><%= @barredora.mmpp %></dd>
+
+  <dt>A202:</dt>
+  <dd><%= @barredora.a202 %></dd>
+
+  <dt>Coke:</dt>
+  <dd><%= @barredora.coke %></dd>
+
+  <dt>Cal:</dt>
+  <dd><%= @barredora.cal %></dd>
+
+  <dt>Comentarios:</dt>
+  <dd><%= @barredora.comentarios %></dd>
+
+</dl>

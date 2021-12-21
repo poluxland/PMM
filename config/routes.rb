@@ -3,6 +3,7 @@
 require 'sidekiq/web'
 
 Rails.application.routes.draw do
+  resources :barredoras
   resources :puzolanas
   resources :envasadoras
   get 'henv', to: 'envasadoras#henv'

@@ -1,0 +1,2 @@
+class Barredora < ApplicationRecord
+end

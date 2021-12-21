@@ -1,0 +1,2 @@
+module BarredorasHelper
+end

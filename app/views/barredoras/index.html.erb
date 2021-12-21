@@ -1,0 +1,61 @@
+
+
+
+<div class="row">
+  <div class="col-sm-6">
+    <h1>Checklist Barrido</h1>
+  </div>
+
+  <div class="col-sm-6 text-right">
+  <%= link_to new_barredora_path, class: 'btn btn-primary' do %>
+    Nuevo
+  <% end %>
+  </div>
+</div>
+
+<div class="table-responsive">
+  <table class="table table-striped table-bordered table-hover">
+    <thead>
+      <tr>
+    
+            <th>Fecha</th>
+            <th>Patio h9</th>
+            <th>M21-M22</th>
+            <th>San Diego</th>
+            <th>J09</th>
+            <th>Circunvalación</th>
+            <th>MMPP</th>
+            <th>A202</th>
+            <th>Coke</th>
+            <th>Cal</th>
+            <th>Comentarios</th>
+            
+          <th></th>
+        
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @barredoras.each do |barredora| %>
+        <%= content_tag :tr, id: dom_id(barredora), class: dom_class(barredora) do %>
+          
+                      <td><%= barredora.created_at.in_time_zone('Santiago').strftime("%d-%m %H:%M") %></td>
+                      <td><%= barredora.patio_h9 %></td>
+                      <td><%= barredora.m21_m22 %></td>
+                      <td><%= barredora.san_diego %></td>
+                      <td><%= barredora.j09 %></td>
+                      <td><%= barredora.circunvalacion %></td>
+                      <td><%= barredora.mmpp %></td>
+                      <td><%= barredora.a202 %></td>
+                      <td><%= barredora.coke %></td>
+                      <td><%= barredora.cal %></td>
+                      <td><%= barredora.comentarios %></td>
+          
+          
+            <td><%= link_to 'Show', barredora %></td>
+          
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
+</div>

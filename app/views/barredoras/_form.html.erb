@@ -1,0 +1,79 @@
+<%= form_with(model: barredora, local: true) do |form| %>
+  <% if barredora.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(barredora.errors.count, "error") %> prohibited this barredora from being saved:</h2>
+
+      <ul>
+      <% barredora.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= form.label :patio_h9 %>
+    <%= form.number_field :patio_h9, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :m21_m22 %>
+    <%= form.number_field :m21_m22, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :san_diego %>
+    <%= form.number_field :san_diego, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :j09 %>
+    <%= form.number_field :j09, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :circunvalacion %>
+    <%= form.number_field :circunvalacion, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :mmpp %>
+    <%= form.number_field :mmpp, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :a202 %>
+    <%= form.number_field :a202, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :coke %>
+    <%= form.number_field :coke, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :cal %>
+    <%= form.number_field :cal, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :comentarios %>
+    <%= form.text_field :comentarios, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <% if barredora.persisted? %>
+      <div class="float-right">
+        <%= link_to 'Destroy', barredora, method: :delete, class: "text-danger", data: { confirm: 'Esta seguro?' } %>
+      </div>
+    <% end %>
+
+    <%= form.submit class: 'btn btn-primary' %>
+
+    <% if barredora.persisted? %>
+      <%= link_to "Cancel", barredora, class: "btn btn-link" %>
+    <% else %>
+      <%= link_to "Cancel", barredoras_path, class: "btn btn-link" %>
+    <% end %>
+  </div>
+<% end %>

@@ -1,0 +1,25 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  patio_h9: 1
+  m21_m22: 1
+  san_diego: 1
+  j09: 1
+  circunvalacion: 1
+  mmpp: 1
+  a202: 1
+  coke: 1
+  cal: 1
+  comentarios: MyString
+
+two:
+  patio_h9: 1
+  m21_m22: 1
+  san_diego: 1
+  j09: 1
+  circunvalacion: 1
+  mmpp: 1
+  a202: 1
+  coke: 1
+  cal: 1
+  comentarios: MyString
