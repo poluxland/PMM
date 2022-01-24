@@ -47,7 +47,7 @@
       <% @derrames.each do |derrame| %>
         <%= content_tag :tr, id: dom_id(derrame), class: dom_class(derrame) do %>
           
-                      <td><%= derrame.created_at.strftime("%m-%d") %></td>
+                      <td><%= derrame.created_at.strftime("%Y-%m-%d") %></td>
                       <td><%= derrame.EM22 %></td>
                       <td><%= derrame.Sepax %></td>
                       <td><%= derrame.Filtax %></td>
