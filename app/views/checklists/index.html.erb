@@ -3,7 +3,7 @@
 
 <div class="row">
   <div class="col-sm-6">
-    <h1>Checklists</h1>
+    <h1>Checklist BRU</h1>
   </div>
 
   <div class="col-sm-6 text-right">
@@ -22,6 +22,7 @@
 
             <th>Fecha</th>
             <th>Nombre</th>
+            <th>Comentarios</th>
             <th>Cinta</th>
             <th>Lubricacion</th>
             <th>Aseos</th>
@@ -33,7 +34,7 @@
             <th>Polvo</th>
             <th>Raspador</th>
             <th>Iluminacion</th>
-            <th>Comentarios</th>
+
 
           <th></th>
 
@@ -48,6 +49,7 @@
 
                       <td><%= checklist.fecha %></td>
                       <td><%= checklist.nombre %></td>
+                      <td><%= checklist.comentarios %></td>
                       <td><%= checklist.cinta %></td>
                       <td><%= checklist.lubricacion %></td>
                       <td><%= checklist.aseos %></td>
@@ -59,10 +61,10 @@
                       <td><%= checklist.polvo %></td>
                       <td><%= checklist.raspador %></td>
                       <td><%= checklist.iluminacion %></td>
-                      <td><%= checklist.comentarios %></td>
 
 
-            <td><%= link_to 'Show', checklist %></td>
+
+            <td><%= link_to 'Ver', checklist %></td>
 
         <% end %>
       <% end %>
