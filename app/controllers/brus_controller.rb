@@ -11,7 +11,7 @@ class BrusController < ApplicationController
 
   def resume
     @brus = Bru.last(6)
-    @checklists = Checklist.last(3)
+    @checklists = Checklist.last(3).reverse
   end
 
   # GET /brus/1
