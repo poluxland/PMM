@@ -4,6 +4,7 @@ class ChecklistsController < ApplicationController
   before_action :set_checklist, only: %i[show edit update destroy]
   before_action :redirect_user, only: [:edit]
 
+
   def redirect_user
     redirect_to root_path
   end
