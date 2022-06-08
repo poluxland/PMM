@@ -1,0 +1,56 @@
+
+<%= render 'cards' %>
+
+<div class="row">
+  <div class="col-sm-6">
+    <h1>Evaluaciones</h1>
+  </div>
+
+  <div class="col-sm-6 text-right">
+  <%= link_to new_evaluacion_path, class: 'btn btn-primary' do %>
+    Agregar Nueva Evaluación
+  <% end %>
+  </div>
+</div>
+
+
+
+<div class="table-responsive">
+  <table class="table table-striped table-bordered table-hover">
+    <thead>
+      <tr>
+
+            <th>Fecha</th>
+            <th>Sector</th>
+            <th>Barrido</th>
+            <th>Orden</th>
+            <th>Derrames</th>
+            <th>Promedio</th>
+            <th>Comentarios</th>
+
+          <th></th>
+
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @evaluacions.each do |evaluacion| %>
+        <%= content_tag :tr, id: dom_id(evaluacion), class: dom_class(evaluacion) do %>
+
+
+                      <td><%= evaluacion.created_at.in_time_zone('Santiago').strftime("%d-%m %H:%M") %></td>
+                      <td><%= evaluacion.sector.instalacion %></td>
+                      <td><%= evaluacion.barrido %></td>
+                      <td><%= evaluacion.orden %></td>
+                      <td><%= evaluacion.derrames %></td>
+                      <td><%= evaluacion.promedio %></td>
+                      <td><%= evaluacion.comentarios %></td>
+
+
+            <td><%= link_to 'Show', evaluacion %></td>
+
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
+</div>

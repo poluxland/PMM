@@ -1,0 +1,18 @@
+<div class="page-header">
+  <%= link_to sectors_path, class: 'btn btn-default' do %>
+    All Sectors
+  <% end %>
+  <%= link_to edit_sector_path(@sector), class: 'btn btn-primary' do %>
+    Edit
+  <% end %>
+  <h1>Show sector</h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt>Area:</dt>
+  <dd><%= @sector.area %></dd>
+
+  <dt>Instalacion:</dt>
+  <dd><%= @sector.instalacion %></dd>
+
+</dl>

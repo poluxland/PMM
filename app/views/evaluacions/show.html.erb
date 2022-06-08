@@ -1,0 +1,38 @@
+<div class="page-header">
+  <%= link_to evaluacions_path, class: 'btn btn-secondary' do %>
+    Todas
+  <% end %>
+  <%= link_to edit_evaluacion_path(@evaluacion), class: 'btn btn-primary' do %>
+    Editar
+  <% end %>
+
+
+
+
+
+  <h1>Evaluación</h1>
+</div>
+
+<dl class="dl-horizontal">
+ <dt>Fecha:</dt>
+  <dd><%= @evaluacion.created_at.in_time_zone('Santiago').strftime("%d-%m %H:%M") %></dd>
+
+  <dt>Sector:</dt>
+  <dd><%= @evaluacion.sector.instalacion %></dd>
+
+  <dt>Barrido:</dt>
+  <dd><%= @evaluacion.barrido %></dd>
+
+  <dt>Orden:</dt>
+  <dd><%= @evaluacion.orden %></dd>
+
+  <dt>Derrames:</dt>
+  <dd><%= @evaluacion.derrames %></dd>
+
+  <dt>Promedio:</dt>
+  <dd><%= @evaluacion.promedio %></dd>
+
+  <dt>Comentarios:</dt>
+  <dd><%= @evaluacion.comentarios %></dd>
+
+</dl>

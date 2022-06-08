@@ -1,0 +1,54 @@
+<%= form_with(model: evaluacion, local: true) do |form| %>
+  <% if evaluacion.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(evaluacion.errors.count, "error") %> prohibited this evaluacion from being saved:</h2>
+
+      <ul>
+      <% evaluacion.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= form.label :sector_id %>
+    <%= form.select :sector_id, Sector.all.map { |r| [r.instalacion, r.id] } %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :barrido %>
+    <%= form.number_field :barrido, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :orden %>
+    <%= form.number_field :orden, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :derrames %>
+    <%= form.number_field :derrames, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :comentarios %>
+    <%= form.text_field :comentarios, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <% if evaluacion.persisted? %>
+      <div class="float-right">
+        <%= link_to 'Destroy', evaluacion, method: :delete, class: "text-danger", data: { confirm: 'Esta seguro?' } %>
+      </div>
+    <% end %>
+
+    <%= form.submit class: 'btn btn-primary' %>
+
+    <% if evaluacion.persisted? %>
+      <%= link_to "Cancel", evaluacion, class: "btn btn-link" %>
+    <% else %>
+      <%= link_to "Cancel", evaluacions_path, class: "btn btn-link" %>
+    <% end %>
+  </div>
+<% end %>

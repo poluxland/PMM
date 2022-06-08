@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  sector: one
+  barrido: 1
+  orden: 1
+  derrames: 1
+  promedio: 1
+  comentarios: MyString
+
+two:
+  sector: two
+  barrido: 1
+  orden: 1
+  derrames: 1
+  promedio: 1
+  comentarios: MyString
