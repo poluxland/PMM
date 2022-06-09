@@ -18,17 +18,17 @@
 
   <div class="form-group">
     <%= form.label :barrido %>
-    <%= form.number_field :barrido, class: 'form-control' %>
+    <%= form.select :barrido,  [00, 25, 50, 75, 100], class: 'form-control' %>
   </div>
 
   <div class="form-group">
     <%= form.label :orden %>
-    <%= form.number_field :orden, class: 'form-control' %>
+    <%= form.select :orden,  [00, 25, 50, 75, 100], class: 'form-control' %>
   </div>
 
   <div class="form-group">
     <%= form.label :derrames %>
-    <%= form.number_field :derrames, class: 'form-control' %>
+    <%= form.select :derrames,  [00, 25, 50, 75, 100], class: 'form-control' %>
   </div>
 
   <div class="form-group">
