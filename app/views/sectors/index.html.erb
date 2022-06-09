@@ -1,9 +1,11 @@
+<%= render 'cards' %>
+<%= render 'grafico' %>
 
 
 
 <div class="row">
   <div class="col-sm-6">
-    <h1>Sectors</h1>
+    <h1>Sectores</h1>
   </div>
 
   <div class="col-sm-6 text-right">
@@ -17,27 +19,35 @@
   <table class="table table-striped table-bordered table-hover">
     <thead>
       <tr>
-    
+
 
             <th>Area</th>
             <th>Instalacion</th>
-            
+            <th>Barrido</th>
+            <th>Orden</th>
+            <th>Derrames</th>
+            <th>Promedio</th>
+
           <th></th>
-        
+
       </tr>
     </thead>
 
     <tbody>
       <% @sectors.each do |sector| %>
         <%= content_tag :tr, id: dom_id(sector), class: dom_class(sector) do %>
-          
+
 
                       <td><%= sector.area %></td>
                       <td><%= sector.instalacion %></td>
-          
-          
+                      <td><%= sector.evaluacions.last.barrido %></td>
+                      <td><%= sector.evaluacions.last.orden %></td>
+                      <td><%= sector.evaluacions.last.derrames %></td>
+                      <td><%= sector.evaluacions.last.promedio %></td>
+
+
             <td><%= link_to 'Show', sector %></td>
-          
+
         <% end %>
       <% end %>
     </tbody>

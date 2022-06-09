@@ -1,0 +1,22 @@
+
+
+<%= @cemento %>
+
+<% @sectors.each do |sector| %>
+<%= sector.instalacion %>
+<%= sector.evaluacions.last.promedio %>
+
+<% end %>
+
+
+<%= bar_chart Sector.group(:instalacion).count %>
+
+
+<%= pie_chart Sector.group(:instalacion).count %>
+
+
+
+<%= line_chart Sector.group(:instalacion).group_by_week(:created_at).count %>
+
+<%= bar_chart Sector.joins(:evaluacions).sum(:promedio) %>
+

@@ -4,6 +4,13 @@ class SectorsController < ApplicationController
   # GET /sectors or /sectors.json
   def index
     @sectors = Sector.all
+
+    @cemento = Sector.where(area: "Cemento")
+    @clinker = Sector.where(area: "Clinker")
+    @crudo = Sector.where(area: "Crudo")
+
+
+
   end
 
   # GET /sectors/1 or /sectors/1.json

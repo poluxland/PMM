@@ -1,0 +1,32 @@
+
+
+
+
+
+
+
+<% @evaluacions.each do |evaluacion| %>
+  <%= evaluacion.sector.instalacion %>
+  <%= evaluacion.promedio %>
+<% end %>
+
+
+
+
+
+
+<%= bar_chart Evaluacion.group(:sector_id).average(:promedio) %>
+
+<%= bar_chart Evaluacion.group(:sector_id).count %>
+
+<%= pie_chart Evaluacion.group(:sector).count %>
+
+
+<%= pie_chart Evaluacion.group(:barrido).count %>
+
+
+
+<%= line_chart Evaluacion.group(:sector_id).group_by_week(:created_at).count %>
+
+<%= bar_chart Evaluacion.group(:sector_id).sum(:promedio) %>
+
