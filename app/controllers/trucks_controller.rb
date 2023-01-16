@@ -6,7 +6,7 @@ class TrucksController < ApplicationController
   # GET /trucks
   # GET /trucks.json
   def index
-    @trucks = (Truck.includes(:mmpp).where.not(salida: "2000-01-01 00:00:00.000000000 +0000"))
+    @trucks = (Truck.includes(:mmpp).where.not(salida: "2000-01-01 00:00:00.000000000 +0000")).last(10000)
 
 
     less_60_day = Truck.group_by_day(:created_at).where("wait <= 60").count
