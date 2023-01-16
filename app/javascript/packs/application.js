@@ -13,15 +13,15 @@ window.Rails = Rails
 
 import 'bootstrap'
 import 'data-confirm-modal'
-import "chartkick/chart.js"
+// import "chartkick/chart.js"
 
 $(document).on("turbolinks:load", () => {
   $('[data-toggle="tooltip"]').tooltip()
   $('[data-toggle="popover"]').popover()
 })
 
-require("chartkick")
-require("chart.js")
+// require("chartkick")
+// require("chart.js")
 require("jquery")
 
 import $ from 'jquery';
