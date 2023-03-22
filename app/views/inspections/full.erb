@@ -41,7 +41,7 @@
       <% @inspections.each do |inspection| %>
         <%= content_tag :tr, id: dom_id(inspection), class: dom_class(inspection) do %>
 
-                      <td><%= inspection.created_at.in_time_zone('Santiago').strftime("%d-%m %H:%M") %></td>
+                      <td><%= inspection.created_at.in_time_zone('Santiago').strftime("%Y-%m-%d %H:%M") %></td>
                       <td><%= inspection.apr.nombre %></td>
                       <td><%= inspection.plant.descripcion %></td>
                       <td><%= inspection.area.descripcion %></td>
