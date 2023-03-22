@@ -14,10 +14,10 @@
 </div>
 
 <div class="table-responsive">
-  <table class="table table-striped table-bordered table-hover">
+  <table id="myTable" class="table table-striped table-bordered table-hover">
     <thead>
       <tr>
-    
+
             <th>Fecha</th>
             <th>APR</th>
             <th>Planta</th>
@@ -30,17 +30,17 @@
             <th>Epp</th>
             <th>SubS</th>
             <th>%</th>
-            
-            
+
+
           <th></th>
-        
+
       </tr>
     </thead>
 
     <tbody>
       <% @inspections.each do |inspection| %>
         <%= content_tag :tr, id: dom_id(inspection), class: dom_class(inspection) do %>
-          
+
                       <td><%= inspection.created_at.in_time_zone('Santiago').strftime("%d-%m %H:%M") %></td>
                       <td><%= inspection.apr.nombre %></td>
                       <td><%= inspection.plant.descripcion %></td>
@@ -53,11 +53,11 @@
                       <td><%= inspection.epp ? 'Si' : 'No'%></td>
                       <td><%= inspection.subsitio ? 'Si' : 'No'%></td>
                       <td><%= inspection.cumplimiento %></td>
-                      
-          
-          
+
+
+
             <td><%= link_to 'Ver', inspection %></td>
-          
+
         <% end %>
       <% end %>
     </tbody>
@@ -65,7 +65,7 @@
 
 <div class="row">
   <div class="col-sm-6">
-    
+
   </div>
 
   <div class="col-sm-6 text-right">
@@ -89,6 +89,6 @@
 <br>
 
 
- 
+
 
 </div>
