@@ -8,6 +8,8 @@ class TrucksController < ApplicationController
   def index
     @trucks = (Truck.includes(:mmpp).where.not(salida: "2000-01-01 00:00:00.000000000 +0000")).last(10000)
 
+    @trucks_by_material = Truck.joins(:mmpp).group('mmpps.nombre').select('mmpps.nombre, COUNT(*) as total_trucks, AVG(trucks.number) as average_trucks')
+
 
     less_60_day = Truck.group_by_day(:created_at).where("wait <= 60").count
     more_60_day = Truck.group_by_day(:created_at).where("wait > 60").count
