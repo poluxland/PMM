@@ -1,7 +1,7 @@
 <div class="row">
 
-  <div class="col-sm-6">
-    <h4>Camiones diarios:</h4>
+  <div class="col-sm-4">
+    <h4>Camiones hoy</h4>
 <!--Table-->
 <% if @trucks_by_material_day.nil? || @trucks_by_material_day.empty? %>
   <p>No truck data available.</p>
@@ -38,11 +38,53 @@
 <!--Table-->
 
 
-</table>
+
   </div>
 
-  <div class="col-sm-6">
-    <h4>Camiones mensuales:</h4>
+  <div class="col-sm-4">
+    <h4>Camiones ayer</h4>
+
+<!--Table-->
+<% if @yesterday_trucks_by_material_day.nil? || @yesterday_trucks_by_material_day.empty? %>
+  <p>No truck data available for yesterday.</p>
+<% else %>
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th>Material</th>
+        <th>Camiones recibidos</th>
+        <th>Tiempo promedio</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @yesterday_trucks_by_material_day.each do |nombre, total_trucks, average_trucks| %>
+        <tr>
+          <td><%= nombre %></td>
+          <td><%= total_trucks %></td>
+          <td><%= average_trucks&.round(2) || '-' %></td>
+        </tr>
+      <% end %>
+      <% if @yesterday_trucks_by_material_day.present? %>
+        <tr class="bg-secondary">
+          <td><strong>Total</strong></td>
+          <td><strong><%= @yesterday_total_trucks_day %></strong></td>
+          <td><strong><%= @yesterday_average_trucks_day&.round(2) || '-' %></strong></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>
+
+<!--Table-->
+
+<!--Table-->
+
+
+
+  </div>
+
+  <div class="col-sm-4">
+    <h4>Camiones mens actual</h4>
 
 <!--Table-->
 <% if @trucks_by_material.nil? || @trucks_by_material.empty? %>
