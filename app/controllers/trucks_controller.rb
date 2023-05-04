@@ -82,7 +82,8 @@ class TrucksController < ApplicationController
 
   def blank
     @trucks = Truck.includes(:mmpp).where(salida: '2000-01-01 00:00:00 -0300')
-    @last = Truck.includes(:mmpp).last(10)
+    @last = Truck.includes(:mmpp).where("wait >= 0").last(10)
+
   end
 
   def month
