@@ -87,6 +87,39 @@
 
 <div class="row">
 
+
+
+  <div class="col-sm-12">
+    <h4>Tiempo diario promedio</h4>
+
+<% current_year = Time.current.year %>
+<% trucks = Truck.joins(:mmpp).where('extract(year from trucks.created_at) = ?', current_year).where('trucks.wait >= 0').select('mmpps.nombre AS material_name, trucks.created_at, trucks.wait') %>
+<% trucks_by_material_and_date = trucks.group_by { |t| [t.material_name, t.created_at.to_date] } %>
+
+<% chart_data = trucks_by_material_and_date.each_with_object([]) do |((material_name, date), trucks), result| %>
+  <% existing_material = result.find { |m| m[:name] == material_name } %>
+
+  <% if existing_material %>
+    <% existing_material[:data][date] = (trucks.sum(&:wait).to_f / trucks.size).round(2) %>
+  <% else %>
+    <% result << {name: material_name, data: {date => (trucks.sum(&:wait).to_f / trucks.size).round(2)}} %>
+  <% end %>
+<% end %>
+
+<%= line_chart chart_data %>
+
+
+
+
+
+  </div>
+</div>
+<br>
+<br>
+
+
+<div class="row">
+
   <div class="col-sm-6">
     <h4>Camiones diarios:</h4>
     <%= column_chart @trucks_data_day_number, stacked: true %>
