@@ -2,84 +2,81 @@
 
   <div class="col-sm-6">
     <h4>Camiones diarios:</h4>
-<table class="table">
+<!--Table-->
+<% if @trucks_by_material_day.nil? || @trucks_by_material_day.empty? %>
+  <p>No truck data available.</p>
+<% else %>
+  <table class="table">
   <thead class="thead-dark">
     <tr>
-      <th scope="col">Materia Prima</th>
-      <th scope="col">Camiones</th>
-      <th scope="col">Tiempo promedio</th>
+      <th>Material</th>
+      <th>Camiones recibidos</th>
+      <th>Tiempo promedio</th>
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <th scope="row">Cachinales</th>
-      <td><%= Truck.where(created_at: Time.zone.now.beginning_of_day..Time.zone.now.end_of_day).where(mmpp_id: 1).count %></td>
-      <td>1</td>
-
-    </tr>
-    <tr>
-      <th scope="row">Caolin</th>
-      <td><%= Truck.where(created_at: Time.zone.now.beginning_of_day..Time.zone.now.end_of_day).where(mmpp_id: 2).count %></td>
-      <td>2</td>
-    </tr>
-     <tr>
-      <th scope="row">Conchuela</th>
-      <td><%= Truck.where(created_at: Time.zone.now.beginning_of_day..Time.zone.now.end_of_day).where(mmpp_id: 3).count %></td>
-      <td>3</td>
-    </tr>
-     <tr>
-      <th scope="row">Ñilhue</th>
-      <td><%= Truck.where(created_at: Time.zone.now.beginning_of_day..Time.zone.now.end_of_day).where(mmpp_id: 4).count %></td>
-      <td>4</td>
-    </tr>
-     <tr>
-      <th scope="row">Quilimari</th>
-      <td><%= Truck.where(created_at: Time.zone.now.beginning_of_day..Time.zone.now.end_of_day).where(mmpp_id: 5).count %></td>
-      <td>5</td>
-    </tr>
-
-
-   <tr class="bg-secondary">
-      <th scope="row">Total general</th>
-      <td><%= Truck.where(created_at: Time.zone.now.beginning_of_day..Time.zone.now.end_of_day).count %></td>
-      <td><%= Truck.where(created_at: Time.zone.now.beginning_of_day..Time.zone.now.end_of_day).average(:number) %></td>
-
-
-    </tr>
+    <% @trucks_by_material_day.each do |nombre, total_trucks, average_trucks| %>
+      <tr>
+        <td><%= nombre %></td>
+        <td><%= total_trucks %></td>
+        <td><%= average_trucks.round(2) %></td>
+      </tr>
+    <% end %>
+    <% if @trucks_by_material_day.present? %>
+      <tr class="bg-secondary">
+        <td><strong>Total</strong></td>
+        <td><strong><%= @total_trucks_day %></strong></td>
+        <td><strong><%= @average_trucks_day.round(2) %></strong></td>
+      </tr>
+    <% end %>
   </tbody>
 </table>
-<td><%= Mmpp.ids %></td>
+
+
+<% end %>
+
+<!--Table-->
 
 
 </table>
   </div>
 
   <div class="col-sm-6">
-    <h4>Porcentaje diario:</h4>
+    <h4>Camiones mensuales:</h4>
 
 <!--Table-->
 <% if @trucks_by_material.nil? || @trucks_by_material.empty? %>
   <p>No truck data available.</p>
 <% else %>
   <table class="table">
-    <thead class="thead-dark">
+  <thead class="thead-dark">
+    <tr>
+      <th>Material</th>
+      <th>Camiones recibidos</th>
+      <th>Tiempo promedio</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @trucks_by_material.each do |nombre, total_trucks, average_trucks| %>
       <tr>
-        <th scope="col">Material</th>
-        <th scope="col">Total Trucks</th>
-        <th scope="col">Average Trucks</th>
+        <td><%= nombre %></td>
+        <td><%= total_trucks %></td>
+        <td><%= average_trucks.round(2) %></td>
       </tr>
-    </thead>
-    <tbody>
-      <% @trucks_by_material.each do |truck_data| %>
-        <tr>
-          <td><%= truck_data.nombre %></td>
-          <td><%= truck_data.total_trucks %></td>
-          <td><%= truck_data.average_trucks.round(2) %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
+    <% end %>
+    <% if @trucks_by_material.present? %>
+      <tr class="bg-secondary">
+        <td><strong>Total</strong></td>
+        <td><strong><%= @total_trucks %></strong></td>
+        <td><strong><%= @average_trucks.round(2) %></strong></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
 <% end %>
+
 <!--Table-->
   </div>
 </div>

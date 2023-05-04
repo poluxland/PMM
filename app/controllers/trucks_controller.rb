@@ -8,7 +8,8 @@ class TrucksController < ApplicationController
   def index
     @trucks = (Truck.includes(:mmpp).where.not(salida: "2000-01-01 00:00:00.000000000 +0000")).last(10000)
 
-    @trucks_by_material = Truck.joins(:mmpp).group('mmpps.nombre').select('mmpps.nombre, COUNT(*) as total_trucks, AVG(trucks.number) as average_trucks')
+
+
 
 
     less_60_day = Truck.group_by_day(:created_at).where("wait <= 60").count
@@ -50,7 +51,7 @@ class TrucksController < ApplicationController
     ]
 
 
-@trucks_data_day_number = [
+@trucks_data_day_wait = [
       {
         name: "menos de 60min",
         data: Truck.group_by_day(:created_at).where("wait <= 60").count
@@ -63,7 +64,7 @@ class TrucksController < ApplicationController
       }
     ]
 
- @trucks_data_month_number = [
+ @trucks_data_month_wait = [
       {
         name: "menos de 60min",
         data: Truck.group_by_month(:created_at).where("wait <= 60").count
@@ -97,6 +98,16 @@ class TrucksController < ApplicationController
   def report
 
     @trucks = (Truck.includes(:mmpp).where.not(salida: "2000-01-01 00:00:00.000000000 +0000"))
+    @trucks_by_material = Truck.joins(:mmpp).where.not(salida: "2000-01-01 00:00:00.000000000 +0000").where('trucks.fecha >= ? AND trucks.fecha <= ?', Time.now.beginning_of_month, Time.now.end_of_month).group('mmpps.nombre').pluck('mmpps.nombre, COUNT(trucks.id) as total_trucks, AVG(trucks.wait) as average_trucks')
+    @total_trucks = @trucks_by_material.sum { |t| t[1] }
+    @average_trucks = @trucks_by_material.sum { |t| t[2] } / @trucks_by_material.size
+
+
+    @trucks_by_material_day = Truck.joins(:mmpp).where.not(salida: "2000-01-01 00:00:00.000000000 +0000").where('trucks.fecha >= ? AND trucks.fecha <= ?', Time.now.beginning_of_day, Time.now.end_of_day).group('mmpps.nombre').pluck('mmpps.nombre, COUNT(trucks.id) as total_trucks, AVG(trucks.wait) as average_trucks')
+    @total_trucks_day = @trucks_by_material_day.sum { |t| t[1] }
+    @average_trucks_day = @trucks_by_material_day.sum { |t| t[2] } / @trucks_by_material_day.size
+
+
 
     less_60_day = Truck.group_by_day(:created_at).where("wait <= 60").count
     more_60_day = Truck.group_by_day(:created_at).where("wait > 60").count
