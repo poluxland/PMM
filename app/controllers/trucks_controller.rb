@@ -81,7 +81,7 @@ class TrucksController < ApplicationController
   end
 
   def blank
-    @trucks = Truck.includes(:mmpp).where("wait >= 1")
+    @trucks = Truck.includes(:mmpp).where(created_at: Time.zone.now.beginning_of_day..Time.zone.now.end_of_day).where("wait <= 1")
     @last = Truck.includes(:mmpp).last(15)
 
   end
