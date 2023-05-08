@@ -4,7 +4,7 @@
     <h4>Camiones hoy</h4>
 <!--Table-->
 <% if @trucks_by_material_day.nil? || @trucks_by_material_day.empty? %>
-  <p>No truck data available.</p>
+  <p>No hay datos registrados hoy.</p>
 <% else %>
   <table class="table">
   <thead class="thead-dark">
@@ -46,7 +46,7 @@
 
 <!--Table-->
 <% if @yesterday_trucks_by_material_day.nil? || @yesterday_trucks_by_material_day.empty? %>
-  <p>No truck data available for yesterday.</p>
+  <p>No hay camiones registrados el dia de ayer.</p>
 <% else %>
   <table class="table">
     <thead class="thead-dark">
