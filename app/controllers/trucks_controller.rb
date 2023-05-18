@@ -99,7 +99,7 @@ class TrucksController < ApplicationController
   def report
 
     @trucks = (Truck.includes(:mmpp).where("wait >= 1"))
-    @trucks_by_material = Truck.joins(:mmpp).where("wait >= 1").where('trucks.fecha >= ? AND trucks.fecha <= ?', Time.zone.now.beginning_of_month, Time.zone.now.end_of_month).group('mmpps.nombre').pluck('mmpps.nombre, COUNT(trucks.id) as total_trucks, AVG(trucks.wait) as average_trucks')
+    @trucks_by_material = Truck.joins(:mmpp).where("wait >= 1").where('trucks.fecha >= ? AND trucks.fecha <= ?', Time.now.beginning_of_month, Time.now.end_of_month).group('mmpps.nombre').pluck('mmpps.nombre, COUNT(trucks.id) as total_trucks, AVG(trucks.wait) as average_trucks')
     @total_trucks = @trucks_by_material.sum { |t| t[1] }
     @average_trucks = @trucks_by_material.size != 0 ? @trucks_by_material.sum { |t| t[2] } / @trucks_by_material.size : 0
 
@@ -109,13 +109,13 @@ class TrucksController < ApplicationController
 
 
 
-    @trucks_by_material_day = Truck.joins(:mmpp).where("wait >= 1").where('trucks.fecha >= ? AND trucks.fecha <= ?', Time.zone.now.beginning_of_day, Time.zone.now.end_of_day).group('mmpps.nombre').pluck('mmpps.nombre, COUNT(trucks.id) as total_trucks, AVG(trucks.wait) as average_trucks')
+    @trucks_by_material_day = Truck.joins(:mmpp).where("wait >= 1").where('trucks.fecha >= ? AND trucks.fecha <= ?', Time.now.beginning_of_day, Time.now.end_of_day).group('mmpps.nombre').pluck('mmpps.nombre, COUNT(trucks.id) as total_trucks, AVG(trucks.wait) as average_trucks')
     @total_trucks_day = @trucks_by_material_day.sum { |t| t[1] }
     @average_trucks_day = @trucks_by_material_day.size != 0 ? @trucks_by_material_day.sum { |t| t[2] } / @trucks_by_material_day.size : 0
 
   @yesterday_trucks_by_material_day = Truck.joins(:mmpp)
     .where("wait >= 1")
-    .where(fecha: Time.zone.now.yesterday.beginning_of_day..Time.zone.now.yesterday.end_of_day)
+    .where(fecha: Time.now.yesterday.beginning_of_day..Time.now.yesterday.end_of_day)
     .group('mmpps.nombre')
     .pluck('mmpps.nombre, COUNT(trucks.id) as total_trucks, AVG(trucks.wait) as average_trucks')
   @yesterday_total_trucks_day = @yesterday_trucks_by_material_day.sum { |t| t[1] }
