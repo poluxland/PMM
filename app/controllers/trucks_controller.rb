@@ -109,7 +109,7 @@ class TrucksController < ApplicationController
 
 
 
-    @trucks_by_material_day = Truck.joins(:mmpp).where("wait >= 1").where('trucks.fecha >= ? AND trucks.fecha <= ?', Time.now.beginning_of_day, Time.now.end_of_day).group('mmpps.nombre').pluck('mmpps.nombre, COUNT(trucks.id) as total_trucks, AVG(trucks.wait) as average_trucks')
+    @trucks_by_material_day = Truck.joins(:mmpp).where("wait >= 1").where('trucks.fecha >= ? AND trucks.fecha <= ?', Time.now.in_time_zone('Santiago').beginning_of_day..Time.now.in_time_zone('Santiago').end_of_day).group('mmpps.nombre').pluck('mmpps.nombre, COUNT(trucks.id) as total_trucks, AVG(trucks.wait) as average_trucks')
     @total_trucks_day = @trucks_by_material_day.sum { |t| t[1] }
     @average_trucks_day = @trucks_by_material_day.size != 0 ? @trucks_by_material_day.sum { |t| t[2] } / @trucks_by_material_day.size : 0
 
