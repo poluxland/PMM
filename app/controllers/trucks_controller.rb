@@ -97,6 +97,11 @@ class TrucksController < ApplicationController
 
 
   def report
+    @average_trucks_month = Truck
+                       .where("wait >= 1")
+                       .where('fecha >= ? AND fecha <= ?', Time.now.in_time_zone('Santiago').beginning_of_month, Time.now.in_time_zone('Santiago').end_of_month)
+                       .average(:wait)
+
 
     @trucks = (Truck.includes(:mmpp).where("wait >= 1"))
     @trucks_by_material = Truck.joins(:mmpp)
