@@ -97,10 +97,26 @@ class TrucksController < ApplicationController
 
 
   def report
+
+     #@average_trucks = @trucks_by_material.size != 0 ? @trucks_by_material.sum { |t| t[2] } / @trucks_by_material.size : 0
+     #@average_trucks_day = @trucks_by_material_day.size != 0 ? @trucks_by_material_day.sum { |t| t[2] } / @trucks_by_material_day.size : 0
+     #@yesterday_average_trucks_day = @yesterday_trucks_by_material_day.size != 0 ? @yesterday_trucks_by_material_day.sum { |t| t[2] } / @yesterday_trucks_by_material_day.size : 0
+
     @average_trucks_month = Truck
                        .where("wait >= 1")
                        .where('fecha >= ? AND fecha <= ?', Time.now.in_time_zone('Santiago').beginning_of_month, Time.now.in_time_zone('Santiago').end_of_month)
                        .average(:wait)
+
+    @average_trucks_day = Truck
+                      .where("wait >= 1")
+                      .where('fecha >= ? AND fecha <= ?', Time.now.in_time_zone('Santiago').beginning_of_day, Time.now.in_time_zone('Santiago').end_of_day)
+                      .average(:wait)
+
+    @yesterday_average_trucks_day = Truck
+                                .where("wait >= 1")
+                                .where('fecha >= ? AND fecha < ?', 1.day.ago.in_time_zone('Santiago').beginning_of_day, Time.now.in_time_zone('Santiago').beginning_of_day)
+                                .average(:wait)
+
 
 
     @trucks = (Truck.includes(:mmpp).where("wait >= 1"))
@@ -111,7 +127,7 @@ class TrucksController < ApplicationController
                            .pluck('mmpps.nombre, COUNT(trucks.id) as total_trucks, AVG(trucks.wait) as average_trucks')
 
     @total_trucks = @trucks_by_material.sum { |t| t[1] }
-    @average_trucks = @trucks_by_material.size != 0 ? @trucks_by_material.sum { |t| t[2] } / @trucks_by_material.size : 0
+
 
 
 
@@ -126,7 +142,7 @@ class TrucksController < ApplicationController
                                 .pluck('mmpps.nombre, COUNT(trucks.id) as total_trucks, AVG(trucks.wait) as average_trucks')
 
     @total_trucks_day = @trucks_by_material_day.sum { |t| t[1] }
-    @average_trucks_day = @trucks_by_material_day.size != 0 ? @trucks_by_material_day.sum { |t| t[2] } / @trucks_by_material_day.size : 0
+
 
   @yesterday_trucks_by_material_day = Truck.joins(:mmpp)
                                          .where("wait >= 1")
@@ -135,7 +151,7 @@ class TrucksController < ApplicationController
                                          .pluck('mmpps.nombre, COUNT(trucks.id) as total_trucks, AVG(trucks.wait) as average_trucks')
 
   @yesterday_total_trucks_day = @yesterday_trucks_by_material_day.sum { |t| t[1] }
-  @yesterday_average_trucks_day = @yesterday_trucks_by_material_day.size != 0 ? @yesterday_trucks_by_material_day.sum { |t| t[2] } / @yesterday_trucks_by_material_day.size : 0
+
 
 
     less_60_day = Truck.group_by_day(:created_at).where("wait <= 60").count
