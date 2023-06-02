@@ -1,6 +1,6 @@
 <div class="row">
 
-  <div class="col-sm-4">
+  <div class="col-sm-6">
     <h4>Camiones hoy</h4>
 <!--Table-->
 <% if @trucks_by_material_day.nil? || @trucks_by_material_day.empty? %>
@@ -41,7 +41,7 @@
 
   </div>
 
-  <div class="col-sm-4">
+  <div class="col-sm-6">
     <h4>Camiones ayer</h4>
 
 <!--Table-->
@@ -83,7 +83,7 @@
 
   </div>
 
-  <div class="col-sm-4">
+  <div class="col-sm-6">
     <h4>Camiones mes actual</h4>
 
 <!--Table-->
@@ -121,6 +121,46 @@
 
 <!--Table-->
   </div>
+
+ <div class="col-sm-6">
+    <h4>Camiones mes anterior</h4>
+
+<!--Table-->
+<% if @last_month_trucks_by_material.nil? || @last_month_trucks_by_material.empty? %>
+  <p>No truck data available.</p>
+<% else %>
+  <table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th>Material</th>
+      <th>Camiones recibidos</th>
+      <th>Tiempo promedio</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @last_month_trucks_by_material.each do |nombre, total_trucks, average_trucks| %>
+      <tr>
+        <td><%= nombre %></td>
+        <td><%= total_trucks %></td>
+        <td><%= average_trucks.round(2) %></td>
+      </tr>
+    <% end %>
+    <% if @last_month_trucks_by_material.present? %>
+      <tr class="bg-secondary">
+        <td><strong>Total</strong></td>
+        <td><strong><%= @last_month_total_trucks %></strong></td>
+        <td><strong><%= @last_month_average_trucks.round(2) %></strong></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+<% end %>
+
+<!--Table-->
+  </div>
+
 </div>
 <br>
 <br>

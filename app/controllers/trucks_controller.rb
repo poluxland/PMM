@@ -107,6 +107,12 @@ class TrucksController < ApplicationController
                        .where('fecha >= ? AND fecha <= ?', Time.now.in_time_zone('Santiago').beginning_of_month, Time.now.in_time_zone('Santiago').end_of_month)
                        .average(:wait)
 
+    @last_month_average_trucks = Truck
+                        .where("wait >= 1")
+                        .where('fecha >= ? AND fecha <= ?', 1.month.ago.in_time_zone('Santiago').beginning_of_month, 1.month.ago.in_time_zone('Santiago').end_of_month)
+                        .average(:wait)
+
+
     @average_trucks_day = Truck
                       .where("wait >= 1")
                       .where('fecha >= ? AND fecha <= ?', Time.now.in_time_zone('Santiago').beginning_of_day, Time.now.in_time_zone('Santiago').end_of_day)
@@ -130,6 +136,15 @@ class TrucksController < ApplicationController
 
 
 
+    @last_month_trucks_by_material = Truck.joins(:mmpp)
+                            .where("wait >= 1")
+                            .where('trucks.fecha >= ? AND trucks.fecha <= ?',
+                            1.month.ago.in_time_zone('Santiago').beginning_of_month,
+                            1.month.ago.in_time_zone('Santiago').end_of_month)
+                            .group('mmpps.nombre')
+                            .pluck('mmpps.nombre, COUNT(trucks.id) as total_trucks, AVG(trucks.wait) as average_trucks')
+
+    @last_month_total_trucks = @last_month_trucks_by_material.sum { |t| t[1] }
 
 
 
