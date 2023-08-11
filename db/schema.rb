@@ -10,9 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_06_07_184416) do
+ActiveRecord::Schema.define(version: 2023_08_11_032206) do
 
   # These are extensions that must be enabled in order to support this database
+  enable_extension "pg_stat_statements"
   enable_extension "plpgsql"
 
   create_table "active_storage_attachments", force: :cascade do |t|
@@ -262,6 +263,19 @@ ActiveRecord::Schema.define(version: 2022_06_07_184416) do
     t.string "izaje"
     t.string "eemm"
     t.string "lototo"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "mantenimientos", force: :cascade do |t|
+    t.date "fecha_programada"
+    t.date "fecha_ejecucion"
+    t.string "area"
+    t.string "tarea"
+    t.string "clase"
+    t.string "departamento"
+    t.string "estado"
+    t.string "observacion"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

@@ -1,0 +1,36 @@
+<div class="page-header">
+  <%= link_to mantenimientos_path, class: 'btn btn-default' do %>
+    Todas las tareas
+  <% end %>
+  <%= link_to edit_mantenimiento_path(@mantenimiento), class: 'btn btn-primary' do %>
+    Editar
+  <% end %>
+  <h1>Tarea</h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt>Fecha programada:</dt>
+  <dd><%= @mantenimiento.fecha_programada %></dd>
+
+  <dt>Fecha ejecucion:</dt>
+  <dd><%= @mantenimiento.fecha_ejecucion %></dd>
+
+  <dt>Area:</dt>
+  <dd><%= @mantenimiento.area %></dd>
+
+  <dt>Tarea:</dt>
+  <dd><%= @mantenimiento.tarea %></dd>
+
+  <dt>Clase:</dt>
+  <dd><%= @mantenimiento.clase %></dd>
+
+  <dt>Departamento:</dt>
+  <dd><%= @mantenimiento.departamento %></dd>
+
+  <dt>Estado:</dt>
+  <dd><%= @mantenimiento.estado %></dd>
+
+  <dt>Observacion:</dt>
+  <dd><%= @mantenimiento.observacion %></dd>
+
+</dl>
