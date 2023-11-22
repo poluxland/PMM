@@ -42,7 +42,7 @@
         <%= content_tag :tr, id: dom_id(estado_cancha), class: dom_class(estado_cancha) do %>
 
 
-                      <td><%= estado_cancha.created_at %></td>
+                      <td><%= estado_cancha.created_at.in_time_zone('Santiago').strftime("%d-%m %H:%M") %></td>
                       <td><%= estado_cancha.quilimari %></td>
                       <td><%= estado_cancha.cachinales %></td>
                       <td><%= estado_cancha.ñilhue %></td>

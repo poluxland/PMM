@@ -25,7 +25,7 @@ class EstadoCanchasController < ApplicationController
 
     respond_to do |format|
       if @estado_cancha.save
-        format.html { redirect_to estado_cancha_url(@estado_cancha), notice: "Estado cancha was successfully created." }
+        format.html { redirect_to estado_canchas_url, notice: "Estado cancha was successfully created." }
         format.json { render :show, status: :created, location: @estado_cancha }
       else
         format.html { render :new, status: :unprocessable_entity }
