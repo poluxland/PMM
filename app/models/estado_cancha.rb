@@ -1,0 +1,2 @@
+class EstadoCancha < ApplicationRecord
+end

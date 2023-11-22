@@ -1,0 +1,89 @@
+<%= form_with(model: estado_cancha, local: true) do |form| %>
+  <% if estado_cancha.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(estado_cancha.errors.count, "error") %> prohibited this estado_cancha from being saved:</h2>
+
+      <ul>
+      <% estado_cancha.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= form.label :quilimari %>
+    <%= form.number_field :quilimari, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :cachinales %>
+    <%= form.number_field :cachinales, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :ñilhue %>
+    <%= form.number_field :ñilhue, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :caolin %>
+    <%= form.number_field :caolin, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :fierro %>
+    <%= form.number_field :fierro, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :puzolana %>
+    <%= form.number_field :puzolana, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :tunga %>
+    <%= form.number_field :tunga, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :ceniza %>
+    <%= form.number_field :ceniza, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :yeso %>
+    <%= form.number_field :yeso, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :conchuela %>
+    <%= form.number_field :conchuela, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :san_pedro %>
+    <%= form.number_field :san_pedro, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :observaciones %>
+    <%= form.text_area :observaciones, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <% if estado_cancha.persisted? %>
+      <div class="float-right">
+        <%= link_to 'Destroy', estado_cancha, method: :delete, class: "text-danger", data: { confirm: 'Esta seguro?' } %>
+      </div>
+    <% end %>
+
+    <%= form.submit class: 'btn btn-primary' %>
+
+    <% if estado_cancha.persisted? %>
+      <%= link_to "Cancel", estado_cancha, class: "btn btn-link" %>
+    <% else %>
+      <%= link_to "Cancel", estado_canchas_path, class: "btn btn-link" %>
+    <% end %>
+  </div>
+<% end %>

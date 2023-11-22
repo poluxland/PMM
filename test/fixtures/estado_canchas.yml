@@ -1,0 +1,29 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  quilimari: 1
+  cachinales: 1
+  ñilhue: 1
+  caolin: 1
+  fierro: 1
+  puzolana: 1
+  tunga: 1
+  ceniza: 1
+  yeso: 1
+  conchuela: 1
+  san_pedro: 1
+  observaciones: MyText
+
+two:
+  quilimari: 1
+  cachinales: 1
+  ñilhue: 1
+  caolin: 1
+  fierro: 1
+  puzolana: 1
+  tunga: 1
+  ceniza: 1
+  yeso: 1
+  conchuela: 1
+  san_pedro: 1
+  observaciones: MyText

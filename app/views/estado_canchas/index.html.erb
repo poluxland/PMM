@@ -1,0 +1,66 @@
+
+
+
+<div class="row">
+  <div class="col-sm-6">
+    <h1>Estado de canchas</h1>
+  </div>
+
+  <div class="col-sm-6 text-right">
+  <%= link_to new_estado_cancha_path, class: 'btn btn-primary' do %>
+    Agregar Estado cancha
+  <% end %>
+  </div>
+</div>
+
+<div class="table-responsive">
+  <table class="table table-striped table-bordered table-hover">
+    <thead>
+      <tr>
+
+            <th>Fecha</th>
+            <th>Quilimari</th>
+            <th>Cachinales</th>
+            <th>ñilhue</th>
+            <th>Caolin</th>
+            <th>Fierro</th>
+            <th>Puzolana</th>
+            <th>Tunga</th>
+            <th>Ceniza</th>
+            <th>Yeso</th>
+            <th>Conchuela</th>
+            <th>San pedro</th>
+            <th>Observaciones</th>
+
+
+
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @estado_canchas.each do |estado_cancha| %>
+        <%= content_tag :tr, id: dom_id(estado_cancha), class: dom_class(estado_cancha) do %>
+
+
+                      <td><%= estado_cancha.created_at %></td>
+                      <td><%= estado_cancha.quilimari %></td>
+                      <td><%= estado_cancha.cachinales %></td>
+                      <td><%= estado_cancha.ñilhue %></td>
+                      <td><%= estado_cancha.caolin %></td>
+                      <td><%= estado_cancha.fierro %></td>
+                      <td><%= estado_cancha.puzolana %></td>
+                      <td><%= estado_cancha.tunga %></td>
+                      <td><%= estado_cancha.ceniza %></td>
+                      <td><%= estado_cancha.yeso %></td>
+                      <td><%= estado_cancha.conchuela %></td>
+                      <td><%= estado_cancha.san_pedro %></td>
+                      <td><%= estado_cancha.observaciones %></td>
+
+
+
+
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
+</div>

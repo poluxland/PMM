@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_08_11_032206) do
+ActiveRecord::Schema.define(version: 2023_11_22_173511) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_stat_statements"
@@ -181,6 +181,23 @@ ActiveRecord::Schema.define(version: 2023_08_11_032206) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "total"
+  end
+
+  create_table "estado_canchas", force: :cascade do |t|
+    t.integer "quilimari"
+    t.integer "cachinales"
+    t.integer "ñilhue"
+    t.integer "caolin"
+    t.integer "fierro"
+    t.integer "puzolana"
+    t.integer "tunga"
+    t.integer "ceniza"
+    t.integer "yeso"
+    t.integer "conchuela"
+    t.integer "san_pedro"
+    t.text "observaciones"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "estado_edificios", force: :cascade do |t|
