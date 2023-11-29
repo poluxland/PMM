@@ -94,6 +94,12 @@ class TrucksController < ApplicationController
     @year = Truck.includes(:mmpp).where(:created_at => Date.today.beginning_of_year..Date.today.end_of_year)
   end
 
+ def trucks_in_2022
+  start_of_2022 = Date.new(2022, 1, 1)
+  end_of_2022 = Date.new(2022, 12, 31)
+  @trucks = Truck.includes(:mmpp).where(created_at: start_of_2022..end_of_2022)
+end
+
 
 
   def report

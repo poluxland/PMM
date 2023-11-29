@@ -28,6 +28,7 @@ Rails.application.routes.draw do
   get 'report', to: 'trucks#report'
   get 'month', to: 'trucks#month'
   get 'year', to: 'trucks#year'
+  get 'trucks_in_2022', to: 'trucks#trucks_in_2022'
   resources :checklists
   resources :brus
   get 'resume', to: 'brus#resume'
