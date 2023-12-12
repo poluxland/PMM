@@ -5,6 +5,8 @@ class EstadoCanchasController < ApplicationController
   def index
     @estado_canchas = EstadoCancha.last(10)
 
+     @chart_data = prepare_chart_data
+
   end
 
   # GET /estado_canchas/1 or /estado_canchas/1.json
@@ -68,4 +70,23 @@ class EstadoCanchasController < ApplicationController
     def estado_cancha_params
       params.require(:estado_cancha).permit(:quilimari, :cachinales, :ñilhue, :caolin, :fierro, :puzolana, :tunga, :ceniza, :yeso, :conchuela, :san_pedro, :observaciones)
     end
+
+    def prepare_chart_data
+  last_record = EstadoCancha.last
+  return {} unless last_record
+
+  {
+    'Cachinales' => last_record.cachinales,
+    'Ñilhue' => last_record.ñilhue,
+    'Caolin' => last_record.caolin,
+    'Fierro' => last_record.fierro,
+    'Puzolana' => last_record.puzolana,
+    'Tunga' => last_record.tunga,
+    'Ceniza' => last_record.ceniza,
+    'Yeso' => last_record.yeso,
+    'Conchuela' => last_record.conchuela,
+    'San Pedro' => last_record.san_pedro
+  }
+end
+
 end

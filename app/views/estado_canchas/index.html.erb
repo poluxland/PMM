@@ -1,15 +1,21 @@
 
 
 
+
+
 <div class="row">
   <div class="col-sm-6">
     <h1>Estado de canchas</h1>
   </div>
 
-  <div class="col-sm-6 text-right">
+  <div class="col-sm-12 text-right">
+<%= bar_chart @chart_data, max: 140, colors: ["#FF0000", "#00FF00", "#0000FF", "#FFFF00", "#FF00FF", "#00FFFF", "#C0C0C0", "#808080", "#800000", "#808000"] %>
+<br>
   <%= link_to new_estado_cancha_path, class: 'btn btn-primary' do %>
     Agregar Estado cancha
   <% end %>
+
+
   </div>
 </div>
 
