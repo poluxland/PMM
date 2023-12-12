@@ -3,7 +3,8 @@ class EstadoCanchasController < ApplicationController
 
   # GET /estado_canchas or /estado_canchas.json
   def index
-    @estado_canchas = EstadoCancha.all
+    @estado_canchas = EstadoCancha.last(10)
+
   end
 
   # GET /estado_canchas/1 or /estado_canchas/1.json
