@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capacidad ocupada de canchas </title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>Estado Canchas Report</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Quilimari</th>
+                <th>Cachinales</th>
+                <th>Ñilhue</th>
+                <th>Caolin</th>
+                <th>Fierro</th>
+                <th>Puzolana</th>
+                <th>Tunga</th>
+                <th>Ceniza</th>
+                <th>Yeso</th>
+                <th>Conchuela</th>
+                <th>San Pedro</th>
+
+
+            </tr>
+        </thead>
+        <tbody>
+
+                <tr>
+                    <td><%= @estado_cancha.quilimari %></td>
+                    <td><%= @estado_cancha.cachinales %></td>
+                    <td><%= @estado_cancha.ñilhue %></td>
+                    <td><%= @estado_cancha.caolin %></td>
+                    <td><%= @estado_cancha.fierro %></td>
+                    <td><%= @estado_cancha.puzolana %></td>
+                    <td><%= @estado_cancha.tunga %></td>
+                    <td><%= @estado_cancha.ceniza %></td>
+                    <td><%= @estado_cancha.yeso %></td>
+                    <td><%= @estado_cancha.conchuela %></td>
+                    <td><%= @estado_cancha.san_pedro %></td>
+
+
+                </tr>
+
+        </tbody>
+    </table>
+</body>
+</html>

@@ -6,8 +6,9 @@ class UserMailer < ApplicationMailer
   #
   #   en.user_mailer.welcome.subject
   #
-  def welcome
-    @greeting = Cancha.where(operativa: false)
+  def estado_canchas
+    @greeting = "Estado de canchas " + Time.now.in_time_zone('Santiago').to_s
+    @estado_cancha = EstadoCancha.last
 
     mail to: 'jose.jerez@msindustrial.cl, fernando.gonzalez@msindustrial.cl'
   end
