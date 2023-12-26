@@ -18,10 +18,57 @@
             background-color: #4CAF50;
             color: white;
         }
+
+   .chart {
+  font-family: 'Arial', sans-serif;
+  margin: 20px auto;
+}
+
+.chart div {
+  background-color: #3498db; /* A pleasant blue shade */
+  color: white; /* Improved contrast for readability */
+  margin: 8px 0; /* More space between bars */
+  padding: 10px; /* Increased padding for a better visual effect */
+  font-size: 14px; /* Larger font for readability */
+  border-radius: 5px; /* Rounded corners for a modern look */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+  transition: all 0.3s ease; /* Smooth transition for hover effects */
+  text-align: left; /* Align text to the left */
+  width: auto; /* Bars will take the full width of the container */
+  display: block; /* Makes div behave like a block element */
+}
+
+.chart div:hover {
+  background-color: #2980b9; /* Darker shade on hover for interaction */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Enhanced shadow on hover */
+}
+
+
     </style>
+
+
+
+
 </head>
 <body>
-    <h1>Estado Canchas Report</h1>
+    <h1>Capacidad ocupada de canchas</h1>
+
+<div class="chart">
+  <div style="width: <%= (@estado_cancha.quilimari.to_f / 140) * 100 %>%;">Quilimari: <%= @estado_cancha.quilimari %>%</div>
+  <div style="width: <%= (@estado_cancha.cachinales.to_f / 140) * 100 %>%;">Cachinales: <%= @estado_cancha.cachinales %>%</div>
+  <div style="width: <%= (@estado_cancha.ñilhue.to_f / 140) * 100 %>%;">Ñilhue: <%= @estado_cancha.ñilhue %>%</div>
+  <div style="width: <%= (@estado_cancha.caolin.to_f / 140) * 100 %>%;">Caolin: <%= @estado_cancha.caolin %>%</div>
+  <div style="width: <%= (@estado_cancha.fierro.to_f / 140) * 100 %>%;">Fierro: <%= @estado_cancha.fierro %>%</div>
+  <div style="width: <%= (@estado_cancha.puzolana.to_f / 140) * 100 %>%;">Puzolana: <%= @estado_cancha.puzolana %>%</div>
+  <div style="width: <%= (@estado_cancha.tunga.to_f / 140) * 100 %>%;">Tunga: <%= @estado_cancha.tunga %>%</div>
+  <div style="width: <%= (@estado_cancha.ceniza.to_f / 140) * 100 %>%;">Ceniza: <%= @estado_cancha.ceniza %>%</div>
+  <div style="width: <%= (@estado_cancha.yeso.to_f / 140) * 100 %>%;">Yeso: <%= @estado_cancha.yeso %>%</div>
+  <div style="width: <%= (@estado_cancha.conchuela.to_f / 140) * 100 %>%;">Conchuela: <%= @estado_cancha.conchuela %>%</div>
+  <div style="width: <%= (@estado_cancha.san_pedro.to_f / 140) * 100 %>%;">San Pedro: <%= @estado_cancha.san_pedro %>%</div>
+</div>
+
+
+
     <table>
         <thead>
             <tr>
