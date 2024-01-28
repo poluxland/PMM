@@ -76,6 +76,7 @@ class EstadoCanchasController < ApplicationController
   return {} unless last_record
 
   {
+    'Quilimari' => last_record.quilimari,
     'Cachinales' => last_record.cachinales,
     'Ñilhue' => last_record.ñilhue,
     'Caolin' => last_record.caolin,
