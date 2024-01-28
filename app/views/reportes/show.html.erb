@@ -1,0 +1,26 @@
+
+
+<h1>Detalles reporte</h1>
+
+<p>
+  <strong>Control:</strong>
+  <%= @reporte.control %>
+</p>
+
+<p>
+  <strong>Notas:</strong>
+  <%= @reporte.notas %>
+</p>
+
+<p>
+  <strong>Avance:</strong>
+  <%= @reporte.avance %>
+</p>
+
+<p>
+  <strong>Inactividad:</strong>
+  <%= @reporte.inactividad %>
+</p>
+
+<%= link_to 'Edit', edit_trabajo_reporte_path(@trabajo, @reporte) %> |
+<%= link_to 'Back', trabajo_reportes_path(@trabajo) %>

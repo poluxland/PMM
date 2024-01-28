@@ -1,0 +1,48 @@
+
+
+<div class="row">
+  <div class="col-sm-6">
+    <h1>Reportes <%= @trabajo.descripcion %></h1>
+  </div>
+
+  <div class="col-sm-6 text-right">
+    <%= link_to new_trabajo_reporte_path(@trabajo), class: 'btn btn-primary' do %>
+      Agregar Reporte
+    <% end %>
+  </div>
+</div>
+
+<div class="table-responsive">
+  <table class="table table-striped table-bordered table-hover">
+    <thead>
+      <tr>
+        <th>Control</th>
+        <th>Notas</th>
+        <th>Avance (%%)</th>
+        <th>Inactividad (Horas)</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @reportes.each do |reporte| %>
+        <tr>
+          <td><%= reporte.control %></td>
+          <td><%= reporte.notas %></td>
+          <td><%= reporte.avance %></td>
+          <td><%= reporte.inactividad %></td>
+          <td class="text-center">
+            <%= link_to trabajo_reporte_path(@trabajo, reporte), class: 'btn btn-sm btn-secondary' do %>
+              <i class="fa fa-eye fa-fw text-light"></i>
+            <% end %>
+            <%= link_to edit_trabajo_reporte_path(@trabajo, reporte), class: 'btn btn-sm btn-success' do %>
+              <i class="fa fa-edit fa-fw text-light"></i>
+            <% end %>
+
+
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

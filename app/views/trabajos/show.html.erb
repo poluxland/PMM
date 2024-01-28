@@ -1,0 +1,27 @@
+<div class="page-header">
+  <%= link_to trabajos_path, class: 'btn btn-primary' do %>
+    Trabajos
+  <% end %>
+  <%= link_to edit_trabajo_path(@trabajo), class: 'btn btn-primary' do %>
+    Editar
+  <% end %>
+  <h1>Detalles trabajo</h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt>Inicio:</dt>
+  <dd><%= @trabajo.inicio %></dd>
+
+  <dt>Termino:</dt>
+  <dd><%= @trabajo.termino %></dd>
+
+  <dt>Area:</dt>
+  <dd><%= @trabajo.area %></dd>
+
+  <dt>Supervisor:</dt>
+  <dd><%= @trabajo.supervisor %></dd>
+
+  <dt>Descripcion:</dt>
+  <dd><%= @trabajo.descripcion %></dd>
+
+</dl>

@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  control: MyString
+  notas: MyString
+  avance: 1
+  inactividad: 1
+  trabajo: one
+
+two:
+  control: MyString
+  notas: MyString
+  avance: 1
+  inactividad: 1
+  trabajo: two

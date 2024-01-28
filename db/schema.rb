@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_11_22_173511) do
+ActiveRecord::Schema.define(version: 2024_01_28_011239) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_stat_statements"
@@ -382,6 +382,17 @@ ActiveRecord::Schema.define(version: 2023_11_22_173511) do
     t.index ["cancha_id"], name: "index_registros_on_cancha_id"
   end
 
+  create_table "reportes", force: :cascade do |t|
+    t.string "control"
+    t.string "notas"
+    t.integer "avance"
+    t.integer "inactividad"
+    t.bigint "trabajo_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["trabajo_id"], name: "index_reportes_on_trabajo_id"
+  end
+
   create_table "sectors", force: :cascade do |t|
     t.string "area"
     t.string "instalacion"
@@ -417,6 +428,16 @@ ActiveRecord::Schema.define(version: 2023_11_22_173511) do
     t.string "descripcion"
     t.integer "criticidad"
     t.string "otros"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "trabajos", force: :cascade do |t|
+    t.date "inicio"
+    t.date "termino"
+    t.string "area"
+    t.string "supervisor"
+    t.string "descripcion"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -465,6 +486,7 @@ ActiveRecord::Schema.define(version: 2023_11_22_173511) do
   add_foreign_key "inspections", "supervisors"
   add_foreign_key "inspections", "tareas"
   add_foreign_key "registros", "canchas"
+  add_foreign_key "reportes", "trabajos"
   add_foreign_key "services", "users"
   add_foreign_key "trucks", "mmpps"
 end

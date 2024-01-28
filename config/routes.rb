@@ -3,6 +3,9 @@
 require 'sidekiq/web'
 
 Rails.application.routes.draw do
+  resources :trabajos do
+  resources :reportes
+end
   resources :estado_canchas
   resources :mantenimientos
   resources :evaluacions
