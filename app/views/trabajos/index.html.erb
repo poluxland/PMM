@@ -36,7 +36,7 @@
     </thead>
 
     <tbody>
-      <% @trabajos.each do |trabajo| %>
+      <% @trabajos.includes(:reportes).each do |trabajo| %>
         <%= content_tag :tr, id: dom_id(trabajo), class: dom_class(trabajo) do %>
 
 
@@ -45,7 +45,7 @@
                       <td><%= trabajo.area %></td>
                       <td><%= trabajo.supervisor %></td>
                       <td><%= trabajo.descripcion %></td>
-                       <td></td>
+                      <td><%= trabajo.reportes.last.avance if trabajo.reportes.exists? %>%</td>
                    <td><%= calculate_progress_percentage(trabajo.inicio, trabajo.termino) %>%</td>
 
 
