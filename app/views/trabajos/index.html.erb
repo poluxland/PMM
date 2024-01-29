@@ -1,5 +1,5 @@
 
-<%= javascript_include_tag "https://www.gstatic.com/charts/loader.js" %>
+
 
 <div class="row">
   <div class="col-sm-6">
@@ -78,11 +78,11 @@
   </table>
 </div>
 
-
+<%= javascript_include_tag "https://www.gstatic.com/charts/loader.js" %>
 <div id="timeline" style="height: 1000px;"></div>
 
 
-<script type="text/javascript">
+<script>
   document.addEventListener('DOMContentLoaded', function() {
     google.charts.load('current', {'packages':['timeline']});
     google.charts.setOnLoadCallback(drawChart);
@@ -92,8 +92,20 @@
       var chart = new google.visualization.Timeline(container);
       var dataTable = new google.visualization.DataTable();
 
-      // ... dataTable setup and chart.draw(dataTable) ...
+      dataTable.addColumn({ type: 'string', id: 'Trabajo' });
+      dataTable.addColumn({ type: 'date', id: 'Start' });
+      dataTable.addColumn({ type: 'date', id: 'End' });
+      dataTable.addRows([
+        <% @trabajos.each do |trabajo| %>
+          [
+            '<%= trabajo.descripcion %>',
+            new Date('<%= trabajo.inicio.strftime('%Y-%m-%d') %>'),
+            new Date('<%= trabajo.termino.strftime('%Y-%m-%d') %>')
+          ],
+        <% end %>
+      ]);
+
+      chart.draw(dataTable);
     }
   });
 </script>
-
