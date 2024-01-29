@@ -10,11 +10,14 @@
   <%= link_to new_trabajo_path, class: 'btn btn-primary' do %>
     Agregar Trabajo
   <% end %>
+  <button type="button" class="btn btn-secondary" onclick="location.reload();">Gantt</button>
+
   </div>
 </div>
 
 <div class="table-responsive">
-  <table class="table table-striped table-bordered table-hover">
+  <table id="myTable" class="table table-striped table-bordered table-hover">
+
     <thead>
       <tr>
 
@@ -76,6 +79,7 @@
       <% end %>
     </tbody>
   </table>
+
 </div>
 
 <%= javascript_include_tag "https://www.gstatic.com/charts/loader.js" %>
