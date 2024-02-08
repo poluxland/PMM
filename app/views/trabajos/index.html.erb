@@ -56,9 +56,9 @@
     <i class="fa fa-eye fa-fw text-light"></i>
   <% end %>
 
-  <%= link_to edit_trabajo_path(trabajo), class: 'btn btn-success btn-sm shadow p-1 rounded' do %>
-    <i class="fa fa-edit fa-fw text-light"></i>
-  <% end %>
+  <%#= link_to edit_trabajo_path(trabajo), class: 'btn btn-success btn-sm shadow p-1 rounded' do %>
+   <!-- <i class="fa fa-edit fa-fw text-light"></i> -->
+  <%# end %>
 
 
 
@@ -69,6 +69,12 @@
   <%= link_to trabajo_reportes_path(trabajo), class: 'btn btn-info btn-sm shadow p-1 rounded' do %>
     <i class="fa fa-list-ul fa-fw text-light"></i>
   <% end %>
+
+<% if current_user.present? && current_user.email == 'jose.jerez@msindustrial.cl' %>
+  <%= link_to trabajo_path(trabajo), method: :delete, data: { confirm: 'Estas seguro?' }, class: 'btn btn-danger btn-sm shadow p-1 rounded' do %>
+    <i class="fa fa-trash fa-fw text-light"></i>
+  <% end %>
+<% end %>
 </td>
 
 
