@@ -98,24 +98,31 @@
     google.charts.setOnLoadCallback(drawChart);
 
     function drawChart() {
-      var container = document.getElementById('timeline');
-      var chart = new google.visualization.Timeline(container);
-      var dataTable = new google.visualization.DataTable();
+  var container = document.getElementById('timeline');
+  var chart = new google.visualization.Timeline(container);
+  var dataTable = new google.visualization.DataTable();
 
-      dataTable.addColumn({ type: 'string', id: 'Trabajo' });
-      dataTable.addColumn({ type: 'date', id: 'Start' });
-      dataTable.addColumn({ type: 'date', id: 'End' });
-      dataTable.addRows([
-        <% @trabajos.each do |trabajo| %>
-          [
-            '<%= trabajo.descripcion %>',
-            new Date('<%= trabajo.inicio.strftime('%Y-%m-%d') %>'),
-            new Date('<%= trabajo.termino.strftime('%Y-%m-%d') %>')
-          ],
-        <% end %>
-      ]);
+  dataTable.addColumn({ type: 'string', id: 'Trabajo' });
+  dataTable.addColumn({ type: 'date', id: 'Start' });
+  dataTable.addColumn({ type: 'date', id: 'End' });
+  dataTable.addRows([
+    <% @trabajos.each do |trabajo| %>
+      [
+        '<%= trabajo.descripcion %>',
+        new Date('<%= trabajo.inicio.strftime('%Y-%m-%d') %>'),
+        new Date('<%= trabajo.termino.strftime('%Y-%m-%d') %>')
+      ].map(function(date, index) {
+        if (index > 0) { // Skip the first element (the description)
+          var localDate = new Date(date.getTime() + date.getTimezoneOffset() * 60000);
+          return new Date(localDate.getUTCFullYear(), localDate.getUTCMonth(), localDate.getUTCDate());
+        }
+        return date;
+      }),
+    <% end %>
+  ]);
 
-      chart.draw(dataTable);
-    }
+  chart.draw(dataTable);
+}
+
   });
 </script>
