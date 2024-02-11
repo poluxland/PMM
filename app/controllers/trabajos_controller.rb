@@ -65,6 +65,6 @@ class TrabajosController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def trabajo_params
-      params.require(:trabajo).permit(:inicio, :termino, :area, :supervisor, :descripcion)
+      params.require(:trabajo).permit(:inicio, :termino, :area, :supervisor, :descripcion, :detalle)
     end
 end
