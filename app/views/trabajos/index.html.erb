@@ -10,7 +10,7 @@
   <%= link_to new_trabajo_path, class: 'btn btn-primary' do %>
     Agregar Trabajo
   <% end %>
-  <button type="button" class="btn btn-secondary" onclick="location.reload();">Gantt</button>
+  <button type="button" class="btn btn-secondary" onclick="location.reload();">Graficos</button>
 
   </div>
 </div>
@@ -85,11 +85,11 @@
       <% end %>
     </tbody>
   </table>
-
+<br>
 </div>
 
 <%= javascript_include_tag "https://www.gstatic.com/charts/loader.js" %>
-<div id="timeline" style="height: 1000px;"></div>
+<div id="timeline" style="width: 100%; height: 500px;"></div>
 
 
 <script>
@@ -124,5 +124,45 @@
   chart.draw(dataTable);
 }
 
+  });
+</script>
+
+
+<div id="progress_chart" style="width: 100%; height: 500px;"></div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    google.charts.load('current', {'packages':['corechart']});
+    google.charts.setOnLoadCallback(drawChart);
+
+    function drawChart() {
+      var data = new google.visualization.DataTable();
+      data.addColumn('string', 'Trabajo');
+      data.addColumn('number', 'Real');
+      data.addColumn('number', 'Esperado');
+      data.addRows([
+        <% @trabajos.each do |trabajo| %>
+          [
+            '<%= trabajo.descripcion %>',
+            <%= trabajo.reportes.last&.avance || 0 %>, // Use the last report's avance or 0 if none
+            <%= calculate_progress_percentage(trabajo.inicio, trabajo.termino) %>
+          ],
+        <% end %>
+      ]);
+
+      var options = {
+        title: 'Avance real vs esperado',
+        chartArea: {width: '75%'},
+        hAxis: {
+          title: 'Porcentaje de avance',
+          minValue: 0,
+          maxValue: 100
+        },
+
+      };
+
+      var chart = new google.visualization.BarChart(document.getElementById('progress_chart'));
+      chart.draw(data, options);
+    }
   });
 </script>
