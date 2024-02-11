@@ -38,6 +38,14 @@
             <%= link_to edit_trabajo_reporte_path(@trabajo, reporte), class: 'btn btn-sm btn-success' do %>
               <i class="fa fa-edit fa-fw text-light"></i>
             <% end %>
+            <% if current_user.present? && current_user.email == 'jose.jerez@msindustrial.cl' %>
+            <%= link_to trabajo_reporte_path(@trabajo, reporte),
+                    method: :delete,
+                    data: { confirm: 'Are you sure?' },
+                    class: 'btn btn-sm btn-danger' do %>
+          <i class="fa fa-trash fa-fw text-light"></i>
+        <% end %>
+        <% end %>
 
 
           </td>
