@@ -150,16 +150,27 @@
         <% end %>
       ]);
 
-      var options = {
-        title: 'Avance real vs esperado',
-        chartArea: {width: '75%'},
-        hAxis: {
-          title: 'Porcentaje de avance',
-          minValue: 0,
-          maxValue: 100
-        },
+     var options = {
+  title: 'Avance real vs esperado',
+  chartArea: {width: '60%'},
+  hAxis: {
+    title: 'Porcentaje de avance',
+    minValue: 0,
+    maxValue: 100,
+    textStyle: {
+      fontSize: 10, // Adjust the font size for horizontal axis labels
+      bold: true // Optional: making the text bold
+    }
+  },
+  vAxis: {
+    title: 'Trabajos',
+    textStyle: {
+      fontSize: 10, // Adjust the font size for vertical axis labels
+      bold: true // Optional: making the text bold
+    }
+  }
+};
 
-      };
 
       var chart = new google.visualization.BarChart(document.getElementById('progress_chart'));
       chart.draw(data, options);
