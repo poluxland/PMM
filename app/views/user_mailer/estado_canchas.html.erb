@@ -54,18 +54,41 @@
     <h1>Capacidad ocupada de canchas</h1>
 
 <div class="chart">
+  <% if @estado_cancha.quilimari.to_f > 0 %>
   <div style="width: <%= (@estado_cancha.quilimari.to_f / 140) * 100 %>%;">Quilimari: <%= @estado_cancha.quilimari %>%</div>
+  <% end %>
+  <% if @estado_cancha.cachinales.to_f > 0 %>
   <div style="width: <%= (@estado_cancha.cachinales.to_f / 140) * 100 %>%;">Cachinales: <%= @estado_cancha.cachinales %>%</div>
+  <% end %>
+  <% if @estado_cancha.ñilhue.to_f > 0 %>
   <div style="width: <%= (@estado_cancha.ñilhue.to_f / 140) * 100 %>%;">Ñilhue: <%= @estado_cancha.ñilhue %>%</div>
+  <% end %>
+  <% if @estado_cancha.caolin.to_f > 0 %>
   <div style="width: <%= (@estado_cancha.caolin.to_f / 140) * 100 %>%;">Caolin: <%= @estado_cancha.caolin %>%</div>
+  <% end %>
+  <% if @estado_cancha.fierro.to_f > 0 %>
   <div style="width: <%= (@estado_cancha.fierro.to_f / 140) * 100 %>%;">Fierro: <%= @estado_cancha.fierro %>%</div>
+  <% end %>
+  <% if @estado_cancha.puzolana.to_f > 0 %>
   <div style="width: <%= (@estado_cancha.puzolana.to_f / 140) * 100 %>%;">Puzolana: <%= @estado_cancha.puzolana %>%</div>
+  <% end %>
+  <% if @estado_cancha.tunga.to_f > 0 %>
   <div style="width: <%= (@estado_cancha.tunga.to_f / 140) * 100 %>%;">Tunga: <%= @estado_cancha.tunga %>%</div>
+  <% end %>
+  <% if @estado_cancha.ceniza.to_f > 0 %>
   <div style="width: <%= (@estado_cancha.ceniza.to_f / 140) * 100 %>%;">Ceniza: <%= @estado_cancha.ceniza %>%</div>
+  <% end %>
+  <% if @estado_cancha.yeso.to_f > 0 %>
   <div style="width: <%= (@estado_cancha.yeso.to_f / 140) * 100 %>%;">Yeso: <%= @estado_cancha.yeso %>%</div>
+  <% end %>
+  <% if @estado_cancha.conchuela.to_f > 0 %>
   <div style="width: <%= (@estado_cancha.conchuela.to_f / 140) * 100 %>%;">Conchuela: <%= @estado_cancha.conchuela %>%</div>
+  <% end %>
+  <% if @estado_cancha.san_pedro.to_f > 0 %>
   <div style="width: <%= (@estado_cancha.san_pedro.to_f / 140) * 100 %>%;">San Pedro: <%= @estado_cancha.san_pedro %>%</div>
+  <% end %>
 </div>
+
 
 
 
