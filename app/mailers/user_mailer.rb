@@ -24,7 +24,7 @@ class UserMailer < ApplicationMailer
     'San Pedro' => @estado_cancha.san_pedro
   }
 
-    mail to: 'jose.jerez@msindustrial.cl, fernando.gonzalez@msindustrial.cl'
+    mail to: 'diego.garrido@meloncementos.cl, jose.jerez@msindustrial.cl, alejandro.olivares@msindustrial.cl, fernando.gonzalez@msindustrial.cl, guillermo.roco@meloncementos.cl, roberto.leiva@meloncementos.cl, jefesturno.planta@melon.cl, supervisor.envasadora@msindustrial.cl, marianelly.villarroel@meloncementos.cl, rodrigo.trigo@meloncementos.cl, gaston.guerrero@meloncementos.cl, maryorie.fajardo@msindustrial.cl'
   end
 
 
