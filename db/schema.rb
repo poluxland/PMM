@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2024_02_11_113434) do
+ActiveRecord::Schema.define(version: 2024_03_20_191605) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_stat_statements"
@@ -248,6 +248,32 @@ ActiveRecord::Schema.define(version: 2024_02_11_113434) do
     t.index ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true
     t.index ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type"
     t.index ["sluggable_type", "sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_type_and_sluggable_id"
+  end
+
+  create_table "informes", force: :cascade do |t|
+    t.date "fecha"
+    t.integer "especial_sin_funda"
+    t.integer "especial_soluble"
+    t.integer "especial_enfundado"
+    t.integer "extra_sin_funda"
+    t.integer "extra_soluble"
+    t.integer "extra_enfundado"
+    t.integer "big_bag_extra_sin_peba"
+    t.integer "big_bag_extra_con_peba"
+    t.integer "big_bag_especial_sin_peba"
+    t.integer "big_bag_especial_con_peba"
+    t.integer "produccion_especial"
+    t.integer "produccion_extra"
+    t.time "inicio_produccion"
+    t.time "termino_produccion"
+    t.integer "envases_especial"
+    t.integer "envases_extra"
+    t.integer "envases_big_bag"
+    t.integer "pallets_buenos"
+    t.integer "bobinas_plastificado"
+    t.text "observaciones"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "inspections", force: :cascade do |t|

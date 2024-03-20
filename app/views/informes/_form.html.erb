@@ -1,0 +1,134 @@
+<%= form_with(model: informe, local: true) do |form| %>
+  <% if informe.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(informe.errors.count, "error") %> prohibited this informe from being saved:</h2>
+
+      <ul>
+      <% informe.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= form.label :fecha %>
+    <%= form.date_select :fecha, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :especial_sin_funda %>
+    <%= form.number_field :especial_sin_funda, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :especial_soluble %>
+    <%= form.number_field :especial_soluble, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :especial_enfundado %>
+    <%= form.number_field :especial_enfundado, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :extra_sin_funda %>
+    <%= form.number_field :extra_sin_funda, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :extra_soluble %>
+    <%= form.number_field :extra_soluble, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :extra_enfundado %>
+    <%= form.number_field :extra_enfundado, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :big_bag_extra_sin_peba %>
+    <%= form.number_field :big_bag_extra_sin_peba, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :big_bag_extra_con_peba %>
+    <%= form.number_field :big_bag_extra_con_peba, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :big_bag_especial_sin_peba %>
+    <%= form.number_field :big_bag_especial_sin_peba, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :big_bag_especial_con_peba %>
+    <%= form.number_field :big_bag_especial_con_peba, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :produccion_especial %>
+    <%= form.number_field :produccion_especial, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :produccion_extra %>
+    <%= form.number_field :produccion_extra, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :inicio_produccion %>
+    <%= form.time_select :inicio_produccion, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :termino_produccion %>
+    <%= form.time_select :termino_produccion, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :envases_especial %>
+    <%= form.number_field :envases_especial, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :envases_extra %>
+    <%= form.number_field :envases_extra, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :envases_big_bag %>
+    <%= form.number_field :envases_big_bag, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :pallets_buenos %>
+    <%= form.number_field :pallets_buenos, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :bobinas_plastificado %>
+    <%= form.number_field :bobinas_plastificado, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :observaciones %>
+    <%= form.text_area :observaciones, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <% if informe.persisted? %>
+      <div class="float-right">
+        <%= link_to 'Destroy', informe, method: :delete, class: "text-danger", data: { confirm: 'Esta seguro?' } %>
+      </div>
+    <% end %>
+
+    <%= form.submit class: 'btn btn-primary' %>
+
+    <% if informe.persisted? %>
+      <%= link_to "Cancel", informe, class: "btn btn-link" %>
+    <% else %>
+      <%= link_to "Cancel", informes_path, class: "btn btn-link" %>
+    <% end %>
+  </div>
+<% end %>

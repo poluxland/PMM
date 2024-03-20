@@ -1,0 +1,83 @@
+
+
+
+<div class="row">
+  <div class="col-sm-6">
+    <h1>Informes</h1>
+  </div>
+
+  <div class="col-sm-6 text-right">
+  <%= link_to new_informe_path, class: 'btn btn-primary' do %>
+    Nuevo informe
+  <% end %>
+  </div>
+</div>
+
+<div class="table-responsive">
+  <table class="table table-striped table-bordered table-hover">
+    <thead>
+      <tr>
+
+
+            <th>Fecha</th>
+            <th>Especial sin funda</th>
+            <th>Especial soluble</th>
+            <th>Especial enfundado</th>
+            <th>Extra sin funda</th>
+            <th>Extra soluble</th>
+            <th>Extra enfundado</th>
+            <th>Big bag extra sin peba</th>
+            <th>Big bag extra con peba</th>
+            <th>Big bag especial sin peba</th>
+            <th>Big bag especial con peba</th>
+            <th>Produccion especial</th>
+            <th>Produccion extra</th>
+            <th>Inicio produccion</th>
+            <th>Termino produccion</th>
+            <th>Envases especial</th>
+            <th>Envases extra</th>
+            <th>Envases big bag</th>
+            <th>Pallets buenos</th>
+            <th>Bobinas plastificado</th>
+            <th>Observaciones</th>
+
+          <th></th>
+
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @informes.each do |informe| %>
+        <%= content_tag :tr, id: dom_id(informe), class: dom_class(informe) do %>
+
+
+                      <td><%= informe.fecha %></td>
+                      <td><%= informe.especial_sin_funda %></td>
+                      <td><%= informe.especial_soluble %></td>
+                      <td><%= informe.especial_enfundado %></td>
+                      <td><%= informe.extra_sin_funda %></td>
+                      <td><%= informe.extra_soluble %></td>
+                      <td><%= informe.extra_enfundado %></td>
+                      <td><%= informe.big_bag_extra_sin_peba %></td>
+                      <td><%= informe.big_bag_extra_con_peba %></td>
+                      <td><%= informe.big_bag_especial_sin_peba %></td>
+                      <td><%= informe.big_bag_especial_con_peba %></td>
+                      <td><%= informe.produccion_especial %></td>
+                      <td><%= informe.produccion_extra %></td>
+                      <td><%= informe.inicio_produccion %></td>
+                      <td><%= informe.termino_produccion %></td>
+                      <td><%= informe.envases_especial %></td>
+                      <td><%= informe.envases_extra %></td>
+                      <td><%= informe.envases_big_bag %></td>
+                      <td><%= informe.pallets_buenos %></td>
+                      <td><%= informe.bobinas_plastificado %></td>
+                      <td><%= informe.observaciones %></td>
+
+
+            <td><%= link_to 'Show', informe %></td>
+
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
+</div>

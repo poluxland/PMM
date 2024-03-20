@@ -1,0 +1,75 @@
+<div class="page-header">
+  <%= link_to informes_path, class: 'btn btn-default' do %>
+    All Informes
+  <% end %>
+  <%= link_to edit_informe_path(@informe), class: 'btn btn-primary' do %>
+    Edit
+  <% end %>
+  <h1>Show informe</h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt>Fecha:</dt>
+  <dd><%= @informe.fecha %></dd>
+
+  <dt>Especial sin funda:</dt>
+  <dd><%= @informe.especial_sin_funda %></dd>
+
+  <dt>Especial soluble:</dt>
+  <dd><%= @informe.especial_soluble %></dd>
+
+  <dt>Especial enfundado:</dt>
+  <dd><%= @informe.especial_enfundado %></dd>
+
+  <dt>Extra sin funda:</dt>
+  <dd><%= @informe.extra_sin_funda %></dd>
+
+  <dt>Extra soluble:</dt>
+  <dd><%= @informe.extra_soluble %></dd>
+
+  <dt>Extra enfundado:</dt>
+  <dd><%= @informe.extra_enfundado %></dd>
+
+  <dt>Big bag extra sin peba:</dt>
+  <dd><%= @informe.big_bag_extra_sin_peba %></dd>
+
+  <dt>Big bag extra con peba:</dt>
+  <dd><%= @informe.big_bag_extra_con_peba %></dd>
+
+  <dt>Big bag especial sin peba:</dt>
+  <dd><%= @informe.big_bag_especial_sin_peba %></dd>
+
+  <dt>Big bag especial con peba:</dt>
+  <dd><%= @informe.big_bag_especial_con_peba %></dd>
+
+  <dt>Produccion especial:</dt>
+  <dd><%= @informe.produccion_especial %></dd>
+
+  <dt>Produccion extra:</dt>
+  <dd><%= @informe.produccion_extra %></dd>
+
+  <dt>Inicio produccion:</dt>
+  <dd><%= @informe.inicio_produccion %></dd>
+
+  <dt>Termino produccion:</dt>
+  <dd><%= @informe.termino_produccion %></dd>
+
+  <dt>Envases especial:</dt>
+  <dd><%= @informe.envases_especial %></dd>
+
+  <dt>Envases extra:</dt>
+  <dd><%= @informe.envases_extra %></dd>
+
+  <dt>Envases big bag:</dt>
+  <dd><%= @informe.envases_big_bag %></dd>
+
+  <dt>Pallets buenos:</dt>
+  <dd><%= @informe.pallets_buenos %></dd>
+
+  <dt>Bobinas plastificado:</dt>
+  <dd><%= @informe.bobinas_plastificado %></dd>
+
+  <dt>Observaciones:</dt>
+  <dd><%= @informe.observaciones %></dd>
+
+</dl>

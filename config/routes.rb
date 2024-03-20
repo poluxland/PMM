@@ -3,6 +3,7 @@
 require 'sidekiq/web'
 
 Rails.application.routes.draw do
+  resources :informes
   resources :trabajos do
   resources :reportes
 end

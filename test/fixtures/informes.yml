@@ -1,0 +1,47 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  fecha: 2024-03-20
+  especial_sin_funda: 1
+  especial_soluble: 1
+  especial_enfundado: 1
+  extra_sin_funda: 1
+  extra_soluble: 1
+  extra_enfundado: 1
+  big_bag_extra_sin_peba: 1
+  big_bag_extra_con_peba: 1
+  big_bag_especial_sin_peba: 1
+  big_bag_especial_con_peba: 1
+  produccion_especial: 1
+  produccion_extra: 1
+  inicio_produccion: 2024-03-20 16:16:05
+  termino_produccion: 2024-03-20 16:16:05
+  envases_especial: 1
+  envases_extra: 1
+  envases_big_bag: 1
+  pallets_buenos: 1
+  bobinas_plastificado: 1
+  observaciones: MyText
+
+two:
+  fecha: 2024-03-20
+  especial_sin_funda: 1
+  especial_soluble: 1
+  especial_enfundado: 1
+  extra_sin_funda: 1
+  extra_soluble: 1
+  extra_enfundado: 1
+  big_bag_extra_sin_peba: 1
+  big_bag_extra_con_peba: 1
+  big_bag_especial_sin_peba: 1
+  big_bag_especial_con_peba: 1
+  produccion_especial: 1
+  produccion_extra: 1
+  inicio_produccion: 2024-03-20 16:16:05
+  termino_produccion: 2024-03-20 16:16:05
+  envases_especial: 1
+  envases_extra: 1
+  envases_big_bag: 1
+  pallets_buenos: 1
+  bobinas_plastificado: 1
+  observaciones: MyText
