@@ -6,6 +6,15 @@ class InformesController < ApplicationController
     @informes = Informe.all
   end
 
+  def last
+    @informe = Informe.last
+    if @informe
+      render :show
+    else
+      redirect_to informes_path, alert: 'No informe records found.'
+    end
+  end
+
   # GET /informes/1 or /informes/1.json
   def show
   end

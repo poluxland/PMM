@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   resources :trabajos do
   resources :reportes
 end
+
+  get 'last', to: 'informes#last', as: 'last_informe'
   resources :estado_canchas
   resources :mantenimientos
   resources :evaluacions
@@ -55,7 +57,8 @@ end
 
   get '/privacy', to: 'home#privacy'
   get '/terms', to: 'home#terms'
-  get '/informes', to: 'home#informes'
+  get '/inf', to: 'home#informes'
+
   get '/others', to: 'home#others'
   authenticate :user, ->(u) { u.admin? } do
     mount Sidekiq::Web => '/sidekiq'

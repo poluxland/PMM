@@ -1,75 +1,173 @@
 <div class="page-header">
-  <%= link_to informes_path, class: 'btn btn-default' do %>
-    All Informes
+  <h2>Informe  <%= @informe.fecha.strftime('%d-%m-%y') %></h2>
+
+
+<%= link_to new_informe_path, class: 'btn btn-primary' do %>
+    Nuevo Informe
+  <% end %>
+ <%= link_to informes_path, class: 'btn btn-primary' do %>
+    Indice informes
   <% end %>
   <%= link_to edit_informe_path(@informe), class: 'btn btn-primary' do %>
-    Edit
+    Editar
   <% end %>
-  <h1>Show informe</h1>
+
 </div>
 
-<dl class="dl-horizontal">
-  <dt>Fecha:</dt>
-  <dd><%= @informe.fecha %></dd>
 
-  <dt>Especial sin funda:</dt>
-  <dd><%= @informe.especial_sin_funda %></dd>
 
-  <dt>Especial soluble:</dt>
-  <dd><%= @informe.especial_soluble %></dd>
+<div class="container-fluid mt-4">
+  <div class="row">
+    <div class="col-md-6">
+      <table class="table table-bordered">
+        <thead class="thead-light">
+          <tr>
+            <th colspan="2"><b>Stock Sacos de producto terminado 25kgs</b></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Sacos Especial sin funda</td>
+            <td><%= @informe.especial_sin_funda %></td>
+          </tr>
+          <tr>
+            <td>Sacos Especial soluble</td>
+            <td><%= @informe.especial_soluble %></td>
+          </tr>
+          <tr>
+            <td>Sacos Especial enfundado</td>
+            <td><%= @informe.especial_enfundado %></td>
+          </tr>
+           <tr class="table-primary">
+            <td>Total Stock especial</td>
+            <td><%= @informe.especial_sin_funda + @informe.especial_soluble + @informe.especial_enfundado %></td>
+          </tr>
+          <tr>
+            <td>Sacos Extra sin funda</td>
+            <td><%= @informe.extra_sin_funda %></td>
+          </tr>
+          <tr>
+            <td>Sacos Extra soluble</td>
+            <td><%= @informe.extra_soluble %></td>
+          </tr>
+          <tr>
+            <td>Sacos Extra enfundado</td>
+            <td><%= @informe.extra_enfundado %></td>
+          </tr>
+          <!-- Add the rest of your rows for this table -->
+          <tr class="table-primary">
+            <td>Total Stock extra</td>
+            <td><%= @informe.extra_sin_funda + @informe.extra_soluble + @informe.extra_enfundado %></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-md-6">
+      <table class="table table-bordered">
+        <thead class="thead-light">
+          <tr>
+            <th colspan="2"><b>Stock bigbag de producto terminado</b></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Big Bag extra sin peba</td>
+            <td><%= @informe.big_bag_extra_sin_peba %></td>
+          </tr>
+          <tr>
+            <td>Big Bag extra con peba</td>
+            <td><%= @informe.big_bag_extra_con_peba %></td>
+          </tr>
+          <!-- Add the rest of your rows for this table -->
+          <tr class="table-primary">
+            <td>Total Stock bigbag extra</td>
+            <td><%= @informe.big_bag_extra_sin_peba + @informe.big_bag_extra_con_peba %></td>
+          </tr>
+          <tr>
+            <td>Big Bag especial sin peba</td>
+            <td><%= @informe.big_bag_especial_sin_peba %></td>
+          </tr>
+          <tr>
+            <td>Big Bag especial con peba</td>
+            <td><%= @informe.big_bag_especial_con_peba %></td>
+          </tr>
+          <!-- Add the rest of your rows for this table -->
+          <tr class="table-primary">
+            <td>Total Stock bigbag especial</td>
+            <td><%= @informe.big_bag_especial_sin_peba + @informe.big_bag_especial_con_peba %></td>
+          </tr>
 
-  <dt>Especial enfundado:</dt>
-  <dd><%= @informe.especial_enfundado %></dd>
+        </tbody>
+      </table>
+    </div>
+  </div>
 
-  <dt>Extra sin funda:</dt>
-  <dd><%= @informe.extra_sin_funda %></dd>
+  <!-- Add another row for the next set of tables -->
 
-  <dt>Extra soluble:</dt>
-  <dd><%= @informe.extra_soluble %></dd>
+  <div class="row">
+    <div class="col-md-6">
+      <table class="table table-bordered">
+        <thead class="thead-light">
+          <tr>
+            <th colspan="3">Stock insumos</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Your production times and stocks rows here -->
+            <tr>
+              <td>Envases propa especial</td>
+            <td><%= @informe.envases_especial %></td>
+          </tr>
+           <tr>
+              <td>Envases propa extra</td>
+            <td><%= @informe.envases_extra %></td>
+          </tr>
+           <tr>
+              <td>Envases BigBag</td>
+            <td><%= @informe.envases_big_bag %></td>
+          </tr>
+           <tr>
+              <td>Pallets buenos</td>
+            <td><%= @informe.pallets_buenos %></td>
+          </tr>
+           <tr>
+              <td>Bobinas de plastificado</td>
+            <td><%= @informe.bobinas_plastificado %></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-md-6">
+      <table class="table table-bordered">
+        <thead class="thead-light">
+          <tr>
+            <th>Stock Diarios</th>
+             <th>Especial</th>
+              <th>Extra</th>
+          </tr>
 
-  <dt>Extra enfundado:</dt>
-  <dd><%= @informe.extra_enfundado %></dd>
+        </thead>
+        <tbody>
+           <tr>
+    <td>
+      <%= @informe.inicio_produccion.strftime('%H:%M') %> -
+      <%= @informe.termino_produccion.strftime('%H:%M') %>
+      <%= @informe.fecha.strftime('%d/%m') %>
+    </td>
+    <td><%= @informe.produccion_especial %></td>
+    <td><%= @informe.produccion_extra %></td>
+  </tr>
+          <!-- Your production times and stocks rows here -->
+          <tr class="table-secondary">
+            <th colspan="3">Observaciones</th> <!-- This cell spans three columns -->
+          </tr>
+          <tr>
+            <td colspan="3"> <%= @informe.observaciones %> </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
 
-  <dt>Big bag extra sin peba:</dt>
-  <dd><%= @informe.big_bag_extra_sin_peba %></dd>
 
-  <dt>Big bag extra con peba:</dt>
-  <dd><%= @informe.big_bag_extra_con_peba %></dd>
-
-  <dt>Big bag especial sin peba:</dt>
-  <dd><%= @informe.big_bag_especial_sin_peba %></dd>
-
-  <dt>Big bag especial con peba:</dt>
-  <dd><%= @informe.big_bag_especial_con_peba %></dd>
-
-  <dt>Produccion especial:</dt>
-  <dd><%= @informe.produccion_especial %></dd>
-
-  <dt>Produccion extra:</dt>
-  <dd><%= @informe.produccion_extra %></dd>
-
-  <dt>Inicio produccion:</dt>
-  <dd><%= @informe.inicio_produccion %></dd>
-
-  <dt>Termino produccion:</dt>
-  <dd><%= @informe.termino_produccion %></dd>
-
-  <dt>Envases especial:</dt>
-  <dd><%= @informe.envases_especial %></dd>
-
-  <dt>Envases extra:</dt>
-  <dd><%= @informe.envases_extra %></dd>
-
-  <dt>Envases big bag:</dt>
-  <dd><%= @informe.envases_big_bag %></dd>
-
-  <dt>Pallets buenos:</dt>
-  <dd><%= @informe.pallets_buenos %></dd>
-
-  <dt>Bobinas plastificado:</dt>
-  <dd><%= @informe.bobinas_plastificado %></dd>
-
-  <dt>Observaciones:</dt>
-  <dd><%= @informe.observaciones %></dd>
-
-</dl>
