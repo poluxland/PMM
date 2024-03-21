@@ -22,14 +22,16 @@
   </div>
 
   <div class="form-group">
+    <%= form.label :especial_enfundado %>
+    <%= form.number_field :especial_enfundado, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
     <%= form.label :especial_soluble %>
     <%= form.number_field :especial_soluble, class: 'form-control' %>
   </div>
 
-  <div class="form-group">
-    <%= form.label :especial_enfundado %>
-    <%= form.number_field :especial_enfundado, class: 'form-control' %>
-  </div>
+
 
   <div class="form-group">
     <%= form.label :extra_sin_funda %>
@@ -92,13 +94,27 @@
   </div>
 
   <div class="form-group">
+    <%= form.label :envases_especial_soluble %>
+    <%= form.number_field :envases_especial_soluble, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
     <%= form.label :envases_extra %>
     <%= form.number_field :envases_extra, class: 'form-control' %>
   </div>
 
   <div class="form-group">
+    <%= form.label :envases_extra_soluble %>
+    <%= form.number_field :envases_extra_soluble, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
     <%= form.label :envases_big_bag %>
     <%= form.number_field :envases_big_bag, class: 'form-control' %>
+  </div>
+   <div class="form-group">
+    <%= form.label :envases_big_bag_con_peba %>
+    <%= form.number_field :envases_big_bag_con_peba, class: 'form-control' %>
   </div>
 
   <div class="form-group">
@@ -112,9 +128,52 @@
   </div>
 
   <div class="form-group">
-    <%= form.label :observaciones %>
+    <%= form.label :fifo_1_especial %>
+    <%= form.date_select :fifo_1_especial, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :fifo_2_especial %>
+    <%= form.date_select :fifo_2_especial, class: 'form-control' %>
+  </div>
+
+<div class="form-group">
+    <%= form.label :fifo_3_especial %>
+    <%= form.date_select :fifo_3_especial, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :fifo_4_especial %>
+    <%= form.date_select :fifo_4_especial, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= form.label :fifo_5_especial %>
+    <%= form.date_select :fifo_5_especial, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= form.label :fifo_6_especial %>
+    <%= form.date_select :fifo_6_especial, class: 'form-control' %>
+  </div>
+<div class="form-group">
+    <%= form.label :fifo_7_especial %>
+    <%= form.date_select :fifo_7_especial, class: 'form-control' %>
+  </div>
+<div class="form-group">
+    <%= form.label :fifo_8_extra %>
+    <%= form.date_select :fifo_8_extra, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= form.label :fifo_9_extra %>
+    <%= form.date_select :fifo_9_extra, class: 'form-control' %>
+  </div>
+
+
+  <div class="form-group">
+    <%= form.label :Novedades %>
     <%= form.text_area :observaciones, class: 'form-control' %>
   </div>
+
+
 
   <div class="form-group">
     <% if informe.persisted? %>

@@ -7,5 +7,5 @@ class HomeController < ApplicationController
 
   def privacy; end
 
-  def informes; end
+  def inf; end
 end

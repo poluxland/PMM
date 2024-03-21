@@ -32,7 +32,7 @@ class UserMailer < ApplicationMailer
     @greeting = "Informe envasado P.Montt " + Time.now.in_time_zone('Santiago').to_s
     @informes = Informe.last
     @inf = Informe.order(created_at: :desc).second
-    @info = Informe.order(created_at: :desc).offset(2).last
+    @info = Informe.order(created_at: :desc).third
 
 
 

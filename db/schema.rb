@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2024_03_20_191605) do
+ActiveRecord::Schema.define(version: 2024_03_21_222355) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_stat_statements"
@@ -274,6 +274,18 @@ ActiveRecord::Schema.define(version: 2024_03_20_191605) do
     t.text "observaciones"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "envase_especial_soluble"
+    t.integer "envase_extra_soluble"
+    t.integer "envase_bigbag_con_peba"
+    t.date "fifo_1_especial"
+    t.date "fifo_2_especial"
+    t.date "fifo_3_especial"
+    t.date "fifo_4_especial"
+    t.date "fifo_5_especial"
+    t.date "fifo_6_especial"
+    t.date "fifo_7_especial"
+    t.date "fifo_8_extra"
+    t.date "fifo_9_extra"
   end
 
   create_table "inspections", force: :cascade do |t|
