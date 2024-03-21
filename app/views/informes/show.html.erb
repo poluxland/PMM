@@ -118,13 +118,25 @@
               <td>Envases propa especial</td>
             <td><%= @informe.envases_especial %></td>
           </tr>
+          <tr>
+              <td>Envases propa especial soluble</td>
+            <td><%= @informe.envase_especial_soluble %></td>
+          </tr>
            <tr>
               <td>Envases propa extra</td>
             <td><%= @informe.envases_extra %></td>
           </tr>
            <tr>
-              <td>Envases BigBag</td>
+              <td>Envases propa extra soluble</td>
+            <td><%= @informe.envase_extra_soluble %></td>
+          </tr>
+           <tr>
+              <td>Envases BigBag sin peba</td>
             <td><%= @informe.envases_big_bag %></td>
+          </tr>
+          <tr>
+              <td>Envases BigBag con peba</td>
+            <td><%= @informe.envase_bigbag_con_peba %></td>
           </tr>
            <tr>
               <td>Pallets buenos</td>
@@ -140,10 +152,67 @@
     <div class="col-md-6">
       <table class="table table-bordered">
         <thead class="thead-light">
+           <tr>
+            <th colspan="3">Stock insumos</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Your production times and stocks rows here -->
+            <tr>
+              <td>Fifo 1 Especial</td>
+            <td><%= @informe.fifo_1_especial %></td>
+          </tr>
+          <tr>
+              <td>Fifo 2 Especial</td>
+            <td><%= @informe.fifo_2_especial %></td>
+          </tr>
+           <tr>
+              <td>Fifo 3 Especial</td>
+            <td><%= @informe.fifo_3_especial %></td>
+          </tr>
+           <tr>
+              <td>Fifo 4 Especial</td>
+            <td><%= @informe.fifo_4_especial %></td>
+          </tr>
+           <tr>
+              <td>Fifo 5 Especial</td>
+            <td><%= @informe.fifo_5_especial %></td>
+          </tr>
+          <tr>
+              <td>Fifo 6 Especial</td>
+            <td><%= @informe.fifo_6_especial %></td>
+          </tr>
+           <tr>
+              <td>Fifo 7 Especial</td>
+            <td><%= @informe.fifo_7_especial %></td>
+          </tr>
+           <tr>
+              <td>Fifo 8 Extra</td>
+            <td><%= @informe.fifo_8_extra %></td>
+          </tr>
+           <tr>
+              <td>Fifo 9 Extra</td>
+            <td><%= @informe.fifo_9_extra %></td>
+          </tr>
+
+        </thead>
+        <tbody>
+
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+
+ <div class="col-md-12">
+      <table class="table table-bordered">
+        <thead class="thead-light">
           <tr>
             <th>Stock Diarios</th>
              <th>Especial</th>
               <th>Extra</th>
+               <th>Novedades</th>
           </tr>
 
         </thead>
@@ -156,18 +225,31 @@
     </td>
     <td><%= @informe.produccion_especial %></td>
     <td><%= @informe.produccion_extra %></td>
+      <td> <%= @informe.observaciones %> </td>
+  </tr>
+  <tr>
+    <td>
+      <%= @informe.inicio_produccion.strftime('%H:%M') %> -
+      <%= @informe.termino_produccion.strftime('%H:%M') %>
+      <%= @informe.fecha.strftime('%d/%m') %>
+    </td>
+    <td><%= @informe.produccion_especial %></td>
+    <td><%= @informe.produccion_extra %></td>
+      <td> <%= @informe.observaciones %> </td>
+  </tr>
+  <tr>
+    <td>
+      <%= @informe.inicio_produccion.strftime('%H:%M') %> -
+      <%= @informe.termino_produccion.strftime('%H:%M') %>
+      <%= @informe.fecha.strftime('%d/%m') %>
+    </td>
+    <td><%= @informe.produccion_especial %></td>
+    <td><%= @informe.produccion_extra %></td>
+      <td> <%= @informe.observaciones %> </td>
   </tr>
           <!-- Your production times and stocks rows here -->
-          <tr class="table-secondary">
-            <th colspan="3">Observaciones</th> <!-- This cell spans three columns -->
-          </tr>
-          <tr>
-            <td colspan="3"> <%= @informe.observaciones %> </td>
-          </tr>
+
         </tbody>
       </table>
     </div>
   </div>
-</div>
-
-
