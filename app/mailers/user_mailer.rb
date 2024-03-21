@@ -38,7 +38,7 @@ class UserMailer < ApplicationMailer
 
 
 
-    mail to: 'fernando.gonzalez@msindustrial.cl, julio.alvear@msindustrial.cl, jose.jerez@msindustrial.cl'
+    mail to: 'martin.llancafil@meloncementos.cl, fernando.gonzalez@msindustrial.cl, julio.alvear@msindustrial.cl, jose.jerez@msindustrial.cl, johnny.rute@melon.cl, francisco.salgado@meloncementos.cl, gerardo.martinez@melon.cl, manuel.sepulveda@meloncementos.cl, mario.santibanez@meloncementos.cl, camila.birke@msindustrial.cl, cesar.hernandez@meloncementos.cl, juan.belmar@meloncementos.cl, pedro.pichaud@msindustrial.cl, angelica.llaitul@melonservicios.cl, evelin.hernandez@msindustrial.cl, Gabriel.arancibia@meloncementos.cl, ricardo.alvarez@meloncementos.cl, maximiliano.perez@meloncementos.cl, gregory.subero@msindustrial.cl, sergio.miranda@meloncementos.cl, jose.lavanderos@meloncementos.cl, alex.rioseco@meloncementos.cl, marcial.mancilla@msindustrial.cl, victor.gallardo@msindustrial.cl, isabel.tapia@meloncementos.cl'
   end
 
 
