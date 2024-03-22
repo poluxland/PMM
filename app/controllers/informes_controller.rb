@@ -7,12 +7,16 @@ class InformesController < ApplicationController
   end
 
   def last
+    @inf = Informe.order(created_at: :desc).second
+    @info = Informe.order(created_at: :desc).third
     @informe = Informe.last
     if @informe
       render :show
     else
       redirect_to informes_path, alert: 'No informe records found.'
     end
+
+
   end
 
   # GET /informes/1 or /informes/1.json
