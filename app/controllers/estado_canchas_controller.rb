@@ -86,7 +86,7 @@ class EstadoCanchasController < ApplicationController
     'Ceniza' => last_record.ceniza,
     'Yeso' => last_record.yeso,
     'Conchuela' => last_record.conchuela,
-    'San Pedro' => last_record.san_pedro
+    'Petcoke' => last_record.san_pedro
   }
 end
 

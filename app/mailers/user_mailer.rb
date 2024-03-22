@@ -21,7 +21,7 @@ class UserMailer < ApplicationMailer
     'Ceniza' => @estado_cancha.ceniza,
     'Yeso' => @estado_cancha.yeso,
     'Conchuela' => @estado_cancha.conchuela,
-    'San Pedro' => @estado_cancha.san_pedro
+    'Petcoke' => @estado_cancha.san_pedro
   }
 
     mail to: 'diego.garrido@meloncementos.cl, jose.jerez@msindustrial.cl, alejandro.olivares@msindustrial.cl, fernando.gonzalez@msindustrial.cl, guillermo.roco@meloncementos.cl, roberto.leiva@meloncementos.cl, jefesturno.planta@melon.cl, supervisor.envasadora@msindustrial.cl, marianelly.villarroel@meloncementos.cl, rodrigo.trigo@meloncementos.cl, gaston.guerrero@meloncementos.cl, maryorie.fajardo@msindustrial.cl'
