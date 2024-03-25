@@ -229,23 +229,23 @@
   </tr>
   <tr>
     <td>
-      <%= @inf.inicio_produccion.strftime('%H:%M') %> -
-      <%= @inf.termino_produccion.strftime('%H:%M') %>
-      <%= @inf.fecha.strftime('%d/%m') %>
+      <%= @inf&.inicio_produccion&.strftime('%H:%M') %> -
+      <%= @inf&.termino_produccion&.strftime('%H:%M') %>
+      <%= @inf&.fecha&.strftime('%d/%m') %>
     </td>
-    <td><%= @inf.produccion_especial %></td>
-    <td><%= @inf.produccion_extra %></td>
-      <td> <%= @inf.observaciones %> </td>
+    <td><%= @inf&.produccion_especial %></td>
+    <td><%= @inf&.produccion_extra %></td>
+      <td> <%= @inf&.observaciones %> </td>
   </tr>
   <tr>
     <td>
-      <%= @info.inicio_produccion.strftime('%H:%M') %> -
-      <%= @info.termino_produccion.strftime('%H:%M') %>
-      <%= @info.fecha.strftime('%d/%m') %>
+      <%= @info&.inicio_produccion&.strftime('%H:%M') %> -
+      <%= @info&.termino_produccion&.strftime('%H:%M') %>
+      <%= @info&.fecha&.strftime('%d/%m') %>
     </td>
-    <td><%= @info.produccion_especial %></td>
-    <td><%= @info.produccion_extra %></td>
-      <td> <%= @info.observaciones %> </td>
+    <td><%= @info&.produccion_especial %></td>
+    <td><%= @info&.produccion_extra %></td>
+      <td> <%= @info&.observaciones %> </td>
   </tr>
           <!-- Your production times and stocks rows here -->
 

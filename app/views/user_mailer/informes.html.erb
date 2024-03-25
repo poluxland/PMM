@@ -54,73 +54,105 @@
   <div class="column">
 <table>
   <tr class="header">
-    <th colspan="2"><b>Stock Sacos de producto terminado 25kgs</b></th>
+    <th><b>Sacos 25kgs</b></th>
+     <th><b>Unidades</b></th>
+      <th><b>Ton</b></th>
   </tr>
   <tr>
-    <td>Sacos Especial sin funda</td>
+    <td>Especial (sin funda)</td>
     <td> <%= @informes.especial_sin_funda %></td>
+    <td> <%= (@informes.especial_sin_funda * 0.025).round(0) %></td>
   </tr>
   <tr>
-    <td>Sacos Especial enfundado</td>
+    <td>Especial (con funda)</td>
     <td> <%= @informes.especial_enfundado %></td>
+    <td> <%= (@informes.especial_enfundado * 0.025).round(0) %></td>
   </tr>
   <tr>
     <td>Sacos Especial Soluble</td>
     <td> <%= @informes.especial_soluble %></td>
+    <td> <%= (@informes.especial_soluble * 0.025).round(0)  %></td>
   </tr>
 
   <tr class="header">
-    <td>Total especial sacos</td>
+    <td>Total Sacos Especial</td>
     <td><%= @informes.especial_sin_funda + @informes.especial_soluble + @informes.especial_enfundado %></td>
+    <td><%= ((@informes.especial_sin_funda + @informes.especial_soluble + @informes.especial_enfundado) * 0.025).round(0) %></td>
   </tr>
   <tr>
-    <td>Sacos extra sin funda</td>
+    <td>Extra (sin funda)</td>
     <td> <%= @informes.extra_sin_funda %></td>
+     <td> <%= (@informes.extra_sin_funda * 0.025).round(0) %></td>
   </tr>
   <tr>
-    <td>Sacos extra Soluble</td>
-    <td> <%= @informes.extra_soluble %></td>
-  </tr>
-  <tr>
-    <td>Sacos extra enfundado</td>
+    <td>Extra (con funda)</td>
     <td> <%= @informes.extra_enfundado %></td>
+    <td> <%= (@informes.extra_enfundado * 0.025).round(0) %></td>
   </tr>
+  <tr>
+    <td>Extra Soluble</td>
+    <td> <%= @informes.extra_soluble %></td>
+    <td> <%= (@informes.extra_soluble * 0.025).round(0) %></td>
+  </tr>
+
   <tr class="header">
-    <td>Total extra sacos</td>
+    <td>Total Sacos Extra</td>
     <td><%= @informes.extra_sin_funda + @informes.extra_soluble + @informes.extra_enfundado %></td>
+    <td><%= ((@informes.extra_sin_funda + @informes.extra_soluble + @informes.extra_enfundado) * 0.025).round(0) %></td>
   </tr>
 </table>
 </div>
 <div class="column">
 <table>
   <tr class="header">
-    <th colspan="2"><b>Stock bigbag de producto terminado</b></th>
+    <th><b>Bigbag 1.500 Kg</b></th>
+     <th><b>Unidades</b></th>
+      <th><b>Ton</b></th>
   </tr>
   <tr>
-    <td>Big Bag extra sin peba</td>
-    <td> <%= @informes.big_bag_extra_sin_peba %></td>
-  </tr>
-  <tr>
-    <td>Bigbag extra con peba</td>
-    <td> <%= @informes.big_bag_extra_con_peba %></td>
+    <td>&nbsp</td>
+    <td>&nbsp</td>
   </tr>
 
-  <tr class="header">
-    <td>Total Stock bigbag extra</td>
-    <td><%= @informes.big_bag_extra_sin_peba + @informes.big_bag_extra_con_peba  %></td>
-  </tr>
-  <tr>
-    <td>Bigbag especial sin peba</td>
+   <tr>
+    <td>Especial sin peba</td>
     <td> <%= @informes.big_bag_especial_sin_peba %></td>
+    <td> <%= (@informes.big_bag_especial_sin_peba * 1.5).round(0) %></td>
   </tr>
   <tr>
-    <td>Bigbag especial con peba</td>
+    <td>Especial con peba</td>
     <td> <%= @informes.big_bag_especial_con_peba %></td>
+     <td> <%= (@informes.big_bag_especial_con_peba * 1.5).round(0) %></td>
   </tr>
 
+
+
+
   <tr class="header">
-    <td>Total Stock bigbag especial </td>
+    <td>Total Big Bag Especial</td>
     <td><%= @informes.big_bag_especial_sin_peba + @informes.big_bag_especial_con_peba  %></td>
+     <td><%= ((@informes.big_bag_especial_sin_peba + @informes.big_bag_especial_con_peba) * 1.5).round(0)  %></td>
+  </tr>
+<tr>
+    <td>&nbsp</td>
+    <td>&nbsp</td>
+  </tr>
+ <tr>
+    <td>Extra sin peba</td>
+    <td> <%= @informes.big_bag_extra_sin_peba %></td>
+    <td> <%= (@informes.big_bag_extra_sin_peba * 1.5).round(0)  %></td>
+  </tr>
+  <tr>
+    <td>Extra con peba</td>
+    <td> <%= @informes.big_bag_extra_con_peba %></td>
+    <td> <%= (@informes.big_bag_extra_con_peba * 1.5).round(0)  %></td>
+  </tr>
+
+
+   <tr class="header">
+    <td>Total Big Bag Extra</td>
+    <td><%= @informes.big_bag_extra_sin_peba + @informes.big_bag_extra_con_peba  %></td>
+    <td><%= ((@informes.big_bag_extra_sin_peba + @informes.big_bag_extra_con_peba) * 1.5).round(0)   %></td>
   </tr>
 </table>
 </div>
