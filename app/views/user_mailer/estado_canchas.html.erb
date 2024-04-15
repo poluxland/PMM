@@ -7,7 +7,7 @@
     <style>
         table {
             border-collapse: collapse;
-            width: 100%;
+
         }
         th, td {
             border: 1px solid black;
@@ -15,13 +15,13 @@
             text-align: left;
         }
         th {
-            background-color: #4CAF50;
-            color: white;
+            background-color: #d9edf7;
+
         }
 
    .chart {
   font-family: 'Arial', sans-serif;
-  margin: 20px auto;
+  margin: 10px auto;
 }
 
 .chart div {
@@ -87,47 +87,80 @@
   <% if @estado_cancha.san_pedro.to_f > 0 %>
   <div style="width: <%= (@estado_cancha.san_pedro.to_f / 140) * 100 %>%;">Petcoke: <%= @estado_cancha.san_pedro %>%</div>
   <% end %>
+  <% if @estado_cancha.clinker_a.to_f > 0 %>
+  <div style="width: <%= (@estado_cancha.clinker_a.to_f / 140) * 100 %>%;">Clinker A: <%= @estado_cancha.clinker_a %>%</div>
+  <% end %>
+  <% if @estado_cancha.clinker_b.to_f > 0 %>
+  <div style="width: <%= (@estado_cancha.clinker_b.to_f / 140) * 100 %>%;">Clinker B: <%= @estado_cancha.clinker_b %>%</div>
+  <% end %>
 </div>
 
 
 
 
-    <table>
+
+
+         <table>
         <thead>
             <tr>
-                <th>Quilimari</th>
-                <th>Cachinales</th>
-                <th>Ñilhue</th>
-                <th>Caolin</th>
-                <th>Fierro</th>
-                <th>Puzolana</th>
-                <th>Tunga</th>
-                <th>Ceniza</th>
-                <th>Yeso</th>
-                <th>Conchuela</th>
-                <th>Petcoke</th>
-
-
+                <th>Material</th>
+                <th>Ton</th>
             </tr>
         </thead>
         <tbody>
-
-                <tr>
-                    <td><%= @estado_cancha.quilimari %></td>
-                    <td><%= @estado_cancha.cachinales %></td>
-                    <td><%= @estado_cancha.ñilhue %></td>
-                    <td><%= @estado_cancha.caolin %></td>
-                    <td><%= @estado_cancha.fierro %></td>
-                    <td><%= @estado_cancha.puzolana %></td>
-                    <td><%= @estado_cancha.tunga %></td>
-                    <td><%= @estado_cancha.ceniza %></td>
-                    <td><%= @estado_cancha.yeso %></td>
-                    <td><%= @estado_cancha.conchuela %></td>
-                    <td><%= @estado_cancha.san_pedro %></td>
-
-
-                </tr>
-
+            <tr>
+                <td>Quilimari</td>
+                <td><%= @estado_cancha.quilimari %></td>
+            </tr>
+            <tr>
+                <td>Cachinales</td>
+                <td><%= @estado_cancha.cachinales %></td>
+            </tr>
+            <tr>
+                <td>Ñilhue</td>
+                <td><%= @estado_cancha.ñilhue %></td>
+            </tr>
+            <tr>
+                <td>Caolin</td>
+                <td><%= @estado_cancha.caolin %></td>
+            </tr>
+            <tr>
+                <td>Fierro</td>
+                <td><%= @estado_cancha.fierro %></td>
+            </tr>
+            <tr>
+                <td>Puzolana</td>
+                <td><%= @estado_cancha.puzolana %></td>
+            </tr>
+            <tr>
+                <td>Tunga</td>
+                <td><%= @estado_cancha.tunga %></td>
+            </tr>
+            <tr>
+                <td>Ceniza</td>
+                <td><%= @estado_cancha.ceniza %></td>
+            </tr>
+            <tr>
+                <td>Yeso</td>
+                <td><%= @estado_cancha.yeso %></td>
+            </tr>
+            <tr>
+                <td>Conchuela</td>
+                <td><%= @estado_cancha.conchuela %></td>
+            </tr>
+            <tr>
+                <td>Petocoke</td>
+                <td><%= @estado_cancha.san_pedro %></td>
+            </tr>
+            <tr>
+                <td>Clinker A</td>
+                <td><%= @estado_cancha.clinker_a %></td>
+            </tr>
+            <tr>
+                <td>Clinker B</td>
+                <td><%= @estado_cancha.clinker_b %></td>
+            </tr>
+            <!-- Add more rows as needed -->
         </tbody>
     </table>
 </body>

@@ -9,7 +9,7 @@
   </div>
 
   <div class="col-sm-12 text-right">
-<%= bar_chart @chart_data, max: 140, colors: ["#FF0000", "#00FF00", "#0000FF", "#FFFF00", "#FF00FF", "#00FFFF", "#C0C0C0", "#808080", "#800000", "#808000"] %>
+<%= bar_chart @chart_data, max: 140, colors: ["#FF5733", "#C70039", "#900C3F", "#581845", "#FFC300", "#FF5733", "#00A896", "#3E4C6A", "#011627", "#FFB344", "#F76F8E", "#B8B8D1"] %>
 <br>
   <%= link_to new_estado_cancha_path, class: 'btn btn-primary' do %>
     Agregar Estado cancha
@@ -36,6 +36,8 @@
             <th>Yeso</th>
             <th>Conchuela</th>
             <th>Petcoke</th>
+            <th>Clinker A</th>
+            <th>Clinker B</th>
             <th>Observaciones</th>
 
 
@@ -60,6 +62,8 @@
                       <td><%= estado_cancha.yeso %></td>
                       <td><%= estado_cancha.conchuela %></td>
                       <td><%= estado_cancha.san_pedro %></td>
+                      <td><%= estado_cancha.clinker_a %></td>
+                      <td><%= estado_cancha.clinker_b %></td>
                       <td><%= estado_cancha.observaciones %></td>
 
 
