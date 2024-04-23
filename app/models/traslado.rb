@@ -1,0 +1,2 @@
+class Traslado < ApplicationRecord
+end

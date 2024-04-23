@@ -1,0 +1,53 @@
+
+
+
+<div class="row">
+  <div class="col-sm-6">
+    <h1>Traslados</h1>
+  </div>
+
+  <div class="col-sm-6 text-right">
+  <%= link_to new_traslado_path, class: 'btn btn-primary' do %>
+    Agregar nuevo traslado
+  <% end %>
+  </div>
+</div>
+
+<div class="table-responsive">
+  <table class="table table-striped table-bordered table-hover">
+    <thead>
+      <tr>
+
+            <th>Fecha</th>
+            <th>Valor</th>
+            <th>Lugar</th>
+            <th>Observaciones</th>
+            <th>Centro de costo</th>
+            <th>Estado</th>
+            <th>Comentario</th>
+
+          <th></th>
+
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @traslados.each do |traslado| %>
+        <%= content_tag :tr, id: dom_id(traslado), class: dom_class(traslado) do %>
+
+                      <td><%= traslado.created_at.in_time_zone("America/Santiago").strftime("%H:%M:%S - %d/%m/%y") %></td>
+                      <td><%= number_with_delimiter(traslado.valor, delimiter: '.', separator: ',') %></td>
+                      <td><%= traslado.lugar %></td>
+                      <td><%= traslado.observaciones %></td>
+                      <td><%= traslado.centro_de_costo %></td>
+                      <td><%= traslado.estado %></td>
+                      <td><%= traslado.comentario %></td>
+
+
+            <td><%= link_to 'Ver', traslado %></td>
+
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
+</div>

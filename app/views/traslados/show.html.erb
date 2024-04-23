@@ -1,0 +1,30 @@
+<div class="page-header">
+  <%= link_to traslados_path, class: 'btn btn-primary' do %>
+    Todos los traslados
+  <% end %>
+  <%= link_to edit_traslado_path(@traslado), class: 'btn btn-primary' do %>
+    Editar
+  <% end %>
+  <h1>Detalle traslado</h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt>Valor:</dt>
+  <dd><%= @traslado.valor %></dd>
+
+  <dt>Lugar:</dt>
+  <dd><%= @traslado.lugar %></dd>
+
+  <dt>Observaciones:</dt>
+  <dd><%= @traslado.observaciones %></dd>
+
+  <dt>Centro de costo:</dt>
+  <dd><%= @traslado.centro_de_costo %></dd>
+
+  <dt>Estado:</dt>
+  <dd><%= @traslado.estado %></dd>
+
+  <dt>Comentario:</dt>
+  <dd><%= @traslado.comentario %></dd>
+
+</dl>
