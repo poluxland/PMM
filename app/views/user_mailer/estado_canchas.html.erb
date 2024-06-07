@@ -76,7 +76,7 @@
   <div style="width: <%= (@estado_cancha.tunga.to_f / 140) * 100 %>%;">Tunga: <%= @estado_cancha.tunga %>%</div>
   <% end %>
   <% if @estado_cancha.ceniza.to_f > 0 %>
-  <div style="width: <%= (@estado_cancha.ceniza.to_f / 140) * 100 %>%;">Ceniza: <%= @estado_cancha.ceniza %>%</div>
+  <div style="width: <%= (@estado_cancha.ceniza.to_f / 140) * 100 %>%;">Poroso: <%= @estado_cancha.ceniza %>%</div>
   <% end %>
   <% if @estado_cancha.yeso.to_f > 0 %>
   <div style="width: <%= (@estado_cancha.yeso.to_f / 140) * 100 %>%;">Yeso: <%= @estado_cancha.yeso %>%</div>
@@ -137,7 +137,7 @@
                 <td><%= @estado_cancha.tunga %></td>
             </tr>
             <tr>
-                <td>Ceniza</td>
+                <td>Poroso</td>
                 <td><%= @estado_cancha.ceniza %></td>
             </tr>
             <tr>

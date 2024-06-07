@@ -18,7 +18,7 @@ class UserMailer < ApplicationMailer
     'Fierro' => @estado_cancha.fierro,
     'Puzolana' => @estado_cancha.puzolana,
     'Tunga' => @estado_cancha.tunga,
-    'Ceniza' => @estado_cancha.ceniza,
+    'Poroso' => @estado_cancha.ceniza,
     'Yeso' => @estado_cancha.yeso,
     'Conchuela' => @estado_cancha.conchuela,
     'Petcoke' => @estado_cancha.san_pedro
