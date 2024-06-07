@@ -83,7 +83,7 @@ class EstadoCanchasController < ApplicationController
     'Fierro' => last_record.fierro,
     'Puzolana' => last_record.puzolana,
     'Tunga' => last_record.tunga,
-    'Ceniza' => last_record.ceniza,
+    'Poroso' => last_record.ceniza,
     'Yeso' => last_record.yeso,
     'Conchuela' => last_record.conchuela,
     'Petcoke' => last_record.san_pedro,
