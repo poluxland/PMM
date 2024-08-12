@@ -3,7 +3,7 @@ class TrabajosController < ApplicationController
 
   # GET /trabajos or /trabajos.json
   def index
-    @trabajos = Trabajo.all
+    @trabajos = Trabajo.where('created_at >= ?', 45.days.ago)
   end
 
   # GET /trabajos/1 or /trabajos/1.json
