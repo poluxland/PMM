@@ -9,15 +9,7 @@
   </div>
 
   <div class="col-sm-12 text-right">
-<%= bar_chart @chart_data, max: 140, colors: ["#FF5733", "#C70039", "#900C3F", "#581845", "#FFC300", "#FF5733", "#00A896", "#3E4C6A", "#011627", "#FFB344", "#F76F8E", "#B8B8D1"] %>
-<br>
-  <%= link_to new_estado_cancha_path, class: 'btn btn-primary' do %>
-    Agregar Estado cancha
-  <% end %>
-  <%= link_to hist_path, class: 'btn btn-primary' do %>
-    Historico
-  <% end %>
-
+<a href="<%= estado_canchas_path %>" class="btn btn-primary">Atras</a>
 
   </div>
 </div>

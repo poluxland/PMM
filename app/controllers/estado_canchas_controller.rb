@@ -9,6 +9,10 @@ class EstadoCanchasController < ApplicationController
 
   end
 
+  def hist
+    @estado_canchas = EstadoCancha.all
+  end
+
   # GET /estado_canchas/1 or /estado_canchas/1.json
   def show
   end

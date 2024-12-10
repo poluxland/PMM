@@ -11,6 +11,7 @@ end
 
   get 'last', to: 'informes#last', as: 'last_informe'
   resources :estado_canchas
+  get 'hist', to: 'estado_canchas#hist'
   resources :mantenimientos
   resources :evaluacions
   resources :sectors
