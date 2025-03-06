@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2024_04_22_234251) do
+ActiveRecord::Schema.define(version: 2025_03_06_181752) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_stat_statements"
@@ -305,6 +305,9 @@ ActiveRecord::Schema.define(version: 2024_04_22_234251) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "apr_id", null: false
+    t.boolean "sala_de_soplado"
+    t.boolean "jetin"
+    t.boolean "estado_general_de_herramientas"
     t.index ["apr_id"], name: "index_inspections_on_apr_id"
     t.index ["area_id"], name: "index_inspections_on_area_id"
     t.index ["plant_id"], name: "index_inspections_on_plant_id"

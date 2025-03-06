@@ -9,7 +9,7 @@ class InspectionsController < ApplicationController
     @ptm = Inspection.where(created_at: Time.now.beginning_of_day..Time.now.end_of_day).where(plant_id: 3)
     @registros = Inspection.where(created_at: Time.now.beginning_of_day..Time.now.end_of_day).where(plant_id: 1).count
   end
-  
+
   def full
     @inspections = Inspection.all
   end
@@ -73,6 +73,22 @@ class InspectionsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def inspection_params
-      params.require(:inspection).permit(:plant_id, :area_id, :tarea_id, :supervisor_id, :trabajadores, :ast, :pts, :epp, :subsitio, :cumplimiento, :comentarios, :apr_id)
+      params.require(:inspection).permit(
+        :plant_id,
+        :area_id,
+        :tarea_id,
+        :supervisor_id,
+        :trabajadores,
+        :ast,
+        :pts,
+        :epp,
+        :subsitio,
+        :cumplimiento,
+        :comentarios,
+        :apr_id,
+        :sala_de_soplado,
+        :jetin,
+        :estado_general_de_herramientas
+      )
     end
 end

@@ -14,11 +14,11 @@
   <div class="form-group">
     <%= form.label :plant_id %>
     <%= form.select :plant_id, Plant.all.map { |r| [r.descripcion, r.id] } %>
-    
+
   </div>
 
   <div class="form-group">
-    <%= form.label :area_id %> 
+    <%= form.label :area_id %>
     <%= form.select :area_id, Area.all.map { |r| [r.descripcion, r.id] } %>
   </div>
 
@@ -51,6 +51,18 @@
     <%= form.label :epp %>
     <%= form.check_box :epp, class: 'form-control' %>
   </div>
+  <div class="form-group">
+    <%= form.label :jetin %>
+    <%= form.check_box :jetin, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= form.label :sala_de_soplado %>
+    <%= form.check_box :sala_de_soplado, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= form.label :estado_general_de_herramientas %>
+    <%= form.check_box :estado_general_de_herramientas, class: 'form-control' %>
+  </div>
 
   <div class="form-group">
     <%= form.label :subsitio %>
@@ -70,7 +82,7 @@
   <div class="form-group">
     <%= form.label :apr_id %>
     <%= form.select :apr_id, Apr.all.map { |r| [r.nombre, r.id] } %>
-    
+
   </div>
 
   <div class="form-group">
