@@ -1,0 +1,2 @@
+module PtmtrucksHelper
+end

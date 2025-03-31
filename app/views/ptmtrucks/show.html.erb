@@ -1,0 +1,30 @@
+<div class="page-header">
+  <%= link_to ptmtrucks_path, class: 'btn btn-default' do %>
+    All Ptmtrucks
+  <% end %>
+  <%= link_to edit_ptmtruck_path(@ptmtruck), class: 'btn btn-primary' do %>
+    Edit
+  <% end %>
+  <h1>Show ptmtruck</h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt>Patente:</dt>
+  <dd><%= @ptmtruck.patente %></dd>
+
+  <dt>Mmpp:</dt>
+  <dd><%= @ptmtruck.mmpp %></dd>
+
+  <dt>Ingreso:</dt>
+  <dd><%= @ptmtruck.ingreso %></dd>
+
+  <dt>Salida:</dt>
+  <dd><%= @ptmtruck.salida %></dd>
+
+  <dt>Causa:</dt>
+  <dd><%= @ptmtruck.causa %></dd>
+
+  <dt>Otros:</dt>
+  <dd><%= @ptmtruck.otros %></dd>
+
+</dl>

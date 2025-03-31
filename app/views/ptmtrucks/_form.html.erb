@@ -1,0 +1,62 @@
+<%= form_with(model: ptmtruck, local: true) do |form| %>
+  <% if ptmtruck.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(ptmtruck.errors.count, "error") %> prohibited this ptmtruck from being saved:</h2>
+
+      <ul>
+      <% ptmtruck.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= form.label :patente %>
+    <%= form.text_field :patente, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :mmpp %>
+    <%= form.select :mmpp, ['Sacos', 'BB', 'MMPP'], {prompt: 'Seleccione MMPP'}, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :ingreso %>
+    <%= form.datetime_select :ingreso, class: 'form-control' %>
+  </div>
+
+  <% unless ptmtruck.new_record? %>
+  <div class="form-group">
+    <%= form.label :salida %>
+    <%= form.datetime_select :salida, class: 'form-control' %>
+  </div>
+<% end %>
+
+  <div class="form-group">
+    <%= form.label :causa %>
+    <%= form.select :causa, ['Normal', 'Stock', 'EEMM', 'Sistema'], {prompt: 'Seleccione causa'}, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :otros %>
+    <%= form.text_area :otros, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <% if ptmtruck.persisted? %>
+      <div class="float-right">
+        <%= link_to 'Destroy', ptmtruck, method: :delete, class: "text-danger", data: { confirm: 'Esta seguro?' } %>
+      </div>
+    <% end %>
+
+    <%= form.submit (ptmtruck.persisted? ? 'Actualizar' : 'Crear'), class: 'btn btn-primary' %>
+
+
+    <% if ptmtruck.persisted? %>
+      <%= link_to "Cancel", ptmtruck, class: "btn btn-link" %>
+    <% else %>
+      <%= link_to "Cancel", ptmtrucks_path, class: "btn btn-link" %>
+    <% end %>
+  </div>
+<% end %>

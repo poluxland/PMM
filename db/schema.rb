@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2025_03_06_181752) do
+ActiveRecord::Schema.define(version: 2025_03_31_134251) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_stat_statements"
@@ -363,6 +363,17 @@ ActiveRecord::Schema.define(version: 2025_03_06_181752) do
     t.string "descripcion"
     t.integer "personal"
     t.string "otros"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "ptmtrucks", force: :cascade do |t|
+    t.string "patente"
+    t.string "mmpp"
+    t.datetime "ingreso"
+    t.datetime "salida"
+    t.string "causa"
+    t.text "otros"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  patente: MyString
+  mmpp: MyString
+  ingreso: 2025-03-31 10:42:52
+  salida: 2025-03-31 10:42:52
+  causa: MyString
+  otros: MyText
+
+two:
+  patente: MyString
+  mmpp: MyString
+  ingreso: 2025-03-31 10:42:52
+  salida: 2025-03-31 10:42:52
+  causa: MyString
+  otros: MyText

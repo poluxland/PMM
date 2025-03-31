@@ -1,0 +1,2 @@
+class Ptmtruck < ApplicationRecord
+end
