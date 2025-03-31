@@ -25,29 +25,29 @@
   <% default_fecha = Time.zone.today.beginning_of_day %>
 
   <div class="form-group">
-    <%= form.label :ingreso %>
-    <%= form.datetime_select :ingreso,
+  <%= form.label :ingreso %>
+  <%= form.datetime_select :ingreso,
+        {
+          default: ptmtruck.ingreso || Time.current.beginning_of_day,
+          prompt: { hour: 'Hora', minute: 'Minuto' },
+          include_seconds: false
+        },
+        class: 'form-control' %>
+</div>
+
+<% unless ptmtruck.new_record? %>
+  <div class="form-group">
+    <%= form.label :salida %>
+    <%= form.datetime_select :salida,
           {
-            default: default_fecha,
+            default: ptmtruck.salida || Time.current.beginning_of_day,
             prompt: { hour: 'Hora', minute: 'Minuto' },
             include_seconds: false
           },
           class: 'form-control' %>
   </div>
-
-  <% unless ptmtruck.new_record? %>
-    <div class="form-group">
-      <%= form.label :salida %>
-      <%= form.datetime_select :salida,
-            {
-              default: default_fecha,
-              prompt: { hour: 'Hora', minute: 'Minuto' },
-              include_seconds: false
-            },
-            class: 'form-control' %>
-    </div>
-  <% end %>
 <% end %>
+
 
   <div class="form-group">
     <%= form.label :causa %>
