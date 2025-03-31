@@ -21,8 +21,7 @@
     <%= form.select :mmpp, ['Sacos', 'BB', 'MMPP'], {prompt: 'Seleccione MMPP'}, class: 'form-control' %>
   </div>
 
-  <% Time.use_zone('America/Santiago') do %>
-  <% default_fecha = Time.zone.today.beginning_of_day %>
+
 
   <div class="form-group">
   <%= form.label :ingreso %>
