@@ -21,16 +21,18 @@
     <%= form.select :mmpp, ['Sacos', 'BB', 'MMPP'], {prompt: 'Seleccione MMPP'}, class: 'form-control' %>
   </div>
 
+  <% Time.use_zone('America/Santiago') do %>
   <div class="form-group">
     <%= form.label :ingreso %>
-    <%= form.datetime_select :ingreso, class: 'form-control' %>
+    <%= form.datetime_select :ingreso, { default: Time.zone.now }, class: 'form-control' %>
   </div>
 
   <% unless ptmtruck.new_record? %>
-  <div class="form-group">
-    <%= form.label :salida %>
-    <%= form.datetime_select :salida, class: 'form-control' %>
-  </div>
+    <div class="form-group">
+      <%= form.label :salida %>
+      <%= form.datetime_select :salida, { default: Time.zone.now }, class: 'form-control' %>
+    </div>
+  <% end %>
 <% end %>
 
   <div class="form-group">

@@ -86,7 +86,9 @@
       <td><%= ptmtruck.salida&.strftime("%H:%M") %></td>
       <td>
         <% if ptmtruck.ingreso && ptmtruck.salida %>
-          <%= ((ptmtruck.salida - ptmtruck.ingreso) / 60).to_i %>
+          <% minutos = ((ptmtruck.salida - ptmtruck.ingreso) / 60).to_i %>
+          <% clase = minutos > 60 ? 'text-danger font-weight-bold' : '' %>
+          <span class="<%= clase %>"><%= minutos %></span>
         <% else %>
           -
         <% end %>
