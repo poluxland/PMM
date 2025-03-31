@@ -23,16 +23,17 @@
 
 
 
-  <div class="form-group">
+<div class="form-group">
   <%= form.label :ingreso %>
   <%= form.datetime_select :ingreso,
         {
-          default: ptmtruck.ingreso || Time.current.beginning_of_day,
+          default: ptmtruck.new_record? ? Time.current.beginning_of_day : ptmtruck.ingreso,
           prompt: { hour: 'Hora', minute: 'Minuto' },
           include_seconds: false
         },
         class: 'form-control' %>
 </div>
+
 
 <% unless ptmtruck.new_record? %>
   <div class="form-group">
@@ -46,6 +47,7 @@
           class: 'form-control' %>
   </div>
 <% end %>
+
 
 
   <div class="form-group">
