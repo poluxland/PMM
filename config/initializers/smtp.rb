@@ -1,23 +1,15 @@
-# config/initializers/smtp.rb
-# frozen_string_literal: true
+ActionMailer::Base.delivery_method       = :smtp
+ActionMailer::Base.perform_deliveries    = true
+ActionMailer::Base.raise_delivery_errors = true
 
-if Rails.env.production?
-  ActionMailer::Base.delivery_method = :smtp
-  ActionMailer::Base.perform_deliveries    = true
-  ActionMailer::Base.raise_delivery_errors = true
-
-  ActionMailer::Base.default_url_options = {
-    host:     ENV.fetch('MAILER_HOST', 'melon-platform.herokuapp.com'),
-    protocol: 'https'
-  }
-
-  ActionMailer::Base.smtp_settings = {
-    address:              'smtp.sendgrid.net',
-    port:                 587,
-    domain:               'gmail.com',
-    user_name:            ENV['SENDGRID_USERNAME'],  # debe ser 'apikey'
-    password:             ENV['SENDGRID_PASSWORD'],  # tu API key real
-    authentication:       :plain,
-    enable_starttls_auto: true
-  }
-end
+ActionMailer::Base.smtp_settings = {
+  address:              'smtp.gmail.com',
+  port:                 587,
+  domain:               'gmail.com',
+  user_name:            ENV['GMAIL_ADDRESS'],
+  password:             ENV['GMAIL_APP_PASSWORD'],
+  authentication:       :plain,
+  enable_starttls_auto: true,
+  open_timeout:         30,
+  read_timeout:         30
+}
