@@ -5,7 +5,5 @@ class EstadoCancha < ApplicationRecord
 
   def send_canchas_email
     UserMailer.with(user: self).estado_canchas.deliver_now
-  rescue StandardError => e
-    Rails.logger.error "[MailError] #{e.class}: #{e.message}"
   end
 end
