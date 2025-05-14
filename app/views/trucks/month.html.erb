@@ -14,6 +14,7 @@
         <th>Salida</th>
         <th>m</th>
         <th>Estado</th>
+        <th>Observaciones</th>
       <th>Acciones</th>
 
   </tr>
@@ -31,8 +32,10 @@
                   <td><%= truck.llegada.strftime("%H:%M") %></td>
                   <td><%= truck.salida.strftime("%H:%M") %></td>
 
+
                   <td><%= truck.wait %></td>
                   <td><%= truck.cause %></td>
+                  <td><%= truck.motive %></td>
 
 
 
@@ -47,7 +50,7 @@
 
 
 
-    
+
 
 
     </td>
