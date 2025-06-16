@@ -1,0 +1,1 @@
+json.partial! "check_list_despacho_camions/check_list_despacho_camion", check_list_despacho_camion: @check_list_despacho_camion

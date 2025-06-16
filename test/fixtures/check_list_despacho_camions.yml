@@ -1,0 +1,29 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  fecha: 2025-06-15
+  inspector: MyString
+  patente: MyString
+  producto: MyString
+  cantidad: 1
+  limpieza_del_saco: false
+  armado_correcto_del_pallet: false
+  sacos_rotos: false
+  tipo_de_producto_correcto: false
+  cantidad_de_pallets_o_sacos: false
+  correcto_enfundado: false
+  comentarios: MyString
+
+two:
+  fecha: 2025-06-15
+  inspector: MyString
+  patente: MyString
+  producto: MyString
+  cantidad: 1
+  limpieza_del_saco: false
+  armado_correcto_del_pallet: false
+  sacos_rotos: false
+  tipo_de_producto_correcto: false
+  cantidad_de_pallets_o_sacos: false
+  correcto_enfundado: false
+  comentarios: MyString

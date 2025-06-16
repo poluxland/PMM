@@ -3,6 +3,7 @@
 require 'sidekiq/web'
 
 Rails.application.routes.draw do
+  resources :check_list_despacho_camions
   resources :ptmtrucks
   get 'historic', to: 'ptmtrucks#historico'
   resources :traslados

@@ -1,0 +1,48 @@
+<div class="page-header">
+  <%= link_to check_list_despacho_camions_path, class: 'btn btn-default' do %>
+    Checklist despacho camions
+  <% end %>
+  <%= link_to edit_check_list_despacho_camion_path(@check_list_despacho_camion), class: 'btn btn-primary' do %>
+    Editar
+  <% end %>
+  <h1>Checklist despacho camion</h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt>Fecha:</dt>
+  <dd><%= @check_list_despacho_camion.fecha %></dd>
+
+  <dt>Inspector:</dt>
+  <dd><%= @check_list_despacho_camion.inspector %></dd>
+
+  <dt>Patente:</dt>
+  <dd><%= @check_list_despacho_camion.patente %></dd>
+
+  <dt>Producto:</dt>
+  <dd><%= @check_list_despacho_camion.producto %></dd>
+
+  <dt>Cantidad:</dt>
+  <dd><%= @check_list_despacho_camion.cantidad %></dd>
+
+  <dt>Limpieza del saco:</dt>
+  <dd><%= @check_list_despacho_camion.limpieza_del_saco %></dd>
+
+  <dt>Armado correcto del pallet:</dt>
+  <dd><%= @check_list_despacho_camion.armado_correcto_del_pallet %></dd>
+
+  <dt>Sacos rotos:</dt>
+  <dd><%= @check_list_despacho_camion.sacos_rotos %></dd>
+
+  <dt>Tipo de producto correcto:</dt>
+  <dd><%= @check_list_despacho_camion.tipo_de_producto_correcto %></dd>
+
+  <dt>Cantidad de pallets o sacos:</dt>
+  <dd><%= @check_list_despacho_camion.cantidad_de_pallets_o_sacos %></dd>
+
+  <dt>Correcto enfundado:</dt>
+  <dd><%= @check_list_despacho_camion.correcto_enfundado %></dd>
+
+  <dt>Comentarios:</dt>
+  <dd><%= @check_list_despacho_camion.comentarios %></dd>
+
+</dl>

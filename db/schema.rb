@@ -10,10 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2025_03_31_134251) do
+ActiveRecord::Schema.define(version: 2025_06_16_031758) do
 
   # These are extensions that must be enabled in order to support this database
-  enable_extension "pg_stat_statements"
   enable_extension "plpgsql"
 
   create_table "active_storage_attachments", force: :cascade do |t|
@@ -107,6 +106,23 @@ ActiveRecord::Schema.define(version: 2025_03_31_134251) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["mmpp_id"], name: "index_canchas_on_mmpp_id"
+  end
+
+  create_table "check_list_despacho_camions", force: :cascade do |t|
+    t.date "fecha"
+    t.string "inspector"
+    t.string "patente"
+    t.string "producto"
+    t.integer "cantidad"
+    t.boolean "limpieza_del_saco"
+    t.boolean "armado_correcto_del_pallet"
+    t.boolean "sacos_rotos"
+    t.boolean "tipo_de_producto_correcto"
+    t.boolean "cantidad_de_pallets_o_sacos"
+    t.boolean "correcto_enfundado"
+    t.string "comentarios"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "checklists", force: :cascade do |t|

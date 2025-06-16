@@ -1,0 +1,2 @@
+class CheckListDespachoCamion < ApplicationRecord
+end

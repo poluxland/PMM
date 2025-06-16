@@ -1,0 +1,89 @@
+<%= form_with(model: check_list_despacho_camion, local: true) do |form| %>
+  <% if check_list_despacho_camion.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(check_list_despacho_camion.errors.count, "error") %> prohibited this check_list_despacho_camion from being saved:</h2>
+
+      <ul>
+      <% check_list_despacho_camion.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= form.label :fecha %>
+    <%= form.date_select :fecha, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :inspector %>
+    <%= form.text_field :inspector, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :patente %>
+    <%= form.text_field :patente, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :producto %>
+    <%= form.text_field :producto, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :cantidad %>
+    <%= form.number_field :cantidad, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :limpieza_del_saco %>
+    <%= form.check_box :limpieza_del_saco, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :armado_correcto_del_pallet %>
+    <%= form.check_box :armado_correcto_del_pallet, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :sacos_rotos %>
+    <%= form.check_box :sacos_rotos, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :tipo_de_producto_correcto %>
+    <%= form.check_box :tipo_de_producto_correcto, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :cantidad_de_pallets_o_sacos %>
+    <%= form.check_box :cantidad_de_pallets_o_sacos, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :correcto_enfundado %>
+    <%= form.check_box :correcto_enfundado, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :comentarios %>
+    <%= form.text_field :comentarios, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <% if check_list_despacho_camion.persisted? %>
+      <div class="float-right">
+        <%= link_to 'Destroy', check_list_despacho_camion, method: :delete, class: "text-danger", data: { confirm: 'Esta seguro?' } %>
+      </div>
+    <% end %>
+
+    <%= form.submit class: 'btn btn-primary' %>
+
+    <% if check_list_despacho_camion.persisted? %>
+      <%= link_to "Cancel", check_list_despacho_camion, class: "btn btn-link" %>
+    <% else %>
+      <%= link_to "Cancel", check_list_despacho_camions_path, class: "btn btn-link" %>
+    <% end %>
+  </div>
+<% end %>
