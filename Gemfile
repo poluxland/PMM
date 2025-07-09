@@ -37,7 +37,6 @@ gem 'bootsnap', '>= 1.4.2', require: false
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'dotenv-rails'
-  gem 'letter_opener'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console.
 end
 
@@ -82,3 +81,5 @@ gem 'pagy'
 gem 'sidekiq', '~> 6.0', '>= 6.0.3'
 gem 'sitemap_generator', '~> 6.1', '>= 6.1.2'
 gem 'whenever', require: false
+gem 'axlsx_rails'
+

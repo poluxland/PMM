@@ -84,7 +84,14 @@ class TrucksController < ApplicationController
     @trucks = Truck.includes(:mmpp).where(created_at: Time.now.beginning_of_day..Time.now.end_of_day).where("wait <= 1")
     @last = Truck.includes(:mmpp).last(15)
 
+    respond_to do |format|
+      format.html
+      format.xlsx {
+        response.headers['Content-Disposition'] = "attachment; filename=camiones_todos_#{Date.today}.xlsx"
+      }
+    end
   end
+
 
   def month
     @month = Truck.includes(:mmpp).where(:created_at => Date.today.beginning_of_month..Date.today.end_of_month)
