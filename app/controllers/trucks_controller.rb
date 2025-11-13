@@ -138,7 +138,10 @@ end
   # -------------------------------
   # Conchuela
   # -------------------------------
-  conchuela_scope = @trucks.joins(:mmpp).where(mmpps: { nombre: "CONCHUELA" })
+  conchuela_scope = @trucks
+  .joins(:mmpp)
+  .where("LOWER(mmpps.nombre) = ?", "conchuela")
+
 
   @conchuela_total = conchuela_scope.count
   @conchuela_by_tipo = conchuela_scope.group(:tipo).count
@@ -147,7 +150,8 @@ end
   # -------------------------------
   # Planos
   # -------------------------------
-  planos_scope = @trucks.where(tipo: "PLANOS")
+  planos_scope = @trucks.where("LOWER(tipo) = ?", "plano")
+
 
   @planos_le_60_count = planos_scope.where("wait <= 60").count
   @planos_gt_60_count = planos_scope.where("wait > 60").count
