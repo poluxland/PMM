@@ -93,131 +93,131 @@ class TrucksController < ApplicationController
   end
 
   def inf
-  # Año seleccionado (por defecto: año actual)
   @year = params[:year].present? ? params[:year].to_i : Time.current.year
 
-  # Scope base del año seleccionado
+  # ---------------------------------------
+  # BASE SCOPE (ya con preload y condiciones)
+  # ---------------------------------------
   @trucks = Truck
               .includes(:mmpp)
               .where(fecha: Date.new(@year).all_year)
               .where("wait >= 1")
 
-  # -------------------------------
-  # Total de camiones
-  # -------------------------------
-  @total_trucks_2025 = @trucks.count
+  # ---------------------------------------
+  # 1) Estadísticas generales (1 sola query)
+  # ---------------------------------------
+  wait_stats = @trucks.group("wait <= 60").count
+  le_60 = wait_stats[true]  || 0
+  gt_60 = wait_stats[false] || 0
+  total_wait = (le_60 + gt_60).nonzero? || 1
 
-  # -------------------------------
-  # Cumplimiento wait <= 60
-  # -------------------------------
-  @wait_le_60_count = @trucks.where("wait <= 60").count
-  @wait_gt_60_count = @trucks.where("wait > 60").count
+  @total_trucks_2025 = le_60 + gt_60
+  @wait_le_60_count  = le_60
+  @wait_gt_60_count  = gt_60
 
-  total = @wait_le_60_count + @wait_gt_60_count
-total = 1 if total.zero?
+  @wait_pie_data = {
+    "≤ 60 min" => ((le_60.to_f / total_wait) * 100).round(2),
+    "> 60 min" => ((gt_60.to_f / total_wait) * 100).round(2)
+  }
 
-@wait_pie_data = {
-  "≤ 60 min" => ((@wait_le_60_count.to_f / total) * 100).round(2),
-  "> 60 min" => ((@wait_gt_60_count.to_f / total) * 100).round(2)
-}
-
-
-  # -------------------------------
-  # Media por mmpp mes a mes
-  # -------------------------------
-  @avg_wait_by_mmpp_month_raw = @trucks
-                                  .joins(:mmpp)
-                                  .group("mmpps.nombre")
-                                  .group_by_month(:fecha)
-                                  .average(:wait)
+  # ---------------------------------------
+  # 2) MMPP por mes (1 query → agrupada)
+  # ---------------------------------------
+  raw = @trucks
+          .joins(:mmpp)
+          .group("mmpps.nombre", "DATE_TRUNC('month', fecha)")
+          .average(:wait)
 
   series_by_mmpp = Hash.new { |h, k| h[k] = {} }
-  @avg_wait_by_mmpp_month_raw.each do |(mmpp_name, date), avg_wait|
-  series_by_mmpp[mmpp_name][date] = avg_wait
-end
 
+  raw.each do |(mmpp_name, date), avg_wait|
+    series_by_mmpp[mmpp_name][date.to_date] = avg_wait
+  end
 
-  @avg_wait_by_mmpp_month = series_by_mmpp.map { |mmpp_name, data| { name: mmpp_name, data: data } }
+  @avg_wait_by_mmpp_month = series_by_mmpp.map do |name, data|
+    { name: name, data: data }
+  end
 
-  # -------------------------------
-  # Conchuela
-  # -------------------------------
+  @avg_wait_by_mmpp_month_raw = raw
+
+  # ---------------------------------------
+  # 3) Conchuela (opt)
+  # ---------------------------------------
   conchuela_scope = @trucks
-  .joins(:mmpp)
-  .where("LOWER(mmpps.nombre) = ?", "conchuela")
-
+                      .joins(:mmpp)
+                      .where("LOWER(mmpps.nombre) = 'conchuela'")
 
   @conchuela_total = conchuela_scope.count
-  
-  raw_conchuela = conchuela_scope.group(:tipo).count
-total_con = raw_conchuela.values.sum
-total_con = 1 if total_con.zero?
 
-@conchuela_by_tipo = raw_conchuela.transform_values { |v| ((v.to_f / total_con) * 100).round(2) }
+  conchuela_group = conchuela_scope.group(:tipo).count
+  total_con = (conchuela_group.values.sum).nonzero? || 1
 
+  @conchuela_by_tipo = conchuela_group.transform_values do |v|
+    ((v.to_f / total_con) * 100).round(2)
+  end
 
   @conchuela_planos_total = conchuela_scope.where(tipo: "Plano").count
 
-  # -------------------------------
-  # Planos
-  # -------------------------------
-  # Planos (usa LOWER por si hay diferencias de mayúsculas)
-planos_scope = @trucks.where("LOWER(tipo) = ?", "plano")
+  # ---------------------------------------
+  # 4) Planos (OPTIMIZADO)
+  # ---------------------------------------
+  planos_scope = @trucks.where("LOWER(tipo) = 'plano'")
 
-@planos_le_60_count = planos_scope.where("wait <= 60").count
-@planos_gt_60_count = planos_scope.where("wait > 60").count
+  planos_stats = planos_scope.group("wait <= 60").count
+  pl_le60 = planos_stats[true]  || 0
+  pl_gt60 = planos_stats[false] || 0
+  total_planos = (pl_le60 + pl_gt60).nonzero? || 1
 
-total_planos = @planos_le_60_count + @planos_gt_60_count
-total_planos = 1 if total_planos.zero?
+  @planos_le_60_count = pl_le60
+  @planos_gt_60_count = pl_gt60
 
-@planos_wait_pie_data = {
-  "≤ 60 min" => ((@planos_le_60_count.to_f / total_planos) * 100).round(2),
-  "> 60 min" => ((@planos_gt_60_count.to_f / total_planos) * 100).round(2)
-}
+  @planos_wait_pie_data = {
+    "≤ 60 min" => ((pl_le60.to_f / total_planos) * 100).round(2),
+    "> 60 min" => ((pl_gt60.to_f / total_planos) * 100).round(2)
+  }
 
+  @planos_avg_wait_by_month = planos_scope.group_by_month(:fecha).average(:wait)
 
-@planos_avg_wait_by_month = planos_scope.group_by_month(:fecha).average(:wait)
+  # ---------------------------------------
+  # 5) Estadísticas Planos (media, mediana, desviación, outliers)
+  # ---------------------------------------
+  waits = planos_scope.pluck(:wait).compact
 
-waits = planos_scope.pluck(:wait).compact
+  if waits.any?
+    @planos_media = waits.sum.to_f / waits.size
 
-if waits.any?
-  @planos_media = waits.sum.to_f / waits.size
+    sorted = waits.sort
+    mid = sorted.size / 2
+    @planos_mediana = sorted.size.odd? ? sorted[mid] : (sorted[mid-1] + sorted[mid]) / 2.0
 
-  sorted = waits.sort
-  mid    = sorted.size / 2
-  @planos_mediana = sorted.size.odd? ? sorted[mid] : (sorted[mid - 1] + sorted[mid]) / 2.0
+    if sorted.size > 1
+      variance = sorted.sum { |w| (w - @planos_media)**2 } / (sorted.size - 1).to_f
+      @planos_desv_est = Math.sqrt(variance)
+    else
+      @planos_desv_est = 0.0
+    end
 
-  if waits.size > 1
-    variance         = waits.sum { |w| (w - @planos_media)**2 } / (waits.size - 1).to_f
-    @planos_desv_est = Math.sqrt(variance)
+    if @planos_desv_est.positive?
+      threshold = @planos_media + 3 * @planos_desv_est
+      outliers = planos_scope.where("wait > ?", threshold).count
+      total_pl = planos_scope.count.nonzero? || 1
+      @planos_outliers_count = ((outliers.to_f / total_pl) * 100).round(2)
+    else
+      @planos_outliers_count = 0.0
+    end
+
   else
-    @planos_desv_est = 0.0
+    @planos_media = @planos_mediana = @planos_desv_est = 0
+    @planos_outliers_count = 0
   end
 
-  if @planos_desv_est.positive?
-  threshold = @planos_media + 3 * @planos_desv_est
-  outliers = planos_scope.where("wait > ?", threshold).count
-
-  total_planos = planos_scope.count.nonzero? || 1
-  @planos_outliers_count = ((outliers.to_f / total_planos) * 100).round(2)
-else
-  @planos_outliers_count = 0.0
+  # ---------------------------------------
+  # 6) Scatter planos
+  # ---------------------------------------
+  @planos_scatter_data =
+    planos_scope.order(:fecha).pluck(:fecha, :wait).map { |f, w| [f.to_s, w] }
 end
 
-
-else
-  @planos_media = @planos_mediana = @planos_desv_est = 0
-  @planos_outliers_count = 0
-end
-
-# 🔹 Gráfico SIMPLE: todos los planos, fecha vs espera
-@planos_scatter_data = planos_scope
-                         .order(:fecha)
-                         .pluck(:fecha, :wait)
-                         .map { |fecha, wait| [fecha.to_s, wait] }
-
-
-end
 
 
 
