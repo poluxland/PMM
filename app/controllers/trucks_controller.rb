@@ -113,10 +113,14 @@ class TrucksController < ApplicationController
   @wait_le_60_count = @trucks.where("wait <= 60").count
   @wait_gt_60_count = @trucks.where("wait > 60").count
 
-  @wait_pie_data = {
-    "≤ 60 min" => @wait_le_60_count,
-    "> 60 min" => @wait_gt_60_count
-  }
+  total = @wait_le_60_count + @wait_gt_60_count
+total = 1 if total.zero?
+
+@wait_pie_data = {
+  "≤ 60 min" => ((@wait_le_60_count.to_f / total) * 100).round(2),
+  "> 60 min" => ((@wait_gt_60_count.to_f / total) * 100).round(2)
+}
+
 
   # -------------------------------
   # Media por mmpp mes a mes
@@ -144,7 +148,14 @@ end
 
 
   @conchuela_total = conchuela_scope.count
-  @conchuela_by_tipo = conchuela_scope.group(:tipo).count
+  
+  raw_conchuela = conchuela_scope.group(:tipo).count
+total_con = raw_conchuela.values.sum
+total_con = 1 if total_con.zero?
+
+@conchuela_by_tipo = raw_conchuela.transform_values { |v| ((v.to_f / total_con) * 100).round(2) }
+
+
   @conchuela_planos_total = conchuela_scope.where(tipo: "Plano").count
 
   # -------------------------------
@@ -156,10 +167,14 @@ planos_scope = @trucks.where("LOWER(tipo) = ?", "plano")
 @planos_le_60_count = planos_scope.where("wait <= 60").count
 @planos_gt_60_count = planos_scope.where("wait > 60").count
 
+total_planos = @planos_le_60_count + @planos_gt_60_count
+total_planos = 1 if total_planos.zero?
+
 @planos_wait_pie_data = {
-  "≤ 60 min" => @planos_le_60_count,
-  "> 60 min" => @planos_gt_60_count
+  "≤ 60 min" => ((@planos_le_60_count.to_f / total_planos) * 100).round(2),
+  "> 60 min" => ((@planos_gt_60_count.to_f / total_planos) * 100).round(2)
 }
+
 
 @planos_avg_wait_by_month = planos_scope.group_by_month(:fecha).average(:wait)
 
@@ -180,11 +195,16 @@ if waits.any?
   end
 
   if @planos_desv_est.positive?
-    threshold = @planos_media + 3 * @planos_desv_est
-    @planos_outliers_count = planos_scope.where("wait > ?", threshold).count
-  else
-    @planos_outliers_count = 0
-  end
+  threshold = @planos_media + 3 * @planos_desv_est
+  outliers = planos_scope.where("wait > ?", threshold).count
+
+  total_planos = planos_scope.count.nonzero? || 1
+  @planos_outliers_count = ((outliers.to_f / total_planos) * 100).round(2)
+else
+  @planos_outliers_count = 0.0
+end
+
+
 else
   @planos_media = @planos_mediana = @planos_desv_est = 0
   @planos_outliers_count = 0

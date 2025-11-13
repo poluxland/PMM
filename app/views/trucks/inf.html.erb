@@ -14,70 +14,84 @@
 
 
 
-<h2>Informe Camiones <%= @year %></h2>
+
 
 <hr>
 
 <div class="row">
   <div class="col-sm-4">
-    <h4>Resumen general</h4>
-    <table class="table table-sm table-bordered">
-      <tbody>
-        <tr>
-          <th scope="row">Total de camiones <%= @year %>:</th>
-          <td><%= @total_trucks_2025 %></td>
-        </tr>
-        <tr>
-          <th scope="row">Espera ≤ 60 min:</th>
-          <td><%= @wait_le_60_count %></td>
-        </tr>
-        <tr>
-          <th scope="row">Espera &gt; 60 min:</th>
-          <td><%= @wait_gt_60_count %></td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+  <table class="table table-sm table-bordered">
+    <thead class="thead-dark">
+      <tr>
+        <th colspan="2" class="text-center">Resumen general</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+        <th scope="row">Total de camiones <%= @year %>:</th>
+        <td><%= @total_trucks_2025 %></td>
+      </tr>
+      <tr>
+        <th scope="row">Espera ≤ 60 min:</th>
+        <td><%= @wait_le_60_count %></td>
+      </tr>
+      <tr>
+        <th scope="row">Espera &gt; 60 min:</th>
+        <td><%= @wait_gt_60_count %></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
 
   <div class="col-sm-4">
-    <h4>Conchuela</h4>
-    <table class="table table-sm table-bordered">
-      <tbody>
-        <tr>
-          <th scope="row">Conchuela total:</th>
-          <td><%= @conchuela_total %></td>
-        </tr>
-        <tr>
-          <th scope="row">Conchuela Planos:</th>
-          <td><%= @conchuela_planos_total %></td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+  <table class="table table-sm table-bordered">
+    <thead class="thead-dark">
+      <tr>
+        <th colspan="2" class="text-center">Conchuela</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+        <th scope="row">Conchuela total:</th>
+        <td><%= @conchuela_total %></td>
+      </tr>
+      <tr>
+        <th scope="row">Conchuela Planos:</th>
+        <td><%= @conchuela_planos_total %></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
 
   <div class="col-sm-4">
-    <h4>Planos – métricas</h4>
-    <table class="table table-sm table-bordered">
-      <tbody>
-        <tr>
-          <th scope="row">Media:</th>
-          <td><%= @planos_media.round(2) %> min</td>
-        </tr>
-        <tr>
-          <th scope="row">Mediana:</th>
-          <td><%= @planos_mediana.round(2) %> min</td>
-        </tr>
-        <tr>
-          <th scope="row">Desv. estándar:</th>
-          <td><%= @planos_desv_est.round(2) %> min</td>
-        </tr>
-        <tr>
-          <th scope="row">Outliers:</th>
-          <td><%= @planos_outliers_count %></td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+  <table class="table table-sm table-bordered">
+    <thead class="thead-dark">
+      <tr>
+        <th colspan="2" class="text-center">Planos – métricas</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+        <th scope="row">Mediana:</th>
+        <td><%= @planos_mediana.round(2) %> min</td>
+      </tr>
+      <tr>
+        <th scope="row">Desv. estándar:</th>
+        <td><%= @planos_desv_est.round(2) %> min</td>
+      </tr>
+      <tr>
+        <th scope="row">Outliers:</th>
+        <td><%= @planos_outliers_count %> %</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
 </div>
 
 <br>
@@ -87,7 +101,7 @@
 
 <div class="row">
   <div class="col-sm-4">
-    <h5>Cumplimiento espera (todos)</h5>
+    <h5>Cumplimiento espera (% total)</h5>
     <% if @wait_pie_data.values.sum.zero? %>
       <p>No hay datos para mostrar.</p>
     <% else %>
@@ -96,7 +110,7 @@
   </div>
 
   <div class="col-sm-4">
-    <h5>Conchuela por tipo</h5>
+    <h5>Conchuela (% segun tipo)</h5>
     <% if @conchuela_by_tipo.blank? %>
       <p>No hay datos de Conchuela.</p>
     <% else %>
@@ -105,7 +119,7 @@
   </div>
 
   <div class="col-sm-4">
-    <h5>Cumplimiento Espera Planos</h5>
+    <h5>Cumplimiento Espera (% en Planos)</h5>
     <% if (@planos_le_60_count + @planos_gt_60_count).zero? %>
       <p>No hay datos de PLANOS.</p>
     <% else %>
@@ -132,6 +146,50 @@
 </div>
 
 <br>
+<br>
+<br>
+
+<div class="row">
+  <div class="col-sm-12">
+    <h4>Espera promedio mensual por MMPP</h4><br>
+<%= bar_chart [
+      {name: "Llamado a metre",               data: {"Proceso" => 7}},
+      {name: "Traslado hasta Zona Encarpado", data: {"Proceso" => 3}},
+      {name: "Desencarpado",                  data: {"Proceso" => 8}},
+      {name: "Posicionamiento",               data: {"Proceso" => 1.13}},
+      {name: "Bajada de barandas",            data: {"Proceso" => 4.2}},
+      {name: "Descarga",                      data: {"Proceso" => 3.42}},
+      {name: "Barrido & Subida de barandas",  data: {"Proceso" => 7.42}}
+    ],
+    stacked: true,
+    height: "260px",
+    library: {
+      chart: { type: "bar" },
+      xAxis: { title: { text: "MIN" } },
+      plotOptions: {
+        series: {
+          dataLabels: {
+            enabled: true,
+            inside: true,              # 👈 DENTRO DE LA BARRA
+            align: "left",             # 👈 Ubicación horizontal
+            y: 18,                     # 👈 BAJO (vertical offset)
+            x: 5,                      # 👈 Separado del borde
+            formatter: "function(){ return this.y; }".html_safe,
+            style: { color: "#ffffff", fontSize: "13px", fontWeight: "bold" }
+          }
+        }
+      }
+    }
+%>    
+  </div>
+</div>
+
+
+<br><br>
+
+
+
+
 
 
 <div class="row">
