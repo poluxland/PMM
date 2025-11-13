@@ -150,42 +150,52 @@ end
   # -------------------------------
   # Planos
   # -------------------------------
-  planos_scope = @trucks.where("LOWER(tipo) = ?", "plano")
+  # Planos (usa LOWER por si hay diferencias de mayúsculas)
+planos_scope = @trucks.where("LOWER(tipo) = ?", "plano")
 
+@planos_le_60_count = planos_scope.where("wait <= 60").count
+@planos_gt_60_count = planos_scope.where("wait > 60").count
 
-  @planos_le_60_count = planos_scope.where("wait <= 60").count
-  @planos_gt_60_count = planos_scope.where("wait > 60").count
+@planos_wait_pie_data = {
+  "≤ 60 min" => @planos_le_60_count,
+  "> 60 min" => @planos_gt_60_count
+}
 
-  @planos_wait_pie_data = {
-    "≤ 60 min" => @planos_le_60_count,
-    "> 60 min" => @planos_gt_60_count
-  }
+@planos_avg_wait_by_month = planos_scope.group_by_month(:fecha).average(:wait)
 
-  @planos_avg_wait_by_month = planos_scope.group_by_month(:fecha).average(:wait)
+waits = planos_scope.pluck(:wait).compact
 
-  waits = planos_scope.pluck(:wait).compact
+if waits.any?
+  @planos_media = waits.sum.to_f / waits.size
 
-  if waits.any?
-    @planos_media = waits.sum.to_f / waits.size
+  sorted = waits.sort
+  mid    = sorted.size / 2
+  @planos_mediana = sorted.size.odd? ? sorted[mid] : (sorted[mid - 1] + sorted[mid]) / 2.0
 
-    sorted = waits.sort
-    mid = sorted.size / 2
-    @planos_mediana = sorted.size.odd? ? sorted[mid] : (sorted[mid - 1] + sorted[mid]) / 2.0
-
-    variance = waits.size > 1 ? waits.sum { |w| (w - @planos_media)**2 } / (waits.size - 1).to_f : 0
+  if waits.size > 1
+    variance         = waits.sum { |w| (w - @planos_media)**2 } / (waits.size - 1).to_f
     @planos_desv_est = Math.sqrt(variance)
+  else
+    @planos_desv_est = 0.0
+  end
 
+  if @planos_desv_est.positive?
     threshold = @planos_media + 3 * @planos_desv_est
     @planos_outliers_count = planos_scope.where("wait > ?", threshold).count
   else
-    @planos_media = @planos_mediana = @planos_desv_est = 0
     @planos_outliers_count = 0
   end
+else
+  @planos_media = @planos_mediana = @planos_desv_est = 0
+  @planos_outliers_count = 0
+end
 
-  @planos_scatter_data = planos_scope
+# 🔹 Gráfico SIMPLE: todos los planos, fecha vs espera
+@planos_scatter_data = planos_scope
                          .order(:fecha)
                          .pluck(:fecha, :wait)
-                         .map { |fecha, wait| [fecha.strftime("%Y-%m-%d"), wait] }
+                         .map { |fecha, wait| [fecha.to_s, wait] }
+
 
 end
 
