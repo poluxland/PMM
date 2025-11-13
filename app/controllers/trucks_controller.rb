@@ -128,9 +128,10 @@ class TrucksController < ApplicationController
                                   .average(:wait)
 
   series_by_mmpp = Hash.new { |h, k| h[k] = {} }
-  @avg_wait_by_mmpp_month_raw.each do |(date, mmpp_name), avg_wait|
-    series_by_mmpp[mmpp_name][date] = avg_wait
-  end
+  @avg_wait_by_mmpp_month_raw.each do |(mmpp_name, date), avg_wait|
+  series_by_mmpp[mmpp_name][date] = avg_wait
+end
+
 
   @avg_wait_by_mmpp_month = series_by_mmpp.map { |mmpp_name, data| { name: mmpp_name, data: data } }
 

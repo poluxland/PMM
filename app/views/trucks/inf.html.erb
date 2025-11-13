@@ -127,14 +127,14 @@
           </tr>
         </thead>
         <tbody>
-          <% @avg_wait_by_mmpp_month_raw.each do |key, avg_wait| %>
-            <% date, mmpp_name = key %>
-            <tr>
-              <td><%= l(date, format: "%Y-%m") %></td>
-              <td><%= mmpp_name %></td>
-              <td><%= avg_wait.to_f.round(2) %></td>
-            </tr>
-          <% end %>
+          <% @avg_wait_by_mmpp_month_raw.each do |(mmpp_name, date), avg_wait| %>
+  <tr>
+    <td><%= l(date.to_date, format: "%Y-%m") %></td>
+    <td><%= mmpp_name %></td>
+    <td><%= avg_wait.to_f.round(2) %></td>
+  </tr>
+<% end %>
+
         </tbody>
       </table>
     <% end %>
