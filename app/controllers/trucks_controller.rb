@@ -145,7 +145,7 @@ end
 
   @conchuela_total = conchuela_scope.count
   @conchuela_by_tipo = conchuela_scope.group(:tipo).count
-  @conchuela_planos_total = conchuela_scope.where(tipo: "PLANOS").count
+  @conchuela_planos_total = conchuela_scope.where(tipo: "Plano").count
 
   # -------------------------------
   # Planos
@@ -182,7 +182,11 @@ end
     @planos_outliers_count = 0
   end
 
-  @planos_scatter_data = planos_scope.pluck(:fecha, :wait)
+  @planos_scatter_data = planos_scope
+                         .order(:fecha)
+                         .pluck(:fecha, :wait)
+                         .map { |fecha, wait| [fecha.strftime("%Y-%m-%d"), wait] }
+
 end
 
 

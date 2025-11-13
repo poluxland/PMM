@@ -82,15 +82,17 @@
   </div>
 
   <div class="col-sm-6">
-    <h4>Planos – outliers (dispersión fecha vs espera)</h4>
-    <% if @planos_scatter_data.blank? %>
-      <p>No hay datos para el gráfico de dispersión.</p>
-    <% else %>
-      <%= scatter_chart @planos_scatter_data,
-                        xtitle: "Fecha",
-                        ytitle: "Espera (min)" %>
-    <% end %>
-  </div>
+    <h3>Planos – gráfico de dispersión (fecha vs espera)</h3>
+<div style="max-width: 900px;">
+  <% if @planos_scatter_data.blank? %>
+    <p>No hay datos para el gráfico de dispersión.</p>
+  <% else %>
+    <%= scatter_chart @planos_scatter_data,
+                      xtitle: "Fecha",
+                      ytitle: "Espera (min)" %>
+  <% end %>
+</div>
+
 </div>
 
 <br><br>
