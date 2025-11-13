@@ -1,0 +1,161 @@
+<div class="row mb-4">
+  <div class="col-sm-4">
+    <%= form_with url: inf_path, method: :get, local: true do |f| %>
+      <div class="form-group">
+        <label><strong>Seleccionar año</strong></label>
+        <%= f.select :year,
+                     options_for_select((2018..Time.current.year).to_a.reverse, @year),
+                     {}, class: "form-control",
+                        onchange: "this.form.submit();" %>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+
+
+<h2>Informe Camiones <%= @year %></h2>
+
+<hr>
+
+<div class="row">
+  <div class="col-sm-4">
+    <h4>Resumen general</h4>
+    <ul>
+      <li><strong>Total de camiones 2025:</strong> <%= @total_trucks_2025 %></li>
+      <li><strong>Camiones con espera ≤ 60 min:</strong> <%= @wait_le_60_count %></li>
+      <li><strong>Camiones con espera &gt; 60 min:</strong> <%= @wait_gt_60_count %></li>
+    </ul>
+  </div>
+
+  <div class="col-sm-4">
+    <h4>Conchuela</h4>
+    <ul>
+      <li><strong>Conchuela total:</strong> <%= @conchuela_total %></li>
+      <li><strong>Conchuela PLANOS:</strong> <%= @conchuela_planos_total %></li>
+    </ul>
+  </div>
+
+  <div class="col-sm-4">
+    <h4>Planos – métricas</h4>
+    <ul>
+      <li><strong>Planos media:</strong> <%= @planos_media.round(2) %> min</li>
+      <li><strong>Planos mediana:</strong> <%= @planos_mediana.round(2) %> min</li>
+      <li><strong>Planos desv. est.:</strong> <%= @planos_desv_est.round(2) %> min</li>
+      <li><strong>Planos outliers:</strong> <%= @planos_outliers_count %></li>
+    </ul>
+  </div>
+</div>
+
+<br>
+
+<div class="row">
+  <div class="col-sm-6">
+    <h4>Nivel de cumplimiento espera ≤ 60 min (todos)</h4>
+    <% if @wait_pie_data.values.sum.zero? %>
+      <p>No hay datos para mostrar.</p>
+    <% else %>
+      <%= pie_chart @wait_pie_data, legend: "bottom" %>
+    <% end %>
+  </div>
+
+  <div class="col-sm-6">
+    <h4>Conchuela por tipo</h4>
+    <% if @conchuela_by_tipo.blank? %>
+      <p>No hay datos de Conchuela.</p>
+    <% else %>
+      <%= pie_chart @conchuela_by_tipo, legend: "bottom" %>
+    <% end %>
+  </div>
+</div>
+
+<br>
+
+<div class="row">
+  <div class="col-sm-6">
+    <h4>Nivel de cumplimiento espera ≤ 60 min – PLANOS</h4>
+    <% if (@planos_le_60_count + @planos_gt_60_count).zero? %>
+      <p>No hay datos de PLANOS.</p>
+    <% else %>
+      <%= pie_chart @planos_wait_pie_data, legend: "bottom" %>
+    <% end %>
+  </div>
+
+  <div class="col-sm-6">
+    <h4>Planos – outliers (dispersión fecha vs espera)</h4>
+    <% if @planos_scatter_data.blank? %>
+      <p>No hay datos para el gráfico de dispersión.</p>
+    <% else %>
+      <%= scatter_chart @planos_scatter_data,
+                        xtitle: "Fecha",
+                        ytitle: "Espera (min)" %>
+    <% end %>
+  </div>
+</div>
+
+<br><br>
+
+<div class="row">
+  <div class="col-sm-12">
+    <h4>Valor m (espera promedio) por MMPP mes a mes</h4>
+    <% if @avg_wait_by_mmpp_month.blank? %>
+      <p>No hay datos para mostrar.</p>
+    <% else %>
+      <%= line_chart @avg_wait_by_mmpp_month,
+                     xtitle: "Fecha",
+                     ytitle: "Espera promedio (min)",
+                     legend: "bottom" %>
+    <% end %>
+  </div>
+</div>
+
+<br>
+
+<div class="row">
+  <div class="col-sm-12">
+    <h4>Tabla m por MMPP mes a mes</h4>
+
+    <% if @avg_wait_by_mmpp_month_raw.blank? %>
+      <p>No hay datos para mostrar.</p>
+    <% else %>
+      <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th>Mes</th>
+            <th>MMPP</th>
+            <th>Espera media (min)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @avg_wait_by_mmpp_month_raw.each do |key, avg_wait| %>
+            <% date, mmpp_name = key %>
+            <tr>
+              <td><%= l(date, format: "%Y-%m") %></td>
+              <td><%= mmpp_name %></td>
+              <td><%= avg_wait.to_f.round(2) %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    <% end %>
+  </div>
+</div>
+
+<br>
+
+<div class="row">
+  <div class="col-sm-12">
+    <h4>Valor m (espera promedio) PLANOS mes a mes</h4>
+    <% if @planos_avg_wait_by_month.blank? %>
+      <p>No hay datos de PLANOS.</p>
+    <% else %>
+      <%= line_chart @planos_avg_wait_by_month,
+                     xtitle: "Fecha",
+                     ytitle: "Espera promedio (min)" %>
+    <% end %>
+  </div>
+</div>
+
+<br>
+
+<a class="btn btn-primary" href="#" onclick="window.print();return false;">Imprimir reporte</a>

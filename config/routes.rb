@@ -36,7 +36,7 @@ end
   resources :derrames
   resources :trucks
   get 'blank', to: 'trucks#blank'
-  get 'informe', to: 'trucks#informe'
+  get 'inf', to: 'trucks#inf'
   get 'report', to: 'trucks#report'
   get 'month', to: 'trucks#month'
   get 'year', to: 'trucks#year'
