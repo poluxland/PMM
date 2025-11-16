@@ -120,25 +120,72 @@ class TrucksController < ApplicationController
     "> 60 min" => ((gt_60.to_f / total_wait) * 100).round(2)
   }
 
+    # ---------------------------------------
+  # 2) MMPP por mes (tabla pivot: MMPP x meses)
+  #    Cada celda: cantidad de trucks y espera media
   # ---------------------------------------
-  # 2) MMPP por mes (1 query → agrupada)
-  # ---------------------------------------
-  raw = @trucks
-          .joins(:mmpp)
-          .group("mmpps.nombre", "DATE_TRUNC('month', fecha)")
-          .average(:wait)
+  mmpp_stats_scope = Truck
+                       .joins(:mmpp)
+                       .where(fecha: Date.new(@year).all_year)
+                       .where("wait >= 1")
 
-  series_by_mmpp = Hash.new { |h, k| h[k] = {} }
+  raw_stats = mmpp_stats_scope
+                .select("
+                  mmpps.nombre AS mmpp_name,
+                  DATE_TRUNC('month', fecha) AS month,
+                  COUNT(*) AS trucks_count,
+                  AVG(wait) AS avg_wait
+                ")
+                .group("mmpps.nombre", "DATE_TRUNC('month', fecha)")
 
-  raw.each do |(mmpp_name, date), avg_wait|
-    series_by_mmpp[mmpp_name][date.to_date] = avg_wait
+  # Meses del año seleccionado (1..12)
+  @months_for_year = (1..12).map { |m| Date.new(@year, m, 1) }
+
+  # Hash pivot: { "MMPP_NAME" => { date_beginning_of_month => { count:, avg_wait: } } }
+  @mmpp_month_pivot = Hash.new { |h, k| h[k] = {} }
+
+  raw_stats.each do |row|
+    mmpp_name = row.mmpp_name
+    month_key = row.month.to_date.beginning_of_month
+
+    @mmpp_month_pivot[mmpp_name][month_key] = {
+      count:    row.trucks_count.to_i,
+      avg_wait: row.avg_wait.to_f
+    }
   end
 
-  @avg_wait_by_mmpp_month = series_by_mmpp.map do |name, data|
-    { name: name, data: data }
+  @mmpp_names = @mmpp_month_pivot.keys.sort
+
+
+  # ---------------------------------------
+  # 2.b) Conchuela por TIPO y mes (pivot)
+  # ---------------------------------------
+  conchuela_stats_scope = mmpp_stats_scope
+                            .where("LOWER(mmpps.nombre) = 'conchuela'")
+
+  raw_conchuela = conchuela_stats_scope
+                    .select("
+                      COALESCE(trucks.tipo, 'Sin tipo') AS tipo_name,
+                      DATE_TRUNC('month', fecha) AS month,
+                      COUNT(*) AS trucks_count,
+                      AVG(wait) AS avg_wait
+                    ")
+                    .group("COALESCE(trucks.tipo, 'Sin tipo')", "DATE_TRUNC('month', fecha)")
+
+  @conchuela_tipo_month_pivot = Hash.new { |h, k| h[k] = {} }
+
+  raw_conchuela.each do |row|
+    tipo      = row.tipo_name
+    month_key = row.month.to_date.beginning_of_month
+
+    @conchuela_tipo_month_pivot[tipo][month_key] = {
+      count:    row.trucks_count.to_i,
+      avg_wait: row.avg_wait.to_f
+    }
   end
 
-  @avg_wait_by_mmpp_month_raw = raw
+  @conchuela_tipos = @conchuela_tipo_month_pivot.keys.sort
+
 
   # ---------------------------------------
   # 3) Conchuela (opt)

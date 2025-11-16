@@ -210,35 +210,91 @@
 
 <div class="row">
   <div class="col-sm-12">
-    <h4>Tabla m por MMPP mes a mes</h4>
+    <h4>Espera media y cantidad de camiones por MMPP y mes</h4>
 
-    <% if @avg_wait_by_mmpp_month_raw.blank? %>
+    <% if @mmpp_month_pivot.blank? %>
       <p>No hay datos para mostrar.</p>
     <% else %>
-      <table class="table">
+      <table class="table table-bordered table-sm">
         <thead class="thead-dark">
           <tr>
-            <th>Mes</th>
             <th>MMPP</th>
-            <th>Espera media (min)</th>
+            <% @months_for_year.each do |month| %>
+              <th class="text-center">
+                <%= l(month, format: "%b") %> <!-- Ene, Feb, Mar... -->
+              </th>
+            <% end %>
           </tr>
         </thead>
         <tbody>
-          <% @avg_wait_by_mmpp_month_raw.each do |(mmpp_name, date), avg_wait| %>
-  <tr>
-    <td><%= l(date.to_date, format: "%Y-%m") %></td>
-    <td><%= mmpp_name %></td>
-    <td><%= avg_wait.to_f.round(2) %></td>
-  </tr>
-<% end %>
-
+          <% @mmpp_names.each do |mmpp_name| %>
+            <tr>
+              <td><%= mmpp_name %></td>
+              <% @months_for_year.each do |month| %>
+                <% stats = @mmpp_month_pivot.dig(mmpp_name, month) %>
+                <% if stats.present? && stats[:count].to_i > 0 %>
+                  <td class="text-center">
+                    <strong><%= stats[:count] %></strong>
+                    <br>
+                    <small><%= stats[:avg_wait].round(1) %> min</small>
+                  </td>
+                <% else %>
+                  <td class="text-center text-muted">-</td>
+                <% end %>
+              <% end %>
+            </tr>
+          <% end %>
         </tbody>
       </table>
     <% end %>
   </div>
 </div>
 
+
 <br>
+<br>
+
+<div class="row">
+  <div class="col-sm-12">
+    <h4>Conchuela: cantidad de camiones y espera media por tipo y mes</h4>
+
+    <% if @conchuela_tipo_month_pivot.blank? %>
+      <p>No hay datos de Conchuela para mostrar.</p>
+    <% else %>
+      <table class="table table-bordered table-sm">
+        <thead class="thead-dark">
+          <tr>
+            <th>Tipo</th>
+            <% @months_for_year.each do |month| %>
+              <th class="text-center">
+                <%= l(month, format: "%b") %> <!-- Ene, Feb, Mar... -->
+              </th>
+            <% end %>
+          </tr>
+        </thead>
+        <tbody>
+          <% @conchuela_tipos.each do |tipo| %>
+            <tr>
+              <td><%= tipo %></td>
+              <% @months_for_year.each do |month| %>
+                <% stats = @conchuela_tipo_month_pivot.dig(tipo, month) %>
+                <% if stats.present? && stats[:count].to_i > 0 %>
+                  <td class="text-center">
+                    <strong><%= stats[:count] %></strong>
+                    <br>
+                    <small><%= stats[:avg_wait].round(1) %> min</small>
+                  </td>
+                <% else %>
+                  <td class="text-center text-muted">-</td>
+                <% end %>
+              <% end %>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    <% end %>
+  </div>
+</div>
 
 
 <a class="btn btn-primary" href="#" onclick="window.print();return false;">Imprimir reporte</a>
