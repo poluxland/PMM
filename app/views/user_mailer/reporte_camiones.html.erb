@@ -1,0 +1,123 @@
+<h3>Reporte camiones</h3>
+
+<h4>Camiones hoy</h4>
+<% if @trucks_by_material_day.blank? %>
+  <p>No hay datos registrados hoy.</p>
+<% else %>
+  <table border="1" cellpadding="6" cellspacing="0" style="border-collapse:collapse;">
+    <thead>
+      <tr style="background:#eee;">
+        <th>Material</th>
+        <th>Camiones recibidos</th>
+        <th>Tiempo promedio (min)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @trucks_by_material_day.each do |nombre, total_trucks, average_trucks| %>
+        <tr>
+          <td><%= nombre %></td>
+          <td><%= total_trucks %></td>
+          <td><%= average_trucks.to_f.round(2) %></td>
+        </tr>
+      <% end %>
+      <tr style="background:#eee;">
+        <td><strong>Total</strong></td>
+        <td><strong><%= @total_trucks_day %></strong></td>
+        <td><strong><%= @average_trucks_day.to_f.round(2) %></strong></td>
+      </tr>
+    </tbody>
+  </table>
+<% end %>
+
+
+
+<h4>Camiones ayer</h4>
+<% if @yesterday_trucks_by_material_day.blank? %>
+  <p>No hay camiones registrados el día de ayer.</p>
+<% else %>
+  <table border="1" cellpadding="6" cellspacing="0" style="border-collapse:collapse;">
+    <thead>
+      <tr style="background:#eee;">
+        <th>Material</th>
+        <th>Camiones recibidos</th>
+        <th>Tiempo promedio (min)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @yesterday_trucks_by_material_day.each do |nombre, total_trucks, average_trucks| %>
+        <tr>
+          <td><%= nombre %></td>
+          <td><%= total_trucks %></td>
+          <td><%= average_trucks.to_f.round(2) %></td>
+        </tr>
+      <% end %>
+      <tr style="background:#eee;">
+        <td><strong>Total</strong></td>
+        <td><strong><%= @yesterday_total_trucks_day %></strong></td>
+        <td><strong><%= @yesterday_average_trucks_day.to_f.round(2) %></strong></td>
+      </tr>
+    </tbody>
+  </table>
+<% end %>
+
+
+
+<h4>Camiones mes actual</h4>
+<% if @trucks_by_material.blank? %>
+  <p>No hay datos disponibles.</p>
+<% else %>
+  <table border="1" cellpadding="6" cellspacing="0" style="border-collapse:collapse;">
+    <thead>
+      <tr style="background:#eee;">
+        <th>Material</th>
+        <th>Camiones recibidos</th>
+        <th>Tiempo promedio (min)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @trucks_by_material.each do |nombre, total_trucks, average_trucks| %>
+        <tr>
+          <td><%= nombre %></td>
+          <td><%= total_trucks %></td>
+          <td><%= average_trucks.to_f.round(2) %></td>
+        </tr>
+      <% end %>
+      <tr style="background:#eee;">
+        <td><strong>Total</strong></td>
+        <td><strong><%= @total_trucks %></strong></td>
+        <td><strong><%= @average_trucks_month.to_f.round(2) %></strong></td>
+      </tr>
+    </tbody>
+  </table>
+<% end %>
+
+
+
+<h4>Camiones mes anterior</h4>
+<% if @last_month_trucks_by_material.blank? %>
+  <p>No hay datos disponibles.</p>
+<% else %>
+  <table border="1" cellpadding="6" cellspacing="0" style="border-collapse:collapse;">
+    <thead>
+      <tr style="background:#eee;">
+        <th>Material</th>
+        <th>Camiones recibidos</th>
+        <th>Tiempo promedio (min)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @last_month_trucks_by_material.each do |nombre, total_trucks, average_trucks| %>
+        <tr>
+          <td><%= nombre %></td>
+          <td><%= total_trucks %></td>
+          <td><%= average_trucks.to_f.round(2) %></td>
+        </tr>
+      <% end %>
+      <tr style="background:#eee;">
+        <td><strong>Total</strong></td>
+        <td><strong><%= @last_month_total_trucks %></strong></td>
+        <td><strong><%= @last_month_average_trucks.to_f.round(2) %></strong></td>
+      </tr>
+    </tbody>
+  </table>
+<% end %>
