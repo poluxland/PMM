@@ -125,7 +125,7 @@ class UserMailer < ApplicationMailer
          .average(:wait)
 
   mail(
-    to: "jose.jerez@msindustrial.cl, fernando.gonzalez@msindustrial.cl",
+    to: "gaston.guerrero@meloncementos.cl, geraldinne.martinez@meloncementos.cl, camila.ramirez@meloncementos.cl, rodolfo.tobar-externo@meloncementos.cl, karime.merino@meloncementos.cl, jose.jerez@msindustrial.cl, fernando.gonzalez@msindustrial.cl, simon.rojas@msindustrial.cl, marcos.prospero@msindustrial.cl, hernan.martinez@msindustrial.cl, alejandro.olivares@msindustrial.cl, administracion@msindustrial.cl",
     subject: "Reporte camiones - #{now.strftime('%d/%m/%Y %H:%M')}"
   )
 end
