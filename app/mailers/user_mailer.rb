@@ -123,6 +123,36 @@ class UserMailer < ApplicationMailer
     Truck.where("wait >= 1")
          .where("fecha >= ? AND fecha < ?", yesterday_start, today_begin)
          .average(:wait)
+  
+  # -------------------------
+# Resumen BRU
+# -------------------------
+@bru_hoy = Truck.where("wait >= 1")
+                .where(tipo: "BRU")
+                .where("fecha >= ? AND fecha <= ?", today_start, today_end)
+                .count
+
+@bru_ayer = Truck.where("wait >= 1")
+                 .where(tipo: "BRU")
+                 .where("fecha >= ? AND fecha < ?", yesterday_start, today_begin)
+                 .count
+
+@bru_mes_actual = Truck.where("wait >= 1")
+                       .where(tipo: "BRU")
+                       .where("fecha >= ? AND fecha <= ?", month_start, month_end)
+                       .count
+
+@bru_mes_anterior = Truck.where("wait >= 1")
+                         .where(tipo: "BRU")
+                         .where("fecha >= ? AND fecha <= ?", last_month_start, last_month_end)
+                         .count
+
+@bru_resumen = [
+  ["Hoy", @total_trucks_day, @bru_hoy],
+  ["Ayer", @yesterday_total_trucks_day, @bru_ayer],
+  ["Mes actual", @total_trucks, @bru_mes_actual],
+  ["Mes anterior", @last_month_total_trucks, @bru_mes_anterior]
+]
 
   mail(
     to: "gaston.guerrero@meloncementos.cl, catalina.marchant@meloncementos.cl, geraldinne.martinez@meloncementos.cl, manuel.salas@meloncementos.cl, camila.ramirez@meloncementos.cl, rodolfo.tobar-externo@meloncementos.cl, karime.merino@meloncementos.cl, jose.jerez@msindustrial.cl, fernando.gonzalez@msindustrial.cl, simon.rojas@msindustrial.cl, marcos.prospero@msindustrial.cl, hernan.martinez@msindustrial.cl, alejandro.olivares@msindustrial.cl, administracion@msindustrial.cl, misael.garrido@meloncementos.cl",

@@ -1,5 +1,31 @@
 <h3>Reporte camiones</h3>
 
+
+<h4>Resumen camiones tipo BRU</h4>
+
+<table border="1" cellpadding="6" cellspacing="0" style="border-collapse:collapse;">
+  <thead>
+    <tr style="background:#eee;">
+      <th>Período</th>
+      <th>Total camiones</th>
+      <th>Camiones BRU</th>
+      <th>% BRU</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @bru_resumen.each do |periodo, total, bru| %>
+      <% porcentaje = total.to_i > 0 ? (bru.to_f / total.to_f * 100).round(1) : 0 %>
+      <tr>
+        <td><%= periodo %></td>
+        <td><%= total %></td>
+        <td><strong><%= bru %></strong></td>
+        <td><%= porcentaje %>%</td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
 <h4>Camiones hoy</h4>
 <% if @trucks_by_material_day.blank? %>
   <p>No hay datos registrados hoy.</p>
