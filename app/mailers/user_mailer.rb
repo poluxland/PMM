@@ -124,23 +124,51 @@ class UserMailer < ApplicationMailer
          .where("fecha >= ? AND fecha < ?", yesterday_start, today_begin)
          .average(:wait)
   
-  # -------------------------
+ 
+# -------------------------
 # Resumen BRU
 # -------------------------
+
+tipos_bru_elegibles = ["BRU", "Batea 20", "Batea 40"]
+
+# Hoy
+@bru_hoy_total = Truck.where("wait >= 1")
+                      .where(tipo: tipos_bru_elegibles)
+                      .where("fecha >= ? AND fecha <= ?", today_start, today_end)
+                      .count
+
 @bru_hoy = Truck.where("wait >= 1")
                 .where(tipo: "BRU")
                 .where("fecha >= ? AND fecha <= ?", today_start, today_end)
                 .count
+
+# Ayer
+@bru_ayer_total = Truck.where("wait >= 1")
+                       .where(tipo: tipos_bru_elegibles)
+                       .where("fecha >= ? AND fecha < ?", yesterday_start, today_begin)
+                       .count
 
 @bru_ayer = Truck.where("wait >= 1")
                  .where(tipo: "BRU")
                  .where("fecha >= ? AND fecha < ?", yesterday_start, today_begin)
                  .count
 
+# Mes actual
+@bru_mes_actual_total = Truck.where("wait >= 1")
+                             .where(tipo: tipos_bru_elegibles)
+                             .where("fecha >= ? AND fecha <= ?", month_start, month_end)
+                             .count
+
 @bru_mes_actual = Truck.where("wait >= 1")
                        .where(tipo: "BRU")
                        .where("fecha >= ? AND fecha <= ?", month_start, month_end)
                        .count
+
+# Mes anterior
+@bru_mes_anterior_total = Truck.where("wait >= 1")
+                               .where(tipo: tipos_bru_elegibles)
+                               .where("fecha >= ? AND fecha <= ?", last_month_start, last_month_end)
+                               .count
 
 @bru_mes_anterior = Truck.where("wait >= 1")
                          .where(tipo: "BRU")
@@ -148,10 +176,10 @@ class UserMailer < ApplicationMailer
                          .count
 
 @bru_resumen = [
-  ["Hoy", @total_trucks_day, @bru_hoy],
-  ["Ayer", @yesterday_total_trucks_day, @bru_ayer],
-  ["Mes actual", @total_trucks, @bru_mes_actual],
-  ["Mes anterior", @last_month_total_trucks, @bru_mes_anterior]
+  ["Hoy", @bru_hoy_total, @bru_hoy],
+  ["Ayer", @bru_ayer_total, @bru_ayer],
+  ["Mes actual", @bru_mes_actual_total, @bru_mes_actual],
+  ["Mes anterior", @bru_mes_anterior_total, @bru_mes_anterior]
 ]
 
   mail(
