@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class TrucksController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:blank, :month]
   before_action :set_truck, only: %i[show edit update destroy]
   include Pagy::Backend
   # GET /trucks
@@ -81,16 +82,26 @@ class TrucksController < ApplicationController
   end
 
   def blank
-    @trucks = Truck.includes(:mmpp).where(created_at: Time.now.beginning_of_day..Time.now.end_of_day).where("wait <= 1")
-    @last = Truck.includes(:mmpp).last(15)
+  # Para las tablas HTML
+  @trucks = Truck.includes(:mmpp)
+                 .where(created_at: Time.zone.now.beginning_of_day..Time.zone.now.end_of_day)
+                 .where("wait <= 1")
 
-    respond_to do |format|
-      format.html
-      format.xlsx {
-        response.headers['Content-Disposition'] = "attachment; filename=camiones_todos_#{Date.today}.xlsx"
-      }
-    end
+  @last = Truck.includes(:mmpp).last(15)
+
+  # Para el Excel
+  @export_trucks = Truck.includes(:mmpp)
+                        .order(id: :desc)
+                        .limit(5000)
+                        .to_a
+
+  respond_to do |format|
+    format.html
+    format.xlsx {
+      response.headers['Content-Disposition'] = "attachment; filename=camiones_todos_#{Date.today}.xlsx"
+    }
   end
+end
 
   def inf
   @year = params[:year].present? ? params[:year].to_i : Time.current.year

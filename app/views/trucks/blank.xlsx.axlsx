@@ -3,7 +3,7 @@ wb = xlsx_package.workbook
 wb.add_worksheet(name: "Todos los camiones") do |sheet|
   sheet.add_row ["ID", "Fecha", "Material", "Tipo", "Llegada", "Llamada", "Salida", "Patente", "Espera (min)", "Motivo", "Causa", "Número", "Otro"]
 
-  Truck.includes(:mmpp).find_each do |truck|
+  @export_trucks.each do |truck|
     sheet.add_row [
       truck.id,
       truck.fecha,

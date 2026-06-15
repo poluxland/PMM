@@ -65,6 +65,13 @@ end
   get '/terms', to: 'home#terms'
   get '/inf', to: 'home#informes'
 
+  get '/documentos', to: 'home#documentos', as: :documentos
+get '/lvs_form', to: 'home#lvs_form', as: :lvs_form
+get '/control_critico_form', to: 'home#control_critico_form', as: :control_critico_form
+get '/envasado_form', to: 'home#envasado_form', as: :envasado_form
+get '/barredora_form', to: 'home#barredora_form', as: :barredora_form
+get '/contacto_seguridad_form', to: 'home#contacto_seguridad_form', as: :contacto_seguridad_form
+
   get '/others', to: 'home#others'
   authenticate :user, ->(u) { u.admin? } do
     mount Sidekiq::Web => '/sidekiq'

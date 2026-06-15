@@ -1,106 +1,97 @@
-
 <div class="container">
   <div class="card-group">
 
-
-<div class="card border m-1 shadow mb-5 bg-white rounded">
-       <a href="<%="https://drive.google.com/drive/folders/1kWvGZk_45IAC_g0_ue5yeubsosJX203N?usp=share_link"%>">
-        <%= image_tag ("reporte.jpg") , :class => "card-img-top img-fluid" %>
-      <div class="card-img-overlay"><h4 class="card-title text-white font-weight-bold">Documentos</h4></div>
+    <div class="card border m-1 shadow mb-5 bg-white rounded">
+      <a href="<%= documentos_path %>">
+        <%= image_tag "reporte.jpg", class: "card-img-top img-fluid" %>
+        <div class="card-img-overlay">
+          <h4 class="card-title text-white font-weight-bold">Documentos</h4>
+        </div>
       </a>
     </div>
 
     <div class="card border m-1 shadow mb-5 bg-white rounded">
       <a href="<%= estado_canchas_path %>">
-        <%= image_tag ("raw.jpg") , :class => "card-img-top img-fluid" %>
-      <div class="card-img-overlay"><h4 class="card-title text-white font-weight-bold">Materia Prima</h4></div>
+        <%= image_tag "raw.jpg", class: "card-img-top img-fluid" %>
+        <div class="card-img-overlay">
+          <h4 class="card-title text-white font-weight-bold">Materia Prima</h4>
+        </div>
       </a>
     </div>
-
-
 
     <div class="card border m-1 shadow mb-5 bg-white rounded">
       <a href="<%= blank_path %>">
-        <%= image_tag ("truck.jpg") , :class => "card-img-top img-fluid" %>
-        <div class="card-img-overlay"><h4 class="card-title text-white font-weight-bold">Camiones<br>LCA</h4></div>
+        <%= image_tag "truck.jpg", class: "card-img-top img-fluid" %>
+        <div class="card-img-overlay">
+          <h4 class="card-title text-white font-weight-bold">Camiones<br>LCA</h4>
+        </div>
       </a>
     </div>
 
-
-
-<div class="card border m-1 shadow mb-5 bg-white rounded">
+    <div class="card border m-1 shadow mb-5 bg-white rounded">
       <a href="<%= others_path %>">
-        <%= image_tag ("bru.jpg") , :class => "card-img-top img-fluid" %>
-      <div class="card-img-overlay"><h4 class="card-title text-white font-weight-bold">Inspeción</h4></div>
-      </a>
-    </div>
-
- <% if user_signed_in? %>
-  <div class="card border m-1 shadow mb-5 bg-white rounded">
-    <a href="https://forms.gle/UUPuraCG9NspTmoA7" target="_blank" rel="noopener">
-      <%= image_tag "lvs.jpg", class: "card-img-top img-fluid" %>
-      <div class="card-img-overlay">
-        <h4 class="card-title text-white font-weight-bold">LVS</h4>
-      </div>
-    </a>
-  </div>
-<% else %>
-  <div class="card border m-1 shadow mb-5 bg-white rounded">
-    <%= link_to new_user_session_path do %>
-      <%= image_tag "lvs.jpg", class: "card-img-top img-fluid" %>
-      <div class="card-img-overlay">
-        <h4 class="card-title text-white font-weight-bold">LVS</h4>
-      </div>
-    <% end %>
-  </div>
-<% end %>
-
-
-
-
-
-
-
-<div class="w-100"></div>
-
- <div class="card border m-1 shadow mb-5 bg-white rounded">
-      <a href="<%="https://forms.gle/3C9iboyujsLDTucR8"%>">
-        <%= image_tag ("apr.jpg") , :class => "card-img-top img-fluid" %>
-      <div class="card-img-overlay"><h4 class="card-title text-white font-weight-bold">Control<br>crítico</h4></div>
-      </a>
-    </div>
-
-<div class="card border m-1 shadow mb-5 bg-white rounded">
-      <a href="<%="https://forms.gle/VRbBkuBFWZLkgh6s7"%>">
-        <%= image_tag ("prima.jpg") , :class => "card-img-top img-fluid" %>
-      <div class="card-img-overlay"><h4 class="card-title text-white font-weight-bold">Envasado</h4></div>
-      </a>
-    </div>
-
-
-
-      <div class="card border m-1 shadow mb-5 bg-white rounded">
-      <a href="<%="https://forms.gle/Q9YLYJmThy84y15u9"%>">
-        <%= image_tag ("camion.jpg") , :class => "card-img-top img-fluid" %>
-      <div class="card-img-overlay"><h4 class="card-title text-white font-weight-bold">Barredora</h4></div>
+        <%= image_tag "bru.jpg", class: "card-img-top img-fluid" %>
+        <div class="card-img-overlay">
+          <h4 class="card-title text-white font-weight-bold">Inspección</h4>
+        </div>
       </a>
     </div>
 
     <div class="card border m-1 shadow mb-5 bg-white rounded">
-      <a href="<%="https://forms.gle/cvJ3DF74c3BZCYxU9"%>">
-        <%= image_tag ("cuasi.jpg") , :class => "card-img-top img-fluid" %>
-        <div class="card-img-overlay"><h4 class="card-title text-white font-weight-bold">Contacto<br>Seguridad</h4></div>
+      <a href="<%= lvs_form_path %>">
+        <%= image_tag "lvs.jpg", class: "card-img-top img-fluid" %>
+        <div class="card-img-overlay">
+          <h4 class="card-title text-white font-weight-bold">LVS</h4>
+        </div>
+      </a>
+    </div>
+
+    <div class="w-100"></div>
+
+    <div class="card border m-1 shadow mb-5 bg-white rounded">
+      <a href="<%= control_critico_form_path %>">
+        <%= image_tag "apr.jpg", class: "card-img-top img-fluid" %>
+        <div class="card-img-overlay">
+          <h4 class="card-title text-white font-weight-bold">Control<br>crítico</h4>
+        </div>
       </a>
     </div>
 
     <div class="card border m-1 shadow mb-5 bg-white rounded">
-         <a href="<%= terms_path %>">
-          <%= image_tag ("ptm.jpg") , :class => "card-img-top img-fluid" %>
-        <div class="card-img-overlay"><h4 class="card-title text-white font-weight-bold">P.Montt</h4></div>
-        </a>
-      </div>
-
+      <a href="<%= envasado_form_path %>">
+        <%= image_tag "prima.jpg", class: "card-img-top img-fluid" %>
+        <div class="card-img-overlay">
+          <h4 class="card-title text-white font-weight-bold">Envasado</h4>
+        </div>
+      </a>
     </div>
 
+    <div class="card border m-1 shadow mb-5 bg-white rounded">
+      <a href="<%= barredora_form_path %>">
+        <%= image_tag "camion.jpg", class: "card-img-top img-fluid" %>
+        <div class="card-img-overlay">
+          <h4 class="card-title text-white font-weight-bold">Barredora</h4>
+        </div>
+      </a>
+    </div>
 
+    <div class="card border m-1 shadow mb-5 bg-white rounded">
+      <a href="<%= contacto_seguridad_form_path %>">
+        <%= image_tag "cuasi.jpg", class: "card-img-top img-fluid" %>
+        <div class="card-img-overlay">
+          <h4 class="card-title text-white font-weight-bold">Contacto<br>Seguridad</h4>
+        </div>
+      </a>
+    </div>
+
+    <div class="card border m-1 shadow mb-5 bg-white rounded">
+      <a href="<%= terms_path %>">
+        <%= image_tag "ptm.jpg", class: "card-img-top img-fluid" %>
+        <div class="card-img-overlay">
+          <h4 class="card-title text-white font-weight-bold">P.Montt</h4>
+        </div>
+      </a>
+    </div>
+
+  </div>
 </div>
