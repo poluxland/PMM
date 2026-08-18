@@ -93,6 +93,9 @@
   <% if @estado_cancha.clinker_b.to_f > 0 %>
   <div style="width: <%= (@estado_cancha.clinker_b.to_f / 140) * 100 %>%;">Clinker B: <%= @estado_cancha.clinker_b %>%</div>
   <% end %>
+  <% if @estado_cancha.clinker_importado.to_f > 0 %>
+  <div style="width: <%= (@estado_cancha.clinker_importado.to_f / 140) * 100 %>%;">Clinker importado: <%= @estado_cancha.clinker_importado %>%</div>
+  <% end %>
 </div>
 
 
@@ -156,10 +159,14 @@
                 <td>Clinker A</td>
                 <td><%= @estado_cancha.clinker_a %></td>
             </tr>
-            <tr>
+              <tr>
                 <td>Clinker B</td>
                 <td><%= @estado_cancha.clinker_b %></td>
-            </tr>
+              </tr>
+              <tr>
+                <td>Clinker importado</td>
+                <td><%= @estado_cancha.clinker_importado %></td>
+              </tr>
             <!-- Add more rows as needed -->
         </tbody>
     </table>

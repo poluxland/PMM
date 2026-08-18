@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2025_11_13_153052) do
+ActiveRecord::Schema.define(version: 2026_08_18_000000) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_stat_statements"
@@ -217,6 +217,7 @@ ActiveRecord::Schema.define(version: 2025_11_13_153052) do
     t.datetime "updated_at", precision: 6, null: false
     t.integer "clinker_a"
     t.integer "clinker_b"
+    t.integer "clinker_importado"
   end
 
   create_table "estado_edificios", force: :cascade do |t|

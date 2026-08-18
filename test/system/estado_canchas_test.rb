@@ -18,6 +18,7 @@ class EstadoCanchasTest < ApplicationSystemTestCase
     fill_in "Caolin", with: @estado_cancha.caolin
     fill_in "Ceniza", with: @estado_cancha.ceniza
     fill_in "Conchuela", with: @estado_cancha.conchuela
+    fill_in "Clinker importado", with: @estado_cancha.clinker_importado
     fill_in "Fierro", with: @estado_cancha.fierro
     fill_in "Observaciones", with: @estado_cancha.observaciones
     fill_in "Puzolana", with: @estado_cancha.puzolana
@@ -40,6 +41,7 @@ class EstadoCanchasTest < ApplicationSystemTestCase
     fill_in "Caolin", with: @estado_cancha.caolin
     fill_in "Ceniza", with: @estado_cancha.ceniza
     fill_in "Conchuela", with: @estado_cancha.conchuela
+    fill_in "Clinker importado", with: @estado_cancha.clinker_importado
     fill_in "Fierro", with: @estado_cancha.fierro
     fill_in "Observaciones", with: @estado_cancha.observaciones
     fill_in "Puzolana", with: @estado_cancha.puzolana

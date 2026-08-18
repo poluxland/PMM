@@ -17,7 +17,7 @@ class EstadoCanchasControllerTest < ActionDispatch::IntegrationTest
 
   test "should create estado_cancha" do
     assert_difference('EstadoCancha.count') do
-      post estado_canchas_url, params: { estado_cancha: { cachinales: @estado_cancha.cachinales, caolin: @estado_cancha.caolin, ceniza: @estado_cancha.ceniza, conchuela: @estado_cancha.conchuela, fierro: @estado_cancha.fierro, observaciones: @estado_cancha.observaciones, puzolana: @estado_cancha.puzolana, quilimari: @estado_cancha.quilimari, san_pedro: @estado_cancha.san_pedro, tunga: @estado_cancha.tunga, yeso: @estado_cancha.yeso, ñilhue: @estado_cancha.ñilhue } }
+      post estado_canchas_url, params: { estado_cancha: { cachinales: @estado_cancha.cachinales, caolin: @estado_cancha.caolin, ceniza: @estado_cancha.ceniza, clinker_a: @estado_cancha.clinker_a, clinker_b: @estado_cancha.clinker_b, clinker_importado: @estado_cancha.clinker_importado, conchuela: @estado_cancha.conchuela, fierro: @estado_cancha.fierro, observaciones: @estado_cancha.observaciones, puzolana: @estado_cancha.puzolana, quilimari: @estado_cancha.quilimari, san_pedro: @estado_cancha.san_pedro, tunga: @estado_cancha.tunga, yeso: @estado_cancha.yeso, ñilhue: @estado_cancha.ñilhue } }
     end
 
     assert_redirected_to estado_cancha_url(EstadoCancha.last)
@@ -34,7 +34,7 @@ class EstadoCanchasControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update estado_cancha" do
-    patch estado_cancha_url(@estado_cancha), params: { estado_cancha: { cachinales: @estado_cancha.cachinales, caolin: @estado_cancha.caolin, ceniza: @estado_cancha.ceniza, conchuela: @estado_cancha.conchuela, fierro: @estado_cancha.fierro, observaciones: @estado_cancha.observaciones, puzolana: @estado_cancha.puzolana, quilimari: @estado_cancha.quilimari, san_pedro: @estado_cancha.san_pedro, tunga: @estado_cancha.tunga, yeso: @estado_cancha.yeso, ñilhue: @estado_cancha.ñilhue } }
+    patch estado_cancha_url(@estado_cancha), params: { estado_cancha: { cachinales: @estado_cancha.cachinales, caolin: @estado_cancha.caolin, ceniza: @estado_cancha.ceniza, clinker_a: @estado_cancha.clinker_a, clinker_b: @estado_cancha.clinker_b, clinker_importado: @estado_cancha.clinker_importado, conchuela: @estado_cancha.conchuela, fierro: @estado_cancha.fierro, observaciones: @estado_cancha.observaciones, puzolana: @estado_cancha.puzolana, quilimari: @estado_cancha.quilimari, san_pedro: @estado_cancha.san_pedro, tunga: @estado_cancha.tunga, yeso: @estado_cancha.yeso, ñilhue: @estado_cancha.ñilhue } }
     assert_redirected_to estado_cancha_url(@estado_cancha)
   end
 

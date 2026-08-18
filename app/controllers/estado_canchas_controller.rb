@@ -72,7 +72,7 @@ class EstadoCanchasController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def estado_cancha_params
-      params.require(:estado_cancha).permit(:quilimari, :cachinales, :ñilhue, :caolin, :fierro, :puzolana, :tunga, :ceniza, :yeso, :conchuela, :san_pedro, :observaciones, :clinker_a, :clinker_b)
+      params.require(:estado_cancha).permit(:quilimari, :cachinales, :ñilhue, :caolin, :fierro, :puzolana, :tunga, :ceniza, :yeso, :conchuela, :san_pedro, :observaciones, :clinker_a, :clinker_b, :clinker_importado)
     end
 
     def prepare_chart_data
@@ -92,7 +92,8 @@ class EstadoCanchasController < ApplicationController
     'Conchuela' => last_record.conchuela,
     'Petcoke' => last_record.san_pedro,
     'Clinker A' => last_record.clinker_a,
-    'Clinker B' => last_record.clinker_b
+    'Clinker B' => last_record.clinker_b,
+    'Clinker importado' => last_record.clinker_importado
   }
 end
 

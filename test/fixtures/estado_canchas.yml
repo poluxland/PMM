@@ -12,6 +12,9 @@ one:
   yeso: 1
   conchuela: 1
   san_pedro: 1
+  clinker_a: 1
+  clinker_b: 1
+  clinker_importado: 1
   observaciones: MyText
 
 two:
@@ -26,4 +29,7 @@ two:
   yeso: 1
   conchuela: 1
   san_pedro: 1
+  clinker_a: 1
+  clinker_b: 1
+  clinker_importado: 1
   observaciones: MyText
