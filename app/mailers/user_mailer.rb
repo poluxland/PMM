@@ -23,7 +23,7 @@ class UserMailer < ApplicationMailer
     }
 
     mail(
-      to: "geraldinne.martinez@meloncementos.cl, camila.ramirez@meloncementos.cl, jose.jerez@msindustrial.cl, alejandro.olivares@msindustrial.cl, fernando.gonzalez@msindustrial.cl, guillermo.roco@meloncementos.cl, helmut.brandau@meloncementos.cl, jefesturno.planta@melon.cl, supervisor.envasadora@msindustrial.cl, marianelly.villarroel@meloncementos.cl, gaston.guerrero@meloncementos.cl, maryorie.fajardo@msindustrial.cl, pedro.guzman@meloncementos.cl",
+      to: "geraldinne.martinez@meloncementos.cl, camila.ramirez@meloncementos.cl, cristian.bustamante@meloncementos.cl, jose.jerez@msindustrial.cl, alejandro.olivares@msindustrial.cl, fernando.gonzalez@msindustrial.cl, guillermo.roco@meloncementos.cl, helmut.brandau@meloncementos.cl, jefesturno.planta@melon.cl, supervisor.envasadora@msindustrial.cl, marianelly.villarroel@meloncementos.cl, gaston.guerrero@meloncementos.cl, maryorie.fajardo@msindustrial.cl, pedro.guzman@meloncementos.cl",
       subject: "Estado de canchas - #{Time.now.in_time_zone('Santiago').strftime('%d/%m/%Y %H:%M')}"
     )
   end
